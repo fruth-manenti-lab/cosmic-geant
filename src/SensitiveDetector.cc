@@ -32,11 +32,10 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
         parentVolume = step->GetTrack()->GetOriginTouchable()->GetVolume()->GetName();
     }
 
-    // Get the migrantID if any
-    G4int migrantID = -1;
-    if (step->GetTrack()->GetUserInformation()){
-        TrackInformation* info  = static_cast<TrackInformation*> (step->GetTrack()->GetUserInformation());
-        migrantID               = info->GetMigrantID();
+    G4String processName = "Primary";
+    if (step->GetTrack()->GetCreatorProcess())
+    {
+        processName = step->GetTrack()->GetCreatorProcess()->GetProcessName();
     }
 
 
@@ -44,13 +43,12 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
     hit->setTrackID(step->GetTrack()->GetTrackID());
     hit->setParticle(step->GetTrack()->GetParticleDefinition()->GetParticleName());
     hit->setEnergyDeposited(edep);
-    hit->setPosition(step->GetPostStepPoint()->GetPosition());
     hit->setTime(step->GetPostStepPoint()->GetLocalTime());
     hit->setVolume(step->GetPreStepPoint()->GetPhysicalVolume()->GetName());
     hit->setInitialEnergy   (step->GetTrack()->GetVertexKineticEnergy());
     hit->setOrigin(parentVolume);
-    hit->setMigrantID       (migrantID);
     hit->setParentID(step->GetTrack()->GetParentID());
+    hit->setProcessName(processName);
 
     hitsCollection->insert(hit);
 

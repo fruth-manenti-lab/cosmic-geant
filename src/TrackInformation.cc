@@ -15,7 +15,7 @@ analysis we can group events by migrant id and add the energy deposited by daugh
 #include "TrackInformation.hh"
 
 // Constructor
-TrackInformation::TrackInformation(G4int id) : migrantID(id)
+TrackInformation::TrackInformation(G4String aProcessName) : processName(aProcessName)
 {}
 
 //----------------------- 8< -------------[ cut here ]------------------------
@@ -27,5 +27,5 @@ TrackInformation::~TrackInformation()
 //----------------------- 8< -------------[ cut here ]------------------------
 
 // Mutators
-void        TrackInformation::SetMigrantID(G4int migrantID) { this->migrantID = migrantID; }
-const G4int TrackInformation::GetMigrantID()                { return migrantID; }
+// void            TrackInformation::SetProcessName(G4String processName)  { this->processName = processName;}
+// const G4String  TrackInformation::GetProcessName()                      { return processName;}
