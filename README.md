@@ -4,6 +4,6 @@
 
 ## Description
 
-This repo started as a fork of [tes-geant](https://github.com/nyuad-astroparticle/tes-geant)
+This repo started as a fork of [osama-detector](https://github.com/F7East/osama_detector)
 
 test!
