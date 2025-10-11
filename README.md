@@ -5,5 +5,3 @@
 ## Description
 
 This repo started as a fork of [osama-detector](https://github.com/F7East/osama_detector)
-
-test!
