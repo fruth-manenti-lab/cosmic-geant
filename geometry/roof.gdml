@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/gdml.xsd">
+
+    <solids>
+	    <box lunit='mm' name='roof-SOL' x='1000' y='2' z='1000'/>
+    </solids>
+
+    <structure>
+        <volume name="roof">
+            <materialref ref="G4_Galactic"/>
+            <solidref ref="roof-SOL"/>
+            <auxiliary auxtype="Color" auxvalue="1 1 1"/>
+            <auxiliary auxtype="Transparency" auxvalue='1'/>
+        </volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="roof"/>
+    </setup>
+</gdml>
