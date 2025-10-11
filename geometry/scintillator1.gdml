@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/gdml.xsd">
+
+
+    <solids>
+	    <box name="scintillator1-SOL" x='150' y='20' z='150' lunit='mm' />
+   </solids>
+
+    <structure>
+        <volume name="scintillator1">
+            <materialref ref="CeBr3"/>
+            <solidref ref="scintillator1-SOL"/>
+            <auxiliary auxtype="Color" auxvalue="0 0 1"/>
+            <auxiliary auxtype="SensDet"/>
+        </volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="scintillator1"/>
+    </setup>
+</gdml>

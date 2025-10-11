@@ -2,7 +2,9 @@
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
 
     <define>
-        <rotation name="RotateZ" z="90" unit="deg"/>
+	<position name="roofpos" x='0' y='60' z='0' unit='cm'/>
+	<position name="scintillator1pos" x='0' y='0' z='0' unit='cm'/>
+	<position name="scintillator2pos" x='0' y='2' z='0' unit='cm'/>
     </define>
     <materials>
         <element Z="58" name="Ce" formula="Ce">
@@ -44,34 +46,24 @@
 
     <solids>
         <box lunit="m" name="world_solid" x="1" y="2" z="1" />
-        <box lunit="cm" name="detector_solid" x="10" y="10" z="10" />
+        <box lunit="cm" name="detector_solid" x="10" y="200" z="10" />
     </solids>
 
     <structure>
         <volume name="detector_logical">
             <materialref ref="G4_Galactic"/>
             <solidref ref="detector_solid"/>
-
             <physvol>
-                <file name="./geometry/pmt.gdml"/>
+ 	<positionref ref='roofpos'/>
+                <file name="./geometry/roof.gdml"/>
              </physvol>
             <physvol>
-                <file name="./geometry/veto.gdml"/>
+ 	<positionref ref='scintillator1pos'/>
+                <file name="./geometry/scintillator1.gdml"/>
              </physvol>
             <physvol>
-                <file name="./geometry/crystals/crystal1.gdml"/>
-             </physvol>
-            <physvol>
-                <file name="./geometry/crystals/crystal2.gdml"/>
-             </physvol>
-            <physvol>
-                <file name="./geometry/crystals/crystal3.gdml"/>
-             </physvol>
-            <physvol>
-                <file name="./geometry/crystals/crystal4.gdml"/>
-             </physvol>
-            <physvol>
-                <file name="./geometry/crystal_holder.gdml"/>
+ 	<positionref ref='scintillator2pos'/>
+                <file name="./geometry/scintillator2.gdml"/>
              </physvol>
 
             <auxiliary auxtype="Transparency" auxvalue="0"/>
@@ -83,7 +75,6 @@
 
             <physvol>
                 <volumeref ref="detector_logical"/>
-                <rotationref ref="RotateZ"/>
             </physvol>
         </volume>
 
