@@ -3,8 +3,10 @@
 
     <define>
 	<position name="roofpos" x='0' y='60' z='0' unit='cm'/>
-	<position name="scintillator1pos" x='0' y='0' z='0' unit='cm'/>
-	<position name="scintillator2pos" x='0' y='2' z='0' unit='cm'/>
+	<position name="scintillator1pos" x='-8' y='0' z='0' unit='cm'/>
+	<position name="scintillator2pos" x='-8' y='2' z='0' unit='cm'/>
+	<position name="scintillator3pos" x='8' y='0' z='0' unit='cm'/>
+	<position name="scintillator4pos" x='8' y='2' z='0' unit='cm'/>
     </define>
     <materials>
         <element Z="58" name="Ce" formula="Ce">
@@ -54,18 +56,29 @@
             <materialref ref="G4_Galactic"/>
             <solidref ref="detector_solid"/>
             <physvol>
- 	<positionref ref='roofpos'/>
-                <file name="./geometry/roof.gdml"/>
-             </physvol>
-            <physvol>
- 	<positionref ref='scintillator1pos'/>
-                <file name="./geometry/scintillator1.gdml"/>
-             </physvol>
-            <physvol>
- 	<positionref ref='scintillator2pos'/>
-                <file name="./geometry/scintillator2.gdml"/>
-             </physvol>
+		    <positionref ref='roofpos'/>
+		    <file name="./geometry/roof.gdml"/>
+	    </physvol>
 
+            <physvol>
+ 	            <positionref ref='scintillator1pos'/>
+                    <file name="./geometry/scintillator1.gdml"/>
+	    </physvol>
+
+            <physvol>
+ 	            <positionref ref='scintillator2pos'/>
+                    <file name="./geometry/scintillator2.gdml"/>
+            </physvol>
+
+            <physvol>
+ 	            <positionref ref='scintillator3pos'/>
+                    <file name="./geometry/scintillator3.gdml"/>
+            </physvol>
+
+            <physvol>
+ 	            <positionref ref='scintillator4pos'/>
+                    <file name="./geometry/scintillator4.gdml"/>
+            </physvol>
             <auxiliary auxtype="Transparency" auxvalue="0"/>
         </volume>
 
