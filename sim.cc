@@ -93,7 +93,7 @@ int main(int argc,char**  argv){
 
         // Start the UI
         // starting a run
-		uiManager->ApplyCommand("/vis/open VTK");
+	  	uiManager->ApplyCommand("/vis/open VTK");
 		uiManager->ApplyCommand("/vis/drawVolume");
 		uiManager->ApplyCommand("/vis/viewer/set/autoRefresh true");
 		uiManager->ApplyCommand("/vis/scene/add/trajectories smooth");

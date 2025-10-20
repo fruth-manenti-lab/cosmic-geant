@@ -9,9 +9,14 @@
 	<position name="scintillator4pos" x='-250'  z='250'  y='0' unit='mm'/>
     <position name="sipmpos" x='-468.75'  z='-500.5'  y='0' unit='mm'/>
     <rotation name="sipmrot" x='90' unit='deg'/>
-    <variable name='i' value='0'/>
+    <variable name='i' value='0'/> // scintillator 1
     <variable name='j' value='0'/>
-    <matrix name='m' coldim='8' values='-468.75 -406.25 -343.75 -281.25 -218.75 -156.25 -93.75 -31.25' />
+    <variable name='k' value='0'/> // scintillator 2
+    <variable name='l' value='0'/>
+    <variable name='M' value='0'/> // scintillator 3
+    <variable name='n' value='0'/>
+    <variable name='o' value='0'/> // scintillator 3
+    <variable name='p' value='0'/>
     </define>
     <materials>
         <element Z="58" name="Ce" formula="Ce">
@@ -92,6 +97,8 @@
  	            <positionref ref='scintillator4pos'/>
                     <file name="./geometry/scintillator4.gdml"/>
             </physvol>
+-----------------------------beg sipm loops-----------------------------
+-----------------------------scintillator 1-----------------------------
             <loop for='i' to='7' step='1'>
                 <physvol>
                     <volumeref ref='sipm'/>
@@ -99,6 +106,7 @@
                     <rotationref ref='sipmrot'/>
                 </physvol>
             </loop>
+
             <loop for='j' to='7' step='1'>
                 <physvol>
                     <volumeref ref='sipm'/>
@@ -106,7 +114,56 @@
                     <rotation name="sipmrot" z='90' unit='deg'/>
                 </physvol>
             </loop>
+-----------------------------scintillator 2-----------------------------
+            <loop for='k' to='7' step='1'>
+                <physvol>
+                    <volumeref ref='sipm'/>
+                    <position x="31.25 + k*62.5" z='-500.5'  y='0' unit='mm'/>
+                    <rotationref ref='sipmrot'/>
+                </physvol>
+            </loop>
+            <loop for='l' to='7' step='1'>
+                <physvol>
+                    <volumeref ref='sipm'/>
+                    <position x="500.5" z='-500 +31.25 + l*62.5'  y='0' unit='mm'/>
+                    <rotation name="sipmrot" z='90' unit='deg'/>
+                </physvol>
+            </loop>
+-----------------------------scintillator 3-----------------------------
+            <loop for='M' to='7' step='1'>
+                <physvol>
+                    <volumeref ref='sipm'/>
+                    <position x="500.5" z='0 +31.25 + M*62.5'  y='0' unit='mm'/>
+                    <rotation name="sipmrot" z='90' unit='deg'/>
+                </physvol>
+            </loop>		
 
+            <loop for='n' to='7' step='1'>
+                <physvol>
+                    <volumeref ref='sipm'/>
+                    <position x="-500 +31.25 + n*62.5" z='500.5'  y='0' unit='mm'/>
+                    <rotationref ref='sipmrot'/>
+                </physvol>
+            </loop>
+-----------------------------scintillator 4-----------------------------
+            <loop for='o' to='7' step='1'>
+                <physvol>
+                    <volumeref ref='sipm'/>
+                    <position x="-500.5" z='0 +31.25 + o*62.5'  y='0' unit='mm'/>
+                    <rotation name="sipmrot" z='90' unit='deg'/>
+                </physvol>
+            </loop>		
+
+            <loop for='p' to='7' step='1'>
+                <physvol>
+                    <volumeref ref='sipm'/>
+                    <position x="+31.25 + p*62.5" z='500.5'  y='0' unit='mm'/>
+                    <rotationref ref='sipmrot'/>
+                </physvol>
+            </loop>
+-----------------------------end sipm loops-----------------------------
+
+            <auxiliary auxtype="Transparency" auxvalue="0"/>
             <auxiliary auxtype="Transparency" auxvalue="0"/>
         </volume>
 
