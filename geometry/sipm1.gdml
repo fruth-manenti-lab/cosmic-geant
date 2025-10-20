@@ -3,19 +3,19 @@
 
 
     <solids>
-	    <box name="scintillator2-SOL" x='500' y='10' z='500' lunit='mm' />
+	    <box name="sipm-SOL" x='6' y='1' z='6' lunit='mm' />
    </solids>
 
     <structure>
-        <volume name="scintillator2">
+        <volume name="sipm">
             <materialref ref="CeBr3"/>
-            <solidref ref="scintillator2-SOL"/>
-            <auxiliary auxtype="Color" auxvalue="0 1 0"/>
+            <solidref ref="sipm-SOL"/>
+            <auxiliary auxtype="Color" auxvalue="1 1 1"/>
             <auxiliary auxtype="SensDet"/>
         </volume>
     </structure>
 
     <setup name="Default" version="1.0">
-        <world ref="scintillator2"/>
+        <world ref="sipm"/>
     </setup>
 </gdml>

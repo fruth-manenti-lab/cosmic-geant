@@ -3,14 +3,14 @@
 
 
     <solids>
-	    <box name="scintillator1-SOL" x='150' y='20' z='150' lunit='mm' />
+	    <box name="scintillator1-SOL" x='500' y='10' z='500' lunit='mm' />
    </solids>
 
     <structure>
         <volume name="scintillator1">
             <materialref ref="CeBr3"/>
             <solidref ref="scintillator1-SOL"/>
-            <auxiliary auxtype="Color" auxvalue="0 0 1"/>
+            <auxiliary auxtype="Color" auxvalue="1 0 0"/>
             <auxiliary auxtype="SensDet"/>
         </volume>
     </structure>
