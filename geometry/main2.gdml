@@ -111,52 +111,90 @@
                                                 5.294*eV 4.3 5.330*eV 4.3 5.413*eV 4.3 5.493*eV 4.3
 		                                        5.556*eV 4.3 5.611*eV 4.3"/>
 
-    <matrix coldim="2" name="PVTALEN"   values="2.034*eV 380.*cm 2.068*eV 380.*cm 2.103*eV 380.*cm 2.139*eV 380.*cm 
-                                                2.177*eV 380.*cm 2.216*eV 380.*cm 2.256*eV 380.*cm 2.298*eV 380.*cm 
-                                                2.341*eV 380.*cm 2.386*eV 380.*cm 2.433*eV 380.*cm 2.481*eV 380.*cm 
-                                                2.487*eV 380.*cm 2.496*eV 380.*cm 2.506*eV 380.*cm 2.516*eV 380.*cm 
-                                                2.524*eV 380.*cm 2.531*eV 380.*cm 2.539*eV 380.*cm 2.547*eV 380.*cm
-	                                            2.554*eV 380.*cm 2.561*eV 380.*cm 2.569*eV 380.*cm 2.577*eV 380.*cm 
-                                                2.586*eV 380.*cm 2.595*eV 380.*cm 2.605*eV 380.*cm 2.614*eV 380.*cm 
-                                                2.622*eV 380.*cm 2.630*eV 380.*cm 2.638*eV 380.*cm 2.646*eV 380.*cm 
-                                                2.653*eV 380.*cm 2.660*eV 380.*cm 2.669*eV 380.*cm 2.676*eV 380.*cm 
-                                                2.681*eV 380.*cm 2.688*eV 380.*cm 2.693*eV 380.*cm 2.698*eV 380.*cm
-		                                        2.703*eV 380.*cm 2.706*eV 380.*cm 2.711*eV 380.*cm 2.718*eV 380.*cm 
-                                                2.723*eV 380.*cm 2.731*eV 380.*cm 2.742*eV 380.*cm 2.755*eV 380.*cm 
-                                                2.768*eV 380.*cm 2.782*eV 380.*cm 2.793*eV 380.*cm 2.803*eV 380.*cm 
-                                                2.811*eV 380.*cm 2.819*eV 380.*cm 2.829*eV 380.*cm 2.837*eV 380.*cm 
-                                                2.845*eV 380.*cm 2.853*eV 380.*cm 2.860*eV 380.*cm 2.867*eV 380.*cm
-		                                        2.875*eV 380.*cm 2.882*eV 380.*cm 2.888*eV 380.*cm 2.894*eV 380.*cm 
-                                                2.900*eV 380.*cm 2.907*eV 380.*cm 2.913*eV 380.*cm 2.919*eV 380.*cm 
-                                                2.924*eV 380.*cm 2.930*eV 380.*cm 2.937*eV 380.*cm 2.942*eV 380.*cm 
-                                                2.948*eV 380.*cm 2.954*eV 380.*cm 2.960*eV 380.*cm 2.968*eV 380.*cm 
-                                                2.976*eV 380.*cm 2.983*eV 380.*cm 2.991*eV 380.*cm 3.001*eV 380.*cm
-		                                        3.008*eV 380.*cm 3.017*eV 380.*cm 3.028*eV 380.*cm 3.038*eV 380.*cm 
-                                                3.048*eV 380.*cm 3.055*eV 380.*cm 3.070*eV 380.*cm 3.087*eV 380.*cm 
-                                                3.103*eV 380.*cm 3.121*eV 380.*cm 3.138*eV 380.*cm 3.155*eV 380.*cm 
-                                                3.173*eV 380.*cm 3.191*eV 380.*cm 3.220*eV 380.*cm 3.250*eV 380.*cm 
-                                                3.281*eV 380.*cm 3.313*eV 380.*cm 3.344*eV 380.*cm 3.375*eV 380.*cm
-		                                        3.403*eV 380.*cm 3.439*eV 380.*cm 3.479*eV 380.*cm 3.522*eV 380.*cm 
-                                                3.566*eV 380.*cm 3.611*eV 380.*cm 3.644*eV 380.*cm 3.684*eV 380.*cm 
-                                                3.731*eV 380.*cm 3.780*eV 380.*cm 3.831*eV 380.*cm 3.868*eV 380.*cm 
-                                                3.892*eV 380.*cm 3.910*eV 380.*cm 3.921*eV 380.*cm 3.934*eV 380.*cm 
-                                                3.946*eV 380.*cm 3.957*eV 380.*cm 3.970*eV 380.*cm 3.994*eV 380.*cm
-		                                        4.044*eV 380.*cm 4.102*eV 380.*cm 4.160*eV 380.*cm 4.202*eV 380.*cm 
-                                                4.236*eV 380.*cm 4.267*eV 380.*cm 4.298*eV 380.*cm 4.328*eV 380.*cm 
-                                                4.357*eV 380.*cm 4.387*eV 380.*cm 4.422*eV 380.*cm 4.455*eV 380.*cm 
-                                                4.494*eV 380.*cm 4.563*eV 380.*cm 4.607*eV 380.*cm 4.616*eV 380.*cm 
-                                                4.624*eV 380.*cm 4.627*eV 380.*cm 4.628*eV 380.*cm 4.633*eV 380.*cm
-		                                        4.640*eV 380.*cm 4.642*eV 380.*cm 4.649*eV 380.*cm 4.656*eV 380.*cm
-                                                4.661*eV 380.*cm 4.666*eV 380.*cm 4.678*eV 380.*cm 4.685*eV 380.*cm 
-                                                4.692*eV 380.*cm 4.699*eV 380.*cm 4.706*eV 380.*cm 4.713*eV 380.*cm 
-                                                4.720*eV 380.*cm 4.727*eV 380.*cm 4.740*eV 380.*cm 4.751*eV 380.*cm 
-                                                4.763*eV 380.*cm 4.775*eV 380.*cm 4.788*eV 380.*cm 4.798*eV 380.*cm
-		                                        4.813*eV 380.*cm 4.828*eV 380.*cm 4.840*eV 380.*cm 4.853*eV 380.*cm 
-                                                4.869*eV 380.*cm 4.886*eV 380.*cm 4.905*eV 380.*cm 4.928*eV 380.*cm 
-                                                4.953*eV 380.*cm 5.015*eV 380.*cm 5.099*eV 380.*cm 5.143*eV 380.*cm 
-                                                5.174*eV 380.*cm 5.202*eV 380.*cm 5.235*eV 380.*cm 5.265*eV 380.*cm 
-                                                5.294*eV 380.*cm 5.330*eV 380.*cm 5.413*eV 380.*cm 5.493*eV 380.*cm
-		                                        5.556*eV 380.*cm 5.611*eV 380.*cm"/>
+    <matrix coldim="2" name="PVTALEN"   values="2.034*eV 50.*cm 2.068*eV 50.*cm 2.103*eV 50.*cm 2.139*eV 50.*cm 
+                                                2.177*eV 50.*cm 2.216*eV 50.*cm 2.256*eV 50.*cm 2.298*eV 50.*cm 
+                                                2.341*eV 50.*cm 2.386*eV 50.*cm 2.433*eV 50.*cm 2.481*eV 50.*cm 
+                                                2.487*eV 50.*cm 2.496*eV 50.*cm 2.506*eV 50.*cm 2.516*eV 50.*cm 
+                                                2.524*eV 50.*cm 2.531*eV 50.*cm 2.539*eV 50.*cm 2.547*eV 50.*cm
+	                                            2.554*eV 50.*cm 2.561*eV 50.*cm 2.569*eV 50.*cm 2.577*eV 50.*cm 
+                                                2.586*eV 50.*cm 2.595*eV 50.*cm 2.605*eV 50.*cm 2.614*eV 50.*cm 
+                                                2.622*eV 50.*cm 2.630*eV 50.*cm 2.638*eV 50.*cm 2.646*eV 50.*cm 
+                                                2.653*eV 50.*cm 2.660*eV 50.*cm 2.669*eV 50.*cm 2.676*eV 50.*cm 
+                                                2.681*eV 50.*cm 2.688*eV 50.*cm 2.693*eV 50.*cm 2.698*eV 50.*cm
+		                                        2.703*eV 50.*cm 2.706*eV 50.*cm 2.711*eV 50.*cm 2.718*eV 50.*cm 
+                                                2.723*eV 50.*cm 2.731*eV 50.*cm 2.742*eV 50.*cm 2.755*eV 50.*cm 
+                                                2.768*eV 50.*cm 2.782*eV 50.*cm 2.793*eV 50.*cm 2.803*eV 50.*cm 
+                                                2.811*eV 50.*cm 2.819*eV 50.*cm 2.829*eV 50.*cm 2.837*eV 50.*cm 
+                                                2.845*eV 50.*cm 2.853*eV 50.*cm 2.860*eV 50.*cm 2.867*eV 50.*cm
+		                                        2.875*eV 50.*cm 2.882*eV 50.*cm 2.888*eV 50.*cm 2.894*eV 50.*cm 
+                                                2.900*eV 50.*cm 2.907*eV 50.*cm 2.913*eV 50.*cm 2.919*eV 50.*cm 
+                                                2.924*eV 50.*cm 2.930*eV 50.*cm 2.937*eV 50.*cm 2.942*eV 50.*cm 
+                                                2.948*eV 50.*cm 2.954*eV 50.*cm 2.960*eV 50.*cm 2.968*eV 50.*cm 
+                                                2.976*eV 50.*cm 2.983*eV 50.*cm 2.991*eV 50.*cm 3.001*eV 50.*cm
+		                                        3.008*eV 50.*cm 3.017*eV 50.*cm 3.028*eV 50.*cm 3.038*eV 50.*cm 
+                                                3.048*eV 50.*cm 3.055*eV 50.*cm 3.070*eV 50.*cm 3.087*eV 50.*cm 
+                                                3.103*eV 50.*cm 3.121*eV 50.*cm 3.138*eV 50.*cm 3.155*eV 50.*cm 
+                                                3.173*eV 50.*cm 3.191*eV 50.*cm 3.220*eV 50.*cm 3.250*eV 50.*cm 
+                                                3.281*eV 50.*cm 3.313*eV 50.*cm 3.344*eV 50.*cm 3.375*eV 50.*cm
+		                                        3.403*eV 50.*cm 3.439*eV 50.*cm 3.479*eV 50.*cm 3.522*eV 50.*cm 
+                                                3.566*eV 50.*cm 3.611*eV 50.*cm 3.644*eV 50.*cm 3.684*eV 50.*cm 
+                                                3.731*eV 50.*cm 3.780*eV 50.*cm 3.831*eV 50.*cm 3.868*eV 50.*cm 
+                                                3.892*eV 50.*cm 3.910*eV 50.*cm 3.921*eV 50.*cm 3.934*eV 50.*cm 
+                                                3.946*eV 50.*cm 3.957*eV 50.*cm 3.970*eV 50.*cm 3.994*eV 50.*cm
+		                                        4.044*eV 50.*cm 4.102*eV 50.*cm 4.160*eV 50.*cm 4.202*eV 50.*cm 
+                                                4.236*eV 50.*cm 4.267*eV 50.*cm 4.298*eV 50.*cm 4.328*eV 50.*cm 
+                                                4.357*eV 50.*cm 4.387*eV 50.*cm 4.422*eV 50.*cm 4.455*eV 50.*cm 
+                                                4.494*eV 50.*cm 4.563*eV 50.*cm 4.607*eV 50.*cm 4.616*eV 50.*cm 
+                                                4.624*eV 50.*cm 4.627*eV 50.*cm 4.628*eV 50.*cm 4.633*eV 50.*cm
+		                                        4.640*eV 50.*cm 4.642*eV 50.*cm 4.649*eV 50.*cm 4.656*eV 50.*cm
+                                                4.661*eV 50.*cm 4.666*eV 50.*cm 4.678*eV 50.*cm 4.685*eV 50.*cm 
+                                                4.692*eV 50.*cm 4.699*eV 50.*cm 4.706*eV 50.*cm 4.713*eV 50.*cm 
+                                                4.720*eV 50.*cm 4.727*eV 50.*cm 4.740*eV 50.*cm 4.751*eV 50.*cm 
+                                                4.763*eV 50.*cm 4.775*eV 50.*cm 4.788*eV 50.*cm 4.798*eV 50.*cm
+		                                        4.813*eV 50.*cm 4.828*eV 50.*cm 4.840*eV 50.*cm 4.853*eV 50.*cm 
+                                                4.869*eV 50.*cm 4.886*eV 50.*cm 4.905*eV 50.*cm 4.928*eV 50.*cm 
+                                                4.953*eV 50.*cm 5.015*eV 50.*cm 5.099*eV 50.*cm 5.143*eV 50.*cm 
+                                                5.174*eV 50.*cm 5.202*eV 50.*cm 5.235*eV 50.*cm 5.265*eV 50.*cm 
+                                                5.294*eV 50.*cm 5.330*eV 50.*cm 5.413*eV 50.*cm 5.493*eV 50.*cm
+		                                        5.556*eV 50.*cm 5.611*eV 50.*cm"/>
+
+    <matrix coldim="2" name="PVTSC"     values="2.034*eV 0.000  2.068*eV 0.000  2.103*eV 0.000  2.139*eV 0.000  2.177*eV 0.000  
+                                                2.216*eV 0.010  2.256*eV 0.020  2.298*eV 0.035  2.341*eV 0.050  2.386*eV 0.060  
+                                                2.433*eV 0.070  2.481*eV 0.085  2.487*eV 0.090  2.496*eV 0.095  2.506*eV 0.098  
+                                                2.516*eV 0.100  2.524*eV 0.110  2.531*eV 0.120  2.539*eV 0.130  2.547*eV 0.140 
+	                                            2.554*eV 0.150  2.561*eV 0.160  2.569*eV 0.170  2.577*eV 0.180  2.586*eV 0.200  
+                                                2.595*eV 50.*cm 2.605*eV 50.*cm 2.614*eV 50.*cm 2.622*eV 50.*cm 2.630*eV 50.*cm 
+                                                2.638*eV 50.*cm 2.646*eV 50.*cm 2.653*eV 50.*cm 2.660*eV 50.*cm 2.669*eV 50.*cm 
+                                                2.676*eV 50.*cm 2.681*eV 50.*cm 2.688*eV 50.*cm 2.693*eV 50.*cm 2.698*eV 50.*cm
+		                                        2.703*eV 50.*cm 2.706*eV 50.*cm 2.711*eV 50.*cm 2.718*eV 50.*cm 2.723*eV 50.*cm 
+                                                2.731*eV 50.*cm 2.742*eV 50.*cm 2.755*eV 50.*cm 2.768*eV 50.*cm 2.782*eV 50.*cm 
+                                                2.793*eV 50.*cm 2.803*eV 50.*cm 2.811*eV 50.*cm 2.819*eV 50.*cm 2.829*eV 50.*cm 
+                                                2.837*eV 50.*cm 2.845*eV 50.*cm 2.853*eV 50.*cm 2.860*eV 50.*cm 2.867*eV 50.*cm
+		                                        2.875*eV 50.*cm 2.882*eV 50.*cm 2.888*eV 50.*cm 2.894*eV 50.*cm 2.900*eV 50.*cm 
+                                                2.907*eV 50.*cm 2.913*eV 50.*cm 2.919*eV 50.*cm 2.924*eV 50.*cm 2.930*eV 50.*cm 
+                                                2.937*eV 50.*cm 2.942*eV 50.*cm 2.948*eV 50.*cm 2.954*eV 50.*cm 2.960*eV 50.*cm 
+                                                2.968*eV 50.*cm 2.976*eV 50.*cm 2.983*eV 50.*cm 2.991*eV 50.*cm 3.001*eV 50.*cm
+		                                        3.008*eV 50.*cm 3.017*eV 50.*cm 3.028*eV 50.*cm 3.038*eV 50.*cm 3.048*eV 50.*cm 
+                                                3.055*eV 50.*cm 3.070*eV 50.*cm 3.087*eV 50.*cm 3.103*eV 50.*cm 3.121*eV 50.*cm 
+                                                3.138*eV 50.*cm 3.155*eV 50.*cm 3.173*eV 50.*cm 3.191*eV 50.*cm 3.220*eV 50.*cm 
+                                                3.250*eV 50.*cm 3.281*eV 50.*cm 3.313*eV 50.*cm 3.344*eV 50.*cm 3.375*eV 50.*cm
+		                                        3.403*eV 50.*cm 3.439*eV 50.*cm 3.479*eV 50.*cm 3.522*eV 50.*cm 3.566*eV 50.*cm 
+                                                3.611*eV 50.*cm 3.644*eV 50.*cm 3.684*eV 50.*cm 3.731*eV 50.*cm 3.780*eV 50.*cm 
+                                                3.831*eV 50.*cm 3.868*eV 50.*cm 3.892*eV 50.*cm 3.910*eV 50.*cm 3.921*eV 50.*cm 
+                                                3.934*eV 50.*cm 3.946*eV 50.*cm 3.957*eV 50.*cm 3.970*eV 50.*cm 3.994*eV 50.*cm
+                                                4.044*eV 50.*cm 4.102*eV 50.*cm 4.160*eV 50.*cm 4.202*eV 50.*cm 4.236*eV 50.*cm 
+                                                4.267*eV 50.*cm 4.298*eV 50.*cm 4.328*eV 50.*cm 4.357*eV 50.*cm 4.387*eV 50.*cm 
+                                                4.422*eV 50.*cm 4.455*eV 50.*cm 4.494*eV 50.*cm 4.563*eV 50.*cm 4.607*eV 50.*cm 
+                                                4.616*eV 50.*cm 4.624*eV 50.*cm 4.627*eV 50.*cm 4.628*eV 50.*cm 4.633*eV 50.*cm
+		                                        4.640*eV 50.*cm 4.642*eV 50.*cm 4.649*eV 50.*cm 4.656*eV 50.*cm 4.661*eV 50.*cm 
+                                                4.666*eV 50.*cm 4.678*eV 50.*cm 4.685*eV 50.*cm 4.692*eV 50.*cm 4.699*eV 50.*cm 
+                                                4.706*eV 50.*cm 4.713*eV 50.*cm 4.720*eV 50.*cm 4.727*eV 50.*cm 4.740*eV 50.*cm 
+                                                4.751*eV 50.*cm 4.763*eV 50.*cm 4.775*eV 50.*cm 4.788*eV 50.*cm 4.798*eV 50.*cm
+		                                        4.813*eV 50.*cm 4.828*eV 50.*cm 4.840*eV 50.*cm 4.853*eV 50.*cm 4.869*eV 50.*cm 
+                                                4.886*eV 50.*cm 4.905*eV 50.*cm 4.928*eV 50.*cm 4.953*eV 50.*cm 5.015*eV 50.*cm 
+                                                5.099*eV 50.*cm 5.143*eV 50.*cm 5.174*eV 50.*cm 5.202*eV 50.*cm 5.235*eV 50.*cm 
+                                                5.265*eV 50.*cm 5.294*eV 50.*cm 5.330*eV 50.*cm 5.413*eV 50.*cm 5.493*eV 50.*cm
+		                                        5.556*eV 50.*cm 5.611*eV 50.*cm"/>
 
     </define>
     <materials>
@@ -175,8 +213,8 @@
 //--------------------PVT-----------------------
         <material name="PVT" state="solid">
             <D value="1.05" unit="g/cm3"/> // Density
-            <property name="RINDEX" ref="PVTRINDEX"/>
-            // <property name="ABSLENGHT" ref="PVTALEN"/>
+     //       <property name="RINDEX" ref="PVTRINDEX"/>
+     //       <property name="ABSLENGHT" ref="PVTALEN"/>
             <composite n="9" ref="C"/>
             <composite n="10" ref="H"/>
         </material>
@@ -230,12 +268,6 @@
     </solids>
 
     <structure>
-        <volume name="sipm">
-            <materialref ref="Air"/>
-            <solidref ref="sipm-SOL"/>
-            <auxiliary auxtype="Color" auxvalue="1 1 1"/>
-        </volume>
-
         <volume name="detector_logical">
             <materialref ref="Air"/>
             <solidref ref="detector_solid"/>
@@ -263,73 +295,6 @@
  	            <positionref ref='scintillator4pos'/>
                     <file name="./geometry/scintillator4.gdml"/>
             </physvol>
------------------------------beg sipm loops-----------------------------
------------------------------scintillator 1-----------------------------
-            <loop for='i' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="-500 +31.25 + i*62.5" z='-500.5'  y='0' unit='mm'/>
-                    <rotationref ref='sipmrot'/>
-                </physvol>
-            </loop>
-
-            <loop for='j' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="-500.5" z='-500 +31.25 + j*62.5'  y='0' unit='mm'/>
-                    <rotation name="sipmrot" z='90' unit='deg'/>
-                </physvol>
-            </loop>
------------------------------scintillator 2-----------------------------
-            <loop for='k' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="31.25 + k*62.5" z='-500.5'  y='0' unit='mm'/>
-                    <rotationref ref='sipmrot'/>
-                </physvol>
-            </loop>
-            <loop for='l' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="500.5" z='-500 +31.25 + l*62.5'  y='0' unit='mm'/>
-                    <rotation name="sipmrot" z='90' unit='deg'/>
-                </physvol>
-            </loop>
------------------------------scintillator 3-----------------------------
-            <loop for='M' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="500.5" z='0 +31.25 + M*62.5'  y='0' unit='mm'/>
-                    <rotation name="sipmrot" z='90' unit='deg'/>
-                </physvol>
-            </loop>		
-
-            <loop for='n' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="-500 +31.25 + n*62.5" z='500.5'  y='0' unit='mm'/>
-                    <rotationref ref='sipmrot'/>
-                </physvol>
-            </loop>
------------------------------scintillator 4-----------------------------
-            <loop for='o' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="-500.5" z='0 +31.25 + o*62.5'  y='0' unit='mm'/>
-                    <rotation name="sipmrot" z='90' unit='deg'/>
-                </physvol>
-            </loop>		
-
-            <loop for='p' to='7' step='1'>
-                <physvol>
-                    <volumeref ref='sipm'/>
-                    <position x="+31.25 + p*62.5" z='500.5'  y='0' unit='mm'/>
-                    <rotationref ref='sipmrot'/>
-                </physvol>
-            </loop>
------------------------------end sipm loops-----------------------------
-
-            <auxiliary auxtype="Transparency" auxvalue="0"/>
             <auxiliary auxtype="Transparency" auxvalue="0"/>
         </volume>
 

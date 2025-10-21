@@ -8,10 +8,10 @@
 
     <structure>
         <volume name="scintillator2">
-            <materialref ref="CeBr3"/>
+            <materialref ref="PVT"/>
             <solidref ref="scintillator2-SOL"/>
-            <auxiliary auxtype="Color" auxvalue="0 1 0"/>
-            <auxiliary auxtype="SensDet"/>
+            <auxiliary auxtype="Color" auxvalue="0 1 0"/>            
+            <auxiliary auxtype="Transparency" auxvalue='1'/>
         </volume>
     </structure>
 

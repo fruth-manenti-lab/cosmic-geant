@@ -50,6 +50,6 @@ void PhysicsList::ConstructProcess()
 
 	// Enable Fluorescence, Pixe, and AUger Scattering
 	emParameters->SetFluo(false);
-	emParameters->SetPixe(true);
+	emParameters->SetPixe(false);
 	emParameters->SetAuger(false);
 }

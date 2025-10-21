@@ -1,6 +1,6 @@
 /CRY/file ../setup.file
 /run/initialize
 /tracking/verbose 0
-/vis/scene/endOfEventAction accumulate
+/vis/scene/endOfEventAction accumulate 1
 /run/printProgress 10
-/run/beamOn 10
+/run/beamOn 1

@@ -7,7 +7,7 @@
 
     <structure>
         <volume name="roof">
-            <materialref ref="G4_Galactic"/>
+            <materialref ref="Air"/>
             <solidref ref="roof-SOL"/>
             <auxiliary auxtype="Color" auxvalue="1 1 1"/>
             <auxiliary auxtype="Transparency" auxvalue='1'/>

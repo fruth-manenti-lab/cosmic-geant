@@ -1,8 +1,8 @@
-returnNeutrons 1
-returnProtons 1
-returnGammas 1
-returnElectrons 1
-returnPions 1
+returnNeutrons 0
+returnProtons 0
+returnGammas 0
+returnElectrons 0
+returnPions 0
 returnMuons 1
 date 7-10-2023
 latitude 25
