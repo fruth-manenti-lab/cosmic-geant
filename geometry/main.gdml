@@ -171,6 +171,8 @@
         <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT2" values="10"/>                                                                                                           
         <matrix coldim="1" name="SCINTILLATIONYIELD1" values="0.8"/>                                                                                                                       
 	<matrix coldim="1" name="SCINTILLATIONYIELD2" values="0.2"/>   
+	<matrix name="BLOCKTRANSMITTANCE" coldim="1" values="0.0" />
+
 </define>
     <materials>
 <!--                  CARBON                 -->
@@ -246,12 +248,17 @@
             <fraction n="0.7" ref="Nitrogen"/>
             <fraction n="0.3" ref="Oxygen"/>
         </material>
+<!--           BLOCKING OPT SURFACE          -->
     </materials>
+
 
     <solids>
         <box lunit="m" name="world_solid" x="2" y="2" z="2" />
         <box lunit="cm" name="detector_solid" x="110" y="200" z="110" />
 	    <box name="sipm-SOL" x='6' y='1' z='6' lunit='mm' />
+	    <opticalsurface name="block" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+		    <property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
+	    </opticalsurface>
     </solids>
 
     <structure>
@@ -270,22 +277,22 @@
 		        <file name="./geometry/roof.gdml"/>
 	        </physvol>
 
-            <physvol>
+            <physvol name="scintillator1">
  	            <positionref ref='scintillator1pos'/>
                     <file name="./geometry/scintillator1.gdml"/>
 	        </physvol>
 
-            <physvol>
+            <physvol name='scintillator2'>
  	            <positionref ref='scintillator2pos'/>
                     <file name="./geometry/scintillator2.gdml"/>
             </physvol>
 
-            <physvol>
+            <physvol name="scintillator3">
  	            <positionref ref='scintillator3pos'/>
                     <file name="./geometry/scintillator3.gdml"/>
             </physvol>
 
-            <physvol>
+            <physvol name="scintillator4">
  	            <positionref ref='scintillator4pos'/>
                     <file name="./geometry/scintillator4.gdml"/>
             </physvol>
@@ -300,7 +307,7 @@
             </loop>
 
             <loop for='j' to='7' step='1'>
-                <physvol copynumber="i+8">
+                <physvol copynumber="j+8">
                     <volumeref ref='sipm'/>
                     <position x="-500.5" z='-500 +31.25 + j*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
@@ -308,14 +315,14 @@
             </loop>
 <!--              SCINTILLATOR 2             -->
             <loop for='k' to='7' step='1'>
-                <physvol copynumber="i+16">
+                <physvol copynumber="k+16">
                     <volumeref ref='sipm'/>
                     <position x="31.25 + k*62.5" z='-500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
                 </physvol>
             </loop>
             <loop for='l' to='7' step='1'>
-                <physvol copynumber="i+24">
+                <physvol copynumber="l+24">
                     <volumeref ref='sipm'/>
                     <position x="500.5" z='-500 +31.25 + l*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
@@ -323,7 +330,7 @@
             </loop>
 <!--              SCINTILLATOR 3             -->
             <loop for='M' to='7' step='1'>
-                <physvol copynumber="i+32">
+                <physvol copynumber="M+32">
                     <volumeref ref='sipm'/>
                     <position x="500.5" z='0 +31.25 + M*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
@@ -331,7 +338,7 @@
             </loop>		
 
             <loop for='n' to='7' step='1'>
-                <physvol copynumber="i+40">
+                <physvol copynumber="n+40">
                     <volumeref ref='sipm'/>
                     <position x="-500 +31.25 + n*62.5" z='500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
@@ -339,7 +346,7 @@
             </loop>
 <!--              SCINTILLATOR 4             -->
             <loop for='o' to='7' step='1'>
-                <physvol copynumber="i+48">
+                <physvol copynumber="o+48">
                     <volumeref ref='sipm'/>
                     <position x="-500.5" z='0 +31.25 + o*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
@@ -347,7 +354,7 @@
             </loop>		
 
             <loop for='p' to='7' step='1'>
-                <physvol copynumber="i+56">
+                <physvol copynumber="p+56">
                     <volumeref ref='sipm'/>
                     <position x="+31.25 + p*62.5" z='500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
@@ -355,6 +362,7 @@
             </loop>
 <!--              END SIPM LOOPS             -->
 
+<!--               BLOCKS                    -->
             <auxiliary auxtype="Transparency" auxvalue="0"/>
             <auxiliary auxtype="Transparency" auxvalue="0"/>
         </volume>
@@ -367,6 +375,39 @@
                 <volumeref ref="detector_logical"/>
             </physvol>
         </volume>
+	<bordersurface name='border1' surfaceproperty="block">
+		<physvolref ref='scintillator1'/>
+		<physvolref ref='scintillator2'/>
+	</bordersurface>
+	<bordersurface name='border2' surfaceproperty="block">
+		<physvolref ref='scintillator2'/>
+		<physvolref ref='scintillator3'/>
+	</bordersurface>
+	<bordersurface name='border3' surfaceproperty="block">
+		<physvolref ref='scintillator3'/>
+		<physvolref ref='scintillator4'/>
+	</bordersurface>
+	<bordersurface name='border4' surfaceproperty="block">
+		<physvolref ref='scintillator4'/>
+		<physvolref ref='scintillator1'/>
+	</bordersurface>
+	<bordersurface name='border5' surfaceproperty="block">
+		<physvolref ref='scintillator2'/>
+		<physvolref ref='scintillator1'/>
+	</bordersurface>
+	<bordersurface name='border6' surfaceproperty="block">
+		<physvolref ref='scintillator3'/>
+		<physvolref ref='scintillator2'/>
+	</bordersurface>
+	<bordersurface name='border7' surfaceproperty="block">
+		<physvolref ref='scintillator4'/>
+		<physvolref ref='scintillator3'/>
+	</bordersurface>
+	<bordersurface name='border8' surfaceproperty="block">
+		<physvolref ref='scintillator1'/>
+		<physvolref ref='scintillator4'/>
+	</bordersurface>
+
 
     </structure>
 
