@@ -172,6 +172,7 @@
         <matrix coldim="1" name="SCINTILLATIONYIELD1" values="0.8"/>                                                                                                                       
 	<matrix coldim="1" name="SCINTILLATIONYIELD2" values="0.2"/>   
 	<matrix name="BLOCKTRANSMITTANCE" coldim="1" values="0.0" />
+	<matrix name="BLOCKREFLECTIVITY" coldim="1" values="0.0" />
 
 </define>
     <materials>
@@ -248,7 +249,6 @@
             <fraction n="0.7" ref="Nitrogen"/>
             <fraction n="0.3" ref="Oxygen"/>
         </material>
-<!--           BLOCKING OPT SURFACE          -->
     </materials>
 
 
@@ -256,8 +256,10 @@
         <box lunit="m" name="world_solid" x="2" y="2" z="2" />
         <box lunit="cm" name="detector_solid" x="110" y="200" z="110" />
 	    <box name="sipm-SOL" x='6' y='1' z='6' lunit='mm' />
+<!--           BLOCKING OPT SURFACE          -->
 	    <opticalsurface name="block" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
 		    <property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
+		    <property name="REFLECTIVITY" ref="BLOCKREFLECTIVITY"/>
 	    </opticalsurface>
     </solids>
 
