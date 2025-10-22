@@ -32,10 +32,11 @@ void EventAction::EndOfEventAction(const G4Event* event)
             analysisManager->FillNtupleDColumn(3,hit->getEnergyDeposited()/keV);
             analysisManager->FillNtupleDColumn(4,hit->getTime()/ns);
             analysisManager->FillNtupleSColumn(5,hit->getVolume());
-            analysisManager->FillNtupleDColumn(6,hit->getInitialEnergy()/keV);
-            analysisManager->FillNtupleSColumn(7,hit->getOrigin());
-            analysisManager->FillNtupleIColumn(8,hit->getParentID());
-            analysisManager->FillNtupleSColumn(9,hit->getProcessName());
+            analysisManager->FillNtupleDColumn(6,hit->getCopyNo());
+            analysisManager->FillNtupleDColumn(7,hit->getInitialEnergy()/keV);
+            analysisManager->FillNtupleSColumn(8,hit->getOrigin());
+            analysisManager->FillNtupleIColumn(9,hit->getParentID());
+            analysisManager->FillNtupleSColumn(10,hit->getProcessName());
             analysisManager->AddNtupleRow();
         }
     }

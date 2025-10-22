@@ -28,6 +28,7 @@ public:
     void setPosition(G4ThreeVector position)            {this->position = position;};
     void setTime(G4double time)                         {this->time = time;};
     void setVolume(G4String volume)                     {this->volume = volume;};
+    void setCopyNo(G4int copynumber)                    {this->copynumber = copynumber;};
     void setInitialEnergy(G4double initialEnergy)       {this->initialEnergy = initialEnergy;};
     void setOrigin(G4String originVolume)               {this->originVolume = originVolume;};
     void setMigrantID       (G4int migrantID)           {this->migrantID = migrantID; };
@@ -41,6 +42,7 @@ public:
     G4ThreeVector   getPosition()           {return position;};
     G4double        getTime()               {return time;};
     G4String        getVolume()             {return volume;};
+    G4int           getCopyNo()             {return copynumber;};
     G4double        getInitialEnergy()      {return initialEnergy;};
     G4String        getOrigin()             {return originVolume;};
     G4int           getMigrantID()          {return migrantID;};
@@ -55,7 +57,8 @@ private:
     G4ThreeVector   position;
     G4double        time                = -1;
     G4String        volume              = "";
-    G4int           verboseLevel        = 0;
+    G4int           copynumber          = 0;
+    G4int           verboseLevel        = -1;
     G4double        initialEnergy       = 0;
     G4String        originVolume        = "";
     G4int           migrantID           = -1;

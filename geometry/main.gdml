@@ -9,13 +9,13 @@
 	<position name="scintillator4pos" x='-250'  z='250'  y='0' unit='mm'/>
     <position name="sipmpos" x='-468.75'  z='-500.5'  y='0' unit='mm'/>
     <rotation name="sipmrot" x='90' unit='deg'/>
-    <variable name='i' value='0'/> // scintillator 1
+    <variable name='i' value='0'/> <!--scintillator 1-->
     <variable name='j' value='0'/>
-    <variable name='k' value='0'/> // scintillator 2
+    <variable name='k' value='0'/> <!--scintillator 2-->
     <variable name='l' value='0'/>
-    <variable name='M' value='0'/> // scintillator 3
+    <variable name='M' value='0'/> <!--scintillator 3-->
     <variable name='n' value='0'/>
-    <variable name='o' value='0'/> // scintillator 3
+    <variable name='o' value='0'/> <!--scintillator 4-->
     <variable name='p' value='0'/>
     <matrix coldim="2" name="AIRRINDEX" values="2.034*eV 1 2.068*eV 1 2.103*eV 1 2.139*eV 1 2.177*eV 1 2.216*eV 1 2.256*eV 1 2.298*eV 1 2.341*eV 1 2.386*eV 1 2.433*eV 1 2.481*eV 1 2.532*eV 1 2.585*eV 1 2.64*eV 1 2.697*eV 1 2.757*eV 1 2.82*eV 1 2.885*eV 1 2.954*eV 1 3.026*eV 1 3.102*eV 1 3.181*eV 1 3.265*eV 1 3.353*eV 1 3.446*eV 1 3.545*eV 1 3.649*eV 1 3.76*eV 1 3.877*eV 1 4.002*eV 1 4.136*eV 1"/>
     <matrix coldim="2" name="PVTRINDEX" values="2.034*eV 1.58 2.068*eV 1.58 2.103*eV 1.58 2.139*eV 1.58 
@@ -157,36 +157,61 @@
                                                 5.174*eV 380.*cm 5.202*eV 380.*cm 5.235*eV 380.*cm 5.265*eV 380.*cm 
                                                 5.294*eV 380.*cm 5.330*eV 380.*cm 5.413*eV 380.*cm 5.493*eV 380.*cm
 		                                        5.556*eV 380.*cm 5.611*eV 380.*cm"/>
-
-    </define>
+    <matrix coldim="2" name="PVTSC"     values="2.034*eV 0.000  2.068*eV 0.000  2.103*eV 0.000  2.139*eV 0.000  2.177*eV 0.000  
+                                                2.216*eV 0.010  2.256*eV 0.020  2.298*eV 0.035  2.341*eV 0.050  2.386*eV 0.060  
+                                                2.433*eV 0.070  2.481*eV 0.085  2.487*eV 0.090  2.496*eV 0.095  2.506*eV 0.098  
+                                                2.516*eV 0.100  2.524*eV 0.110  2.531*eV 0.120  2.539*eV 0.130  2.547*eV 0.140"/>
+        <matrix coldim="2" name="PVTMIEHG" values="1.56962*eV 1.67024e+08 1.58974*eV 1.58727e+08 1.61039*eV 1.50742e+08 1.63157*eV 1.43062e+08 1.65333*eV 1.3568e+08 1.67567*eV 1.28587e+08 1.69863*eV 1.21776e+08 1.72222*eV 1.1524e+08 1.74647*eV 1.0897e+08 1.77142*eV 1.02959e+08 1.7971*eV 9.72004e+07 1.82352*eV 9.16869e+07 1.85074*eV 8.64113e+07 1.87878*eV 8.13668e+07 1.90769*eV 7.65464e+07 1.93749*eV 7.19435e+07 1.96825*eV 6.75513e+07 1.99999*eV 6.33634e+07 2.03278*eV 5.93732e+07 2.06666*eV 5.55746e+07 2.10169*eV 5.19612e+07 2.13793*eV 4.8527e+07 2.17543*eV 4.52659e+07 2.21428*eV 4.21719e+07 2.25454*eV 3.92394e+07 2.29629*eV 3.64625e+07 2.33962*eV 3.38357e+07 2.38461*eV 3.13534e+07 2.43137*eV 2.90103e+07 2.47999*eV 2.6801e+07 2.53061*eV 2.47204e+07 2.58333*eV 2.27634e+07 2.63829*eV 2.09249e+07 2.69565*eV 1.92001e+07 2.75555*eV 1.75842e+07 2.81817*eV 1.60724e+07 2.88371*eV 1.46604e+07 2.95237*eV 1.33435e+07 3.02438*eV 1.21173e+07 3.09999*eV 1.09777e+07 3.17948*eV 9.92042e+06 3.26315*eV 8.94141e+06 3.35134*eV 8.03671e+06 3.44444*eV 7.20247e+06 3.54285*eV 6.43493e+06 3.64705*eV 5.73043e+06 3.75757*eV 5.08542e+06 3.87499*eV 4.49647e+06 3.99999*eV 3.96021e+06 4.13332*eV 3.47341e+06 4.27585*eV 3.03294e+06 4.42856*eV 2.63575e+06 4.59258*eV 2.27891e+06 4.76922*eV 1.95959e+06 4.95999*eV 1.67506e+06 5.16665*eV 1.42271e+06 5.39129*eV 1.2e+06 5.63635*eV 1.00453e+06 5.90475*eV 833967 6.19998*eV 686106"/> 
+    <matrix coldim="1" name="PVTSCINTILLATIONYIELD" values="50"/>
+        <matrix coldim="1" name="PVTMIEHG_FORWARD" values="0.99"/>                                                                                                                      
+        <matrix coldim="1" name="PVTMIEHG_BACKWARD" values="0.99"/>                                                                                                                      
+        <matrix coldim="1" name="PVTMIEHG_FORWARD_RATIO" values="0.8"/>                                                                                                                  
+        <matrix coldim="1" name="PVTRESOLUTIONSCALE" values="1"/>                                                                                                                       
+        <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT1" values="1"/>                                                                                                            
+        <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT2" values="10"/>                                                                                                           
+        <matrix coldim="1" name="SCINTILLATIONYIELD1" values="0.8"/>                                                                                                                       
+	<matrix coldim="1" name="SCINTILLATIONYIELD2" values="0.2"/>   
+</define>
     <materials>
-//--------------------Carbon--------------------
+<!--                  CARBON                 -->
         <element Z="12" name="C" formula="C">
             <atom unit="g/mole" value="12"/>
         </element>
-//--------------------Hydrogen------------------
+<!--                  HYDROGEN               -->
         <element Z="1" name="H" formula="H">
             <atom unit="g/mole" value="1"/>
         </element>
-//--------------------Silicon-------------------
+<!--                  SILICON                -->
         <element Z="14" name="Si" formula="Si">
             <atom unit="g/mole" value="28.085"/>
         </element>
-//--------------------PVT-----------------------
+<!--                  PVT                    -->
         <material name="PVT" state="solid">
-            <D value="1.05" unit="g/cm3"/> // Density
-            <property name="RINDEX" ref="PVTRINDEX"/>
-            // <property name="ABSLENGHT" ref="PVTALEN"/>
+		<D value="1.05" unit="g/cm3"/> <!-- DENSITY -->
+		<property name="ABSLENGTH" ref="PVTALEN"/>
+		<property name="RINDEX" ref="PVTRINDEX"/>
+		<property name="SCINTILLATIONCOMPONENT1" ref="PVTSC"/>
+		<property name="SCINTILLATIONCOMPONENT2" ref="PVTSC"/>
+		<property name="RESOLUTIONSCALE" ref="PVTRESOLUTIONSCALE"/>
+		<property name="SCINTILLATIONYIELD" ref="PVTSCINTILLATIONYIELD"/>
+            <property name="MIEHG" ref="PVTMIEHG"/>                                                                                                                                 
+            <property name="MIEHG_FORWARD" ref="PVTMIEHG_FORWARD"/>                                                                                                               
+            <property name="MIEHG_BACKWARD" ref="PVTMIEHG_BACKWARD"/>                                                                                                              
+            <property name="MIEHG_FORWARD_RATIO" ref="PVTMIEHG_FORWARD_RATIO"/>                                                                                                     
+            <property name="SCINTILLATIONTIMECONSTANT1" ref="PVTSCINTILLATIONTIMECONSTANT1"/>                                                                                        
+            <property name="SCINTILLATIONTIMECONSTANT2" ref="PVTSCINTILLATIONTIMECONSTANT2"/>                                                                                       
+            <property name="SCINTILLATIONYIELD1" ref="SCINTILLATIONYIELD1"/>                                                                                                           
+            <property name="SCINTILLATIONYIELD2" ref="SCINTILLATIONYIELD2"/>  
             <composite n="9" ref="C"/>
             <composite n="10" ref="H"/>
         </material>
-//--------------------Si material---------------
+<!--                  SI MATERIAL            -->
         <material name="SiMat" state="solid">
-            <D value="2.33" unit="g/cm3"/> // Density
-           // <property name="RINDEX" ref="SIRINDEX"/>
+            <D value="2.33" unit="g/cm3"/> 
+	    	<property name="RINDEX" ref="SIRINDEX"/>
             <composite n="1" ref="Si"/>
         </material>
-//--------------------Nitrogen------------------        
+<!--                  NITROGEN               -->
         <isotope N="14" Z="7" name="N14">
             <atom unit="g/mole" value="14.0031"/>
         </isotope>
@@ -197,7 +222,7 @@
             <fraction n="0.99632" ref="N14"/>
             <fraction n="0.00368" ref="N15"/>
         </element>
-//--------------------Oxygen--------------------
+<!--                  OXYGEN                 -->
         <isotope N="16" Z="8" name="O16">
             <atom unit="g/mole" value="15.9949"/>
         </isotope>
@@ -212,7 +237,7 @@
             <fraction n="0.00038" ref="O17"/>
             <fraction n="0.00205" ref="O18"/>
         </element>
-//--------------------Air----------------------
+<!--                  AIR                    -->
         <material name="Air" state="gas">
             <property name="RINDEX" ref="AIRRINDEX"/>
             <T unit="K" value="293.15"/>
@@ -231,9 +256,10 @@
 
     <structure>
         <volume name="sipm">
-            <materialref ref="Air"/>
+            <materialref ref="SiMat"/>
             <solidref ref="sipm-SOL"/>
             <auxiliary auxtype="Color" auxvalue="1 1 1"/>
+	    <auxiliary auxtype="SensDet"/>
         </volume>
 
         <volume name="detector_logical">
@@ -263,10 +289,10 @@
  	            <positionref ref='scintillator4pos'/>
                     <file name="./geometry/scintillator4.gdml"/>
             </physvol>
------------------------------beg sipm loops-----------------------------
------------------------------scintillator 1-----------------------------
+<!--              BEGIN SIPM LOOPS           -->
+<!--              SCINTILLATOR 1             -->
             <loop for='i' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i">
                     <volumeref ref='sipm'/>
                     <position x="-500 +31.25 + i*62.5" z='-500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
@@ -274,30 +300,30 @@
             </loop>
 
             <loop for='j' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i+8">
                     <volumeref ref='sipm'/>
                     <position x="-500.5" z='-500 +31.25 + j*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
                 </physvol>
             </loop>
------------------------------scintillator 2-----------------------------
+<!--              SCINTILLATOR 2             -->
             <loop for='k' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i+16">
                     <volumeref ref='sipm'/>
                     <position x="31.25 + k*62.5" z='-500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
                 </physvol>
             </loop>
             <loop for='l' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i+24">
                     <volumeref ref='sipm'/>
                     <position x="500.5" z='-500 +31.25 + l*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
                 </physvol>
             </loop>
------------------------------scintillator 3-----------------------------
+<!--              SCINTILLATOR 3             -->
             <loop for='M' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i+32">
                     <volumeref ref='sipm'/>
                     <position x="500.5" z='0 +31.25 + M*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
@@ -305,15 +331,15 @@
             </loop>		
 
             <loop for='n' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i+40">
                     <volumeref ref='sipm'/>
                     <position x="-500 +31.25 + n*62.5" z='500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
                 </physvol>
             </loop>
------------------------------scintillator 4-----------------------------
+<!--              SCINTILLATOR 4             -->
             <loop for='o' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i+48">
                     <volumeref ref='sipm'/>
                     <position x="-500.5" z='0 +31.25 + o*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
@@ -321,13 +347,13 @@
             </loop>		
 
             <loop for='p' to='7' step='1'>
-                <physvol>
+                <physvol copynumber="i+56">
                     <volumeref ref='sipm'/>
                     <position x="+31.25 + p*62.5" z='500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
                 </physvol>
             </loop>
------------------------------end sipm loops-----------------------------
+<!--              END SIPM LOOPS             -->
 
             <auxiliary auxtype="Transparency" auxvalue="0"/>
             <auxiliary auxtype="Transparency" auxvalue="0"/>
