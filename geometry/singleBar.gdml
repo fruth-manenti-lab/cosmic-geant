@@ -160,17 +160,45 @@
     <matrix coldim="2" name="PVTSC"     values="2.034*eV 0.000  2.068*eV 0.000  2.103*eV 0.000  2.139*eV 0.000  2.177*eV 0.000  
                                                 2.216*eV 0.010  2.256*eV 0.020  2.298*eV 0.035  2.341*eV 0.050  2.386*eV 0.060  
                                                 2.433*eV 0.070  2.481*eV 0.085  2.487*eV 0.090  2.496*eV 0.095  2.506*eV 0.098  
-                                                2.516*eV 0.100  2.524*eV 0.110  2.531*eV 0.120  2.539*eV 0.130  2.547*eV 0.140"/>
-        <matrix coldim="2" name="PVTMIEHG" values="1.56962*eV 1.67024e+08 1.58974*eV 1.58727e+08 1.61039*eV 1.50742e+08 1.63157*eV 1.43062e+08 1.65333*eV 1.3568e+08 1.67567*eV 1.28587e+08 1.69863*eV 1.21776e+08 1.72222*eV 1.1524e+08 1.74647*eV 1.0897e+08 1.77142*eV 1.02959e+08 1.7971*eV 9.72004e+07 1.82352*eV 9.16869e+07 1.85074*eV 8.64113e+07 1.87878*eV 8.13668e+07 1.90769*eV 7.65464e+07 1.93749*eV 7.19435e+07 1.96825*eV 6.75513e+07 1.99999*eV 6.33634e+07 2.03278*eV 5.93732e+07 2.06666*eV 5.55746e+07 2.10169*eV 5.19612e+07 2.13793*eV 4.8527e+07 2.17543*eV 4.52659e+07 2.21428*eV 4.21719e+07 2.25454*eV 3.92394e+07 2.29629*eV 3.64625e+07 2.33962*eV 3.38357e+07 2.38461*eV 3.13534e+07 2.43137*eV 2.90103e+07 2.47999*eV 2.6801e+07 2.53061*eV 2.47204e+07 2.58333*eV 2.27634e+07 2.63829*eV 2.09249e+07 2.69565*eV 1.92001e+07 2.75555*eV 1.75842e+07 2.81817*eV 1.60724e+07 2.88371*eV 1.46604e+07 2.95237*eV 1.33435e+07 3.02438*eV 1.21173e+07 3.09999*eV 1.09777e+07 3.17948*eV 9.92042e+06 3.26315*eV 8.94141e+06 3.35134*eV 8.03671e+06 3.44444*eV 7.20247e+06 3.54285*eV 6.43493e+06 3.64705*eV 5.73043e+06 3.75757*eV 5.08542e+06 3.87499*eV 4.49647e+06 3.99999*eV 3.96021e+06 4.13332*eV 3.47341e+06 4.27585*eV 3.03294e+06 4.42856*eV 2.63575e+06 4.59258*eV 2.27891e+06 4.76922*eV 1.95959e+06 4.95999*eV 1.67506e+06 5.16665*eV 1.42271e+06 5.39129*eV 1.2e+06 5.63635*eV 1.00453e+06 5.90475*eV 833967 6.19998*eV 686106"/> 
-    <matrix coldim="1" name="PVTSCINTILLATIONYIELD" values="50"/>
-        <matrix coldim="1" name="PVTMIEHG_FORWARD" values="0.99"/>                                                                                                                      
-        <matrix coldim="1" name="PVTMIEHG_BACKWARD" values="0.99"/>                                                                                                                      
-        <matrix coldim="1" name="PVTMIEHG_FORWARD_RATIO" values="0.8"/>                                                                                                                  
-        <matrix coldim="1" name="PVTRESOLUTIONSCALE" values="1"/>                                                                                                                       
-        <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT1" values="1"/>                                                                                                            
-        <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT2" values="10"/>                                                                                                           
-        <matrix coldim="1" name="SCINTILLATIONYIELD1" values="0.8"/>                                                                                                                       
-	<matrix coldim="1" name="SCINTILLATIONYIELD2" values="0.2"/>   
+                                                2.516*eV 0.100  2.524*eV 0.110  2.531*eV 0.120  2.539*eV 0.130  2.547*eV 0.140
+                                                2.554*eV 0.150  2.561*eV 0.160  2.569*eV 0.170  2.577*eV 0.180  2.586*eV 0.200
+                                                2.595*eV 0.220  2.605*eV 0.240  2.614*eV 0.250  2.622*eV 0.270  2.630*eV 0.290 
+                                                2.638*eV 0.300  2.646*eV 0.320  2.653*eV 0.340  2.660*eV 0.350  2.669*eV 0.360 
+                                                2.676*eV 0.390  2.681*eV 0.400  2.688*eV 0.420  2.693*eV 0.430  2.698*eV 0.440
+		                                        2.703*eV 0.445  2.706*eV 0.450  2.711*eV 0.460  2.718*eV 0.470  2.723*eV 0.480
+                                                2.731*eV 0.500  2.742*eV 0.550  2.755*eV 0.600  2.768*eV 0.630  2.782*eV 0.700  
+                                                2.793*eV 0.730  2.803*eV 0.750  2.811*eV 0.800  2.819*eV 0.830  2.829*eV 0.850 
+                                                2.837*eV 0.870  2.845*eV 0.900  2.853*eV 0.920  2.860*eV 0.940  2.867*eV 0.950
+		                                        2.875*eV 0.960  2.882*eV 0.970  2.888*eV 0.980  2.894*eV 0.985  2.900*eV 0.990
+                                                2.907*eV 0.995  2.913*eV 1.000  2.919*eV 1.000  2.924*eV 1.000  2.930*eV 0.995 
+                                                2.937*eV 0.990  2.942*eV 0.985  2.948*eV 0.980  2.954*eV 0.970  2.960*eV 0.960 
+                                                2.968*eV 0.930  2.976*eV 0.900  2.983*eV 0.870  2.991*eV 0.850  3.001*eV 0.800
+		                                        3.008*eV 0.700  3.017*eV 0.600  3.028*eV 0.500  3.038*eV 0.400  3.048*eV 0.300 
+                                                3.055*eV 0.220  3.070*eV 0.130  3.087*eV 0.070  3.103*eV 0.010  3.121*eV 0.000 
+                                                3.138*eV 0.000  3.155*eV 0.000  3.173*eV 0.000  3.191*eV 0.000  3.220*eV 0.000  
+                                                3.250*eV 0.000  3.281*eV 0.000  3.313*eV 0.000  3.344*eV 0.000  3.375*eV 0.000 
+		                                        3.403*eV 0.000  3.439*eV 0.000  3.479*eV 0.000  3.522*eV 0.000  3.566*eV 0.000  
+                                                3.611*eV 0.000  3.644*eV 0.000  3.684*eV 0.000  3.731*eV 0.000  3.780*eV 0.000  
+                                                3.831*eV 0.000  3.868*eV 0.000  3.892*eV 0.000  3.910*eV 0.000  3.921*eV 0.000  
+                                                3.934*eV 0.000  3.946*eV 0.000  3.957*eV 0.000  3.970*eV 0.000  3.994*eV 0.000 
+		                                        4.044*eV 0.000  4.102*eV 0.000  4.160*eV 0.000  4.202*eV 0.000  4.236*eV 0.000  
+                                                4.267*eV 0.000  4.298*eV 0.000  4.328*eV 0.000  4.357*eV 0.000  4.387*eV 0.000  
+                                                4.422*eV 0.000  4.455*eV 0.000  4.494*eV 0.000  4.563*eV 0.000  4.607*eV 0.000  
+                                                4.616*eV 0.000  4.624*eV 0.000  4.627*eV 0.000  4.628*eV 0.000  4.633*eV 0.000 
+		                                        4.640*eV 0.000  4.642*eV 0.000  4.649*eV 0.000  4.656*eV 0.000  4.661*eV 0.000  
+                                                4.666*eV 0.000  4.678*eV 0.000  4.685*eV 0.000  4.692*eV 0.000  4.699*eV 0.000  
+                                                4.706*eV 0.000  4.713*eV 0.000  4.720*eV 0.000  4.727*eV 0.000  4.740*eV 0.000  
+                                                4.751*eV 0.000  4.763*eV 0.000  4.775*eV 0.000  4.788*eV 0.000  4.798*eV 0.000 
+		                                        4.813*eV 0.000  4.828*eV 0.000  4.840*eV 0.000  4.853*eV 0.000  4.869*eV 0.000  
+                                                4.886*eV 0.000  4.905*eV 0.000  4.928*eV 0.000  4.953*eV 0.000  5.015*eV 0.000  
+                                                5.099*eV 0.000  5.143*eV 0.000  5.174*eV 0.000  5.202*eV 0.000  5.235*eV 0.000  
+                                                5.265*eV 0.000  5.294*eV 0.000  5.330*eV 0.000  5.413*eV 0.000  5.493*eV 0.000 
+		                                        5.556*eV 0.000  5.611*eV 0.000"/>
+    
+    <matrix coldim="1" name="PVTSCINTILLATIONYIELD" values="1000"/>                                                                                                               
+    <matrix coldim="1" name="PVTRESOLUTIONSCALE" values="1.0"/>                                                                                                                       
+    <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT1" values="2.1*ns"/> 
+
 	<matrix name="BLOCKTRANSMITTANCE" coldim="1" values="0.0" />
 	<matrix name="BLOCKREFLECTIVITY" coldim="1" values="0.0" />
 
@@ -190,21 +218,19 @@
         </element>
 <!--                  PVT                    -->
         <material name="PVT" state="solid">
-		<D value="1.05" unit="g/cm3"/> <!-- DENSITY -->
-		<property name="ABSLENGTH" ref="PVTALEN"/>
-		<property name="RINDEX" ref="PVTRINDEX"/>
-		<property name="SCINTILLATIONCOMPONENT1" ref="PVTSC"/>
-		<property name="SCINTILLATIONCOMPONENT2" ref="PVTSC"/>
-		<property name="RESOLUTIONSCALE" ref="PVTRESOLUTIONSCALE"/>
-		<property name="SCINTILLATIONYIELD" ref="PVTSCINTILLATIONYIELD"/>
-            <property name="MIEHG" ref="PVTMIEHG"/>                                                                                                                                 
-            <property name="MIEHG_FORWARD" ref="PVTMIEHG_FORWARD"/>                                                                                                               
-            <property name="MIEHG_BACKWARD" ref="PVTMIEHG_BACKWARD"/>                                                                                                              
-            <property name="MIEHG_FORWARD_RATIO" ref="PVTMIEHG_FORWARD_RATIO"/>                                                                                                     
+		    <D value="1.05" unit="g/cm3"/> <!-- DENSITY -->
+            <property name="RINDEX" ref="PVTRINDEX"/>
+		    <property name="ABSLENGTH" ref="PVTALEN"/>
+		    <property name="SCINTILLATIONCOMPONENT1" ref="PVTSC"/>
+            <property name="SCINTILLATIONYIELD" ref="PVTSCINTILLATIONYIELD"/>
             <property name="SCINTILLATIONTIMECONSTANT1" ref="PVTSCINTILLATIONTIMECONSTANT1"/>                                                                                        
-            <property name="SCINTILLATIONTIMECONSTANT2" ref="PVTSCINTILLATIONTIMECONSTANT2"/>                                                                                       
-            <property name="SCINTILLATIONYIELD1" ref="SCINTILLATIONYIELD1"/>                                                                                                           
-            <property name="SCINTILLATIONYIELD2" ref="SCINTILLATIONYIELD2"/>  
+		    
+            <property name="SCINTILLATIONRISETIME1" value="0.9 * ns"/>
+
+            <property name="RESOLUTIONSCALE" ref="PVTRESOLUTIONSCALE"/>
+
+		    <property name="SCINTILLATIONYIELD1" value="1.0"/>
+                                                                                                                       
             <composite n="9" ref="C"/>
             <composite n="10" ref="H"/>
         </material>
@@ -277,58 +303,34 @@
             <materialref ref="PVT"/>
             <solidref ref="bar-SOL"/>
             <auxiliary auxtype="Color" auxvalue="1 0 0"/>
-	    <auxiliary auxtype="SensDet"/>
         </volume>
 
         <volume name="detector_logical">
             <materialref ref="Air"/>
             <solidref ref="detector_solid"/>
 <!--              BEGIN BAR LOOPS            -->
-            <loop for='i' to='15' step='1'>
-                <physvol copynumber="i">
+            <loop for='i' to='0' step='1'>
+                <physvol name="bar" copynumber="i">
                     <volumeref ref='bar'/>
-                    <position x="-500 +31.25 + i*63" z='-252'  y='0' unit='mm'/>
+                    <position x="0" z='0'  y='0' unit='mm'/>
                 </physvol>
             </loop>            
 
-            <loop for='j' to='15' step='1'>
-                <physvol copynumber="j">
-                    <volumeref ref='bar'/>
-                    <position x="-500 +31.25 + j*63" z='252'  y='0' unit='mm'/>
-                </physvol>
-            </loop>            
-	<skinsurface name='border8' surfaceproperty="block">
-		<physvolref ref='bar'/>
-	</skinsurface>
 <!--              BEGIN SIPM LOOPS           -->
-            <loop for='k' to='15' step='1'>
-                <physvol copynumber="j">
+            <loop for='k' to='0' step='1'>
+                <physvol copynumber="0">
                     <volumeref ref='sipm'/>
-                    <position x="-500 +31.25 + k*63" z='-502.5'  y='0' unit='mm'/>
+                    <position x="0" z='250'  y='0' unit='mm'/>
                     <rotation name="sipmrot" x='90' unit='deg'/>
                 </physvol>
             </loop>  
-            <loop for='l' to='15' step='1'>
-                <physvol copynumber="j">
+            <loop for='l' to='0' step='1'>
+                <physvol copynumber="1">
                     <volumeref ref='sipm'/>
-                    <position x="-500 +31.25 + l*63" z='-1.5'  y='0' unit='mm'/>
+                    <position x="0" z='-250'  y='0' unit='mm'/>
                     <rotation name="sipmrot" x='90' unit='deg'/>
                 </physvol>
             </loop>
-            <loop for='M' to='15' step='1'>
-                <physvol copynumber="j">
-                    <volumeref ref='sipm'/>
-                    <position x="-500 +31.25 + M*63" z='502.5'  y='0' unit='mm'/>
-                    <rotation name="sipmrot" x='90' unit='deg'/>
-                </physvol>
-            </loop>  
-            <loop for='n' to='15' step='1'>
-                <physvol copynumber="j">
-                    <volumeref ref='sipm'/>
-                    <position x="-500 +31.25 + n*63" z='1.5'  y='0' unit='mm'/>
-                    <rotation name="sipmrot" x='90' unit='deg'/>
-                </physvol>
-            </loop>  
             <auxiliary auxtype="Transparency" auxvalue="0"/>
             <auxiliary auxtype="Transparency" auxvalue="0"/>
         </volume>
@@ -341,10 +343,9 @@
                 <volumeref ref="detector_logical"/>
             </physvol>
         </volume>
-    <bordersurface name='border8' surfaceproperty="block">
-		<physvolref ref='bar_PV'/>
-		<physvolref ref='bar_PV'/>
-	</bordersurface>
+	<skinsurface name='border8' surfaceproperty="block">
+		<volumeref ref='bar'/>
+	</skinsurface>
 
     </structure>
 
