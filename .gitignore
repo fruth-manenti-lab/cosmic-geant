@@ -2,6 +2,7 @@ build
 .DS_Store
 cry_v1.7
 .vscode
+ratios
 output
 __pycache__
 analysis/*.png
