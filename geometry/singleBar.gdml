@@ -282,7 +282,7 @@
         <box lunit="m" name="world_solid" x="2" y="2" z="2" />
         <box lunit="cm" name="detector_solid" x="110" y="200" z="110" />
 	    <box name="sipm-SOL" x='6'    y='1'  z='6'   lunit='mm' />
-        <box name="bar-SOL"  x='62.5' y='62.5' z='500' lunit='mm' />
+        <box name="bar-SOL"  x='6.' y='6.' z='500' lunit='mm' />
 <!--           BLOCKING OPT SURFACE          -->
 	    <opticalsurface name="block" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
 		    <property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
