@@ -195,12 +195,12 @@
                                                 5.265*eV 0.000  5.294*eV 0.000  5.330*eV 0.000  5.413*eV 0.000  5.493*eV 0.000 
 		                                        5.556*eV 0.000  5.611*eV 0.000"/>
     
-    <matrix coldim="1" name="PVTSCINTILLATIONYIELD" values="1000"/>                                                                                                               
+    <matrix coldim="1" name="PVTSCINTILLATIONYIELD" values="10000"/>                                                                                                               
     <matrix coldim="1" name="PVTRESOLUTIONSCALE" values="1.0"/>                                                                                                                       
     <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT1" values="2.1*ns"/> 
 
 	<matrix name="BLOCKTRANSMITTANCE" coldim="1" values="0.0" />
-	<matrix name="BLOCKREFLECTIVITY" coldim="1" values="0.0" />
+	<matrix name="BLOCKREFLECTIVITY" coldim="1" values="1.0" />
 
 </define>
     <materials>

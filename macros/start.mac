@@ -3,4 +3,5 @@
 /tracking/verbose 0
 /vis/scene/endOfEventAction accumulate 1
 /run/printProgress 100
+/gun/position 0 10 20 cm
 /run/beamOn 1000

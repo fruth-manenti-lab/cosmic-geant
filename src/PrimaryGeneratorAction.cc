@@ -154,7 +154,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event *anEvent)
     // particleGun->SetParticleEnergy((*vect)[j]->ke()*MeV);
 	particleGun->SetParticleEnergy(4.*GeV);
     // particleGun->SetParticlePosition(G4ThreeVector((*vect)[j]->x()*m, (*vect)[j]->z()*m + 60.0*cm, -(*vect)[j]->y()*m));
-	particleGun->SetParticlePosition(G4ThreeVector(0.*m, 10. *cm, -20.*cm));
+	// particleGun->SetParticlePosition(G4ThreeVector(0.*m, 10. *cm, -10. *cm));
     // particleGun->SetParticleMomentumDirection(G4ThreeVector((*vect)[j]->u(), (*vect)[j]->w(), -(*vect)[j]->v()));
 	particleGun->SetParticleMomentumDirection(G4ThreeVector(0, -1, 0));
     particleGun->SetParticleTime((*vect)[j]->t());
