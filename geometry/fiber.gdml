@@ -62,10 +62,10 @@
     </materials>
 
     <solids>
-        <!-- 1 mm fiber (core 0.50 mm, inner clad 0.525 mm, outer clad 0.55 mm), length 50 cm -->
-        <tube name="fiber_core_solid" rmin="0"     rmax="0.50"  z="500" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
-        <tube name="fiber_clad1_solid" rmin="0.50" rmax="0.525" z="500" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
-        <tube name="fiber_clad2_solid" rmin="0.525" rmax="0.55" z="500" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <!-- 1 mm fiber (core 0.50 mm, inner clad 0.525 mm, outer clad 0.55 mm), length 100 cm to span the 1 m slab in main3 -->
+        <tube name="fiber_core_solid" rmin="0"     rmax="0.50"  z="1000" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="fiber_clad1_solid" rmin="0.50" rmax="0.525" z="1000" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="fiber_clad2_solid" rmin="0.525" rmax="0.55" z="1000" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
     </solids>
 
     <structure>

@@ -5,8 +5,12 @@
         <position name="roofpos" x="0" y="60" z="0" unit="cm"/>
         <rotation name="sipm_to_z" x="90" unit="deg"/> <!-- thin axis along z -->
         <rotation name="sipm_to_x" z="90" unit="deg"/> <!-- thin axis along x -->
-        <variable name="u" value="0"/> <!-- loop for SIPMs along x (north/south edges) -->
-        <variable name="v" value="0"/> <!-- loop for SIPMs along z (east/west edges) -->
+        <rotation name="fiber_to_x" y="90" unit="deg"/> <!-- fiber oriented along x -->
+        <!-- Loop indices -->
+        <variable name="sipmXIndex" value="0"/>   <!-- SIPMs along x (north/south edges) -->
+        <variable name="sipmZIndex" value="0"/>   <!-- SIPMs along z (east/west edges) -->
+        <variable name="fiberXIndex" value="0"/>  <!-- Fibers along z from south edge -->
+        <variable name="fiberZIndex" value="0"/>  <!-- Fibers along x from west edge -->
     </define>
 
     <materials>
@@ -67,6 +71,22 @@
             <solidref ref="big_scint_solid"/>
             <auxiliary auxtype="Color" auxvalue="1 0 0"/>
             <auxiliary auxtype="Transparency" auxvalue="0.2"/>
+            <!-- Fibers embedded as daughters -->
+            <loop for="fiberXIndex" to="15" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <!-- South edge launch, runs along z through slab -->
+                    <position x="-500 + 31.25 + fiberXIndex*62.5" y="-5" z="-0.5" unit="mm"/>
+                </physvol>
+            </loop>
+            <loop for="fiberZIndex" to="15" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <!-- West edge launch, runs along x through slab -->
+                    <position x="-0.5" y="5" z="-500 + 31.25 + fiberZIndex*62.5" unit="mm"/>
+                    <rotationref ref="fiber_to_x"/>
+                </physvol>
+            </loop>
         </volume>
 
         <volume name="world_volume">
@@ -80,28 +100,28 @@
                 <file name="./geometry/roof.gdml"/>
             </physvol>
             <!-- SIPMs along x-axis (north & south edges) placed at the bottom surface -->
-            <loop for="u" to="15" step="1">
-                <physvol copynumber="u">
+            <loop for="sipmXIndex" to="15" step="1">
+                <physvol copynumber="sipmXIndex">
                     <volumeref ref="sipm"/>
-                    <position x="-500 + 31.25 + u*62.5" y="-5" z="-500.5" unit="mm"/>
+                    <position x="-500 + 31.25 + sipmXIndex*62.5" y="-5" z="-500.5" unit="mm"/>
                     <rotationref ref="sipm_to_z"/>
                 </physvol>
-                <physvol copynumber="u+100">
+                <physvol copynumber="sipmXIndex+100">
                     <volumeref ref="sipm"/>
-                    <position x="-500 + 31.25 + u*62.5" y="-5" z="500.5" unit="mm"/>
+                    <position x="-500 + 31.25 + sipmXIndex*62.5" y="-5" z="500.5" unit="mm"/>
                     <rotationref ref="sipm_to_z"/>
                 </physvol>
             </loop>
             <!-- SIPMs along z-axis (east & west edges) placed at the top surface -->
-            <loop for="v" to="15" step="1">
-                <physvol copynumber="v+200">
+            <loop for="sipmZIndex" to="15" step="1">
+                <physvol copynumber="sipmZIndex+200">
                     <volumeref ref="sipm"/>
-                    <position x="-500.5" y="5" z="-500 + 31.25 + v*62.5" unit="mm"/>
+                    <position x="-500.5" y="5" z="-500 + 31.25 + sipmZIndex*62.5" unit="mm"/>
                     <rotationref ref="sipm_to_x"/>
                 </physvol>
-                <physvol copynumber="v+300">
+                <physvol copynumber="sipmZIndex+300">
                     <volumeref ref="sipm"/>
-                    <position x="500.5" y="5" z="-500 + 31.25 + v*62.5" unit="mm"/>
+                    <position x="500.5" y="5" z="-500 + 31.25 + sipmZIndex*62.5" unit="mm"/>
                     <rotationref ref="sipm_to_x"/>
                 </physvol>
             </loop>
