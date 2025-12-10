@@ -73,14 +73,14 @@
             <materialref ref="Y11Core"/>
             <solidref ref="fiber_core_solid"/>
             <auxiliary auxtype="Color" auxvalue="0 1 0"/> <!-- green -->
-            <auxiliary auxtype="Transparency" auxvalue="0.3"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.5"/>
         </volume>
 
         <volume name="fiber_clad1">
             <materialref ref="Y11Clad1"/>
             <solidref ref="fiber_clad1_solid"/>
             <auxiliary auxtype="Color" auxvalue="0 0.5 1"/> <!-- cyan-ish -->
-            <auxiliary auxtype="Transparency" auxvalue="0.45"/>
+            <auxiliary auxtype="Transparency" auxvalue="0"/>
             <physvol>
                 <volumeref ref="fiber_core"/>
             </physvol>
@@ -90,7 +90,7 @@
             <materialref ref="Y11Clad2"/>
             <solidref ref="fiber_clad2_solid"/>
             <auxiliary auxtype="Color" auxvalue="1 0.8 0"/> <!-- yellow-orange -->
-            <auxiliary auxtype="Transparency" auxvalue="0.6"/>
+            <auxiliary auxtype="Transparency" auxvalue="0"/>
             <physvol>
                 <volumeref ref="fiber_clad1"/>
             </physvol>
