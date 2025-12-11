@@ -9,8 +9,15 @@
         <!-- Loop indices -->
         <variable name="sipmXIndex" value="0"/>   <!-- SIPMs along x (north/south edges) -->
         <variable name="sipmZIndex" value="0"/>   <!-- SIPMs along z (east/west edges) -->
-        <variable name="fiberXIndex" value="0"/>  <!-- Fibers along z from south edge -->
-        <variable name="fiberZIndex" value="0"/>  <!-- Fibers along x from west edge -->
+        <!-- Fiber loop indices (unique per quadrant) -->
+        <variable name="fiberXIndex_q1" value="0"/>
+        <variable name="fiberZIndex_q1" value="0"/>
+        <variable name="fiberXIndex_q2" value="0"/>
+        <variable name="fiberZIndex_q2" value="0"/>
+        <variable name="fiberXIndex_q3" value="0"/>
+        <variable name="fiberZIndex_q3" value="0"/>
+        <variable name="fiberXIndex_q4" value="0"/>
+        <variable name="fiberZIndex_q4" value="0"/>
         <!-- Black paint (absorbing) optical properties -->
         <matrix name="BLACKREFLECTIVITY" coldim="1" values="0.0"/>
         <matrix name="BLACKTRANSMITTANCE" coldim="1" values="0.0"/>
@@ -258,70 +265,151 @@
     </materials>
 
     <solids>
-        <!-- World and a single large scintillator slab covering the area of all four bars -->
         <box lunit="m" name="world_solid" x="2" y="2" z="2" />
-        <box lunit="mm" name="big_scint_solid" x="1000" y="10" z="1000" />
+        <box lunit="mm" name="scint_solid" x="500" y="10" z="500" />
+        <box lunit="mm" name="black_cap_solid" x="1000" y="1" z="1000"/>
         <box name="sipm-SOL" x="6" y="1" z="6" lunit="mm"/>
-        <box name="black_cap_solid" x="1000" y="1" z="1000" lunit="mm"/>
-        <!-- Absorbing optical surface for black paint -->
-        <opticalsurface name="black_absorb" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-            <property name="TRANSMITTANCE" ref="BLACKTRANSMITTANCE"/>
-            <property name="REFLECTIVITY" ref="BLACKREFLECTIVITY"/>
-        </opticalsurface>
         <!-- SiPM detection surface: zero reflectivity, full efficiency -->
         <opticalsurface name="sipm_optical" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
             <property name="REFLECTIVITY" ref="SIPM_REFLECTIVITY"/>
             <property name="EFFICIENCY" ref="SIPM_EFFICIENCY"/>
         </opticalsurface>
+        <!-- Absorbing optical surface for black paint -->
+        <opticalsurface name="black_absorb" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+            <property name="TRANSMITTANCE" ref="BLACKTRANSMITTANCE"/>
+            <property name="REFLECTIVITY" ref="BLACKREFLECTIVITY"/>
+        </opticalsurface>
     </solids>
 
     <structure>
-        <!-- Black paint caps (absorbing layers) -->
-        <volume name="black_cap">
-            <materialref ref="Air"/>
-            <solidref ref="black_cap_solid"/>
-            <auxiliary auxtype="Color" auxvalue="0 0.1 0.5"/>
-            <auxiliary auxtype="Transparency" auxvalue="0"/>
-        </volume>
-
-        <volume name="big_scintillator">
+        <!-- Scintillator quadrants with embedded half-length fibers -->
+        <volume name="scintillator1_quadrant">
             <materialref ref="PVT"/>
-            <solidref ref="big_scint_solid"/>
+            <solidref ref="scint_solid"/>
             <auxiliary auxtype="Color" auxvalue="1 0 0"/>
-            <auxiliary auxtype="Transparency" auxvalue="0.5"/>
-            <!-- Fibers embedded as daughters -->
-            <loop for="fiberXIndex" to="15" step="1">
+            <auxiliary auxtype="Transparency" auxvalue="0.2"/>
+            <!-- Fibers along z (south row, x<0) -->
+            <loop for="fiberXIndex_q1" to="7" step="1">
                 <physvol>
                     <file name="./geometry/fiber.gdml"/>
-                    <!-- South edge launch, runs along z through slab -->
-                    <position x="-500 + 31.25 + fiberXIndex*62.5" y="-5" z="0" unit="mm"/>
+                    <position x="-250 + 31.25 + fiberXIndex_q1*62.5" y="-5" z="0" unit="mm"/>
                 </physvol>
             </loop>
-            <loop for="fiberZIndex" to="15" step="1">
+            <!-- Fibers along x (west side, z<0) -->
+            <loop for="fiberZIndex_q1" to="7" step="1">
                 <physvol>
                     <file name="./geometry/fiber.gdml"/>
-                    <!-- West edge launch, runs along x through slab -->
-                    <position x="0" y="5" z="-500 + 31.25 + fiberZIndex*62.5" unit="mm"/>
+                    <position x="0" y="5" z="-250 + 31.25 + fiberZIndex_q1*62.5" unit="mm"/>
                     <rotationref ref="fiber_to_x"/>
                 </physvol>
             </loop>
         </volume>
 
+        <volume name="scintillator2_quadrant">
+            <materialref ref="PVT"/>
+            <solidref ref="scint_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0 1 0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.2"/>
+            <!-- Fibers along z (south row, x>=0) -->
+            <loop for="fiberXIndex_q2" to="7" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <position x="-750 + 31.25 + (8+fiberXIndex_q2)*62.5" y="-5" z="0" unit="mm"/>
+                </physvol>
+            </loop>
+            <!-- Fibers along x (east side, z<0) -->
+            <loop for="fiberZIndex_q2" to="7" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <position x="0" y="5" z="-250 + 31.25 + fiberZIndex_q2*62.5" unit="mm"/>
+                    <rotationref ref="fiber_to_x"/>
+                </physvol>
+            </loop>
+        </volume>
+
+        <volume name="scintillator3_quadrant">
+            <materialref ref="PVT"/>
+            <solidref ref="scint_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0 0 1"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.2"/>
+            <!-- Fibers along z (north row, x>=0) -->
+            <loop for="fiberXIndex_q3" to="7" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <position x="-750 + 31.25 + (8+fiberXIndex_q3)*62.5" y="-5" z="0" unit="mm"/>
+                </physvol>
+            </loop>
+            <!-- Fibers along x (east side, z>=0) -->
+            <loop for="fiberZIndex_q3" to="7" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <position x="0" y="5" z="-750 + 31.25 + (8+fiberZIndex_q3)*62.5" unit="mm"/>
+                    <rotationref ref="fiber_to_x"/>
+                </physvol>
+            </loop>
+        </volume>
+
+        <volume name="scintillator4_quadrant">
+            <materialref ref="PVT"/>
+            <solidref ref="scint_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1 1 0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.2"/>
+            <!-- Fibers along z (north row, x<0) -->
+            <loop for="fiberXIndex_q4" to="7" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <position x="-250 + 31.25 + fiberXIndex_q4*62.5" y="-5" z="0" unit="mm"/>
+                </physvol>
+            </loop>
+            <!-- Fibers along x (west side, z>=0) -->
+            <loop for="fiberZIndex_q4" to="7" step="1">
+                <physvol>
+                    <file name="./geometry/fiber.gdml"/>
+                    <position x="0" y="5" z="-750 + 31.25 + (8+fiberZIndex_q4)*62.5" unit="mm"/>
+                    <rotationref ref="fiber_to_x"/>
+                </physvol>
+            </loop>
+        </volume>
+
+        <!-- Global absorbing black cap volume -->
+        <volume name="black_cap_global">
+            <materialref ref="Air"/>
+            <solidref ref="black_cap_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0 0 0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.1"/>
+        </volume>
+
         <volume name="world_volume">
             <materialref ref="Air"/>
             <solidref ref="world_solid"/>
+            <!-- Place scintillator quadrants -->
             <physvol>
-                <volumeref ref="big_scintillator"/>
+                <position x="-250" y="0" z="-250" unit="mm"/>
+                <volumeref ref="scintillator1_quadrant"/>
             </physvol>
-            <!-- Absorbing black paint layers on top and bottom surfaces -->
             <physvol>
-                <volumeref ref="black_cap"/>
+                <position x="250" y="0" z="-250" unit="mm"/>
+                <volumeref ref="scintillator2_quadrant"/>
+            </physvol>
+            <physvol>
+                <position x="250" y="0" z="250" unit="mm"/>
+                <volumeref ref="scintillator3_quadrant"/>
+            </physvol>
+            <physvol>
+                <position x="-250" y="0" z="250" unit="mm"/>
+                <volumeref ref="scintillator4_quadrant"/>
+            </physvol>
+
+            <!-- Global absorbing black caps (top and bottom, touching quadrants) -->
+            <physvol>
+                <volumeref ref="black_cap_global"/>
                 <position x="0" y="5.5" z="0" unit="mm"/>
             </physvol>
             <physvol>
-                <volumeref ref="black_cap"/>
+                <volumeref ref="black_cap_global"/>
                 <position x="0" y="-5.5" z="0" unit="mm"/>
             </physvol>
+
             <physvol>
                 <positionref ref="roofpos"/>
                 <file name="./geometry/roof.gdml"/>
@@ -353,20 +441,6 @@
                 </physvol>
             </loop>
         </volume>
-
-        <!-- Optical border surfaces to force absorption at black paint interfaces -->
-        <bordersurface name="black_bottom_surface" surfaceproperty="black_absorb">
-            <volumeref ref="big_scintillator"/>
-            <volumeref ref="black_cap"/>
-        </bordersurface>
-        <bordersurface name="black_top_surface" surfaceproperty="black_absorb">
-            <volumeref ref="black_cap"/>
-            <volumeref ref="big_scintillator"/>
-        </bordersurface>
-        <!-- SiPM skin surface for detection -->
-        <skinsurface name="sipm_skin" surfaceproperty="sipm_optical">
-            <volumeref ref="sipm"/>
-        </skinsurface>
     </structure>
 
     <setup name="Default" version="1.0">

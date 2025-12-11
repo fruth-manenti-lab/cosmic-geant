@@ -11,7 +11,7 @@
             <materialref ref="PVT"/>
             <solidref ref="scintillator4-SOL"/>
             <auxiliary auxtype="Color" auxvalue="1 0 1"/>
-            <auxiliary auxtype="Transparency" auxvalue='0'/>
+            <auxiliary auxtype="Transparency" auxvalue='0.5'/>
 
         </volume>
     </structure>
