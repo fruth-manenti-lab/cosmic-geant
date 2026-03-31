@@ -8,7 +8,7 @@
 RunAction::RunAction(PrimaryGeneratorAction * aGenerator) : generator(aGenerator)
 {   
     // Create a Default filename that can be changed by the user using UI commands
-    G4String defaultFilename = "TES";
+    G4String defaultFilename = "MUON";
 
     RunAction::BookAnalysis(defaultFilename);
 }
@@ -61,8 +61,8 @@ void RunAction::BookAnalysis(G4String filename, G4bool ntupleMerging){
     analysisManager->CreateNtupleDColumn("LocalTime");
     analysisManager->CreateNtupleSColumn("Volume");
     analysisManager->CreateNtupleDColumn("Copynumber");
-    analysisManager->CreateNtupleDColumn("Initial Energy");
-    analysisManager->CreateNtupleSColumn("Origin Volume");
+    analysisManager->CreateNtupleDColumn("InitialEnergy");
+    analysisManager->CreateNtupleSColumn("OriginVolume");
     analysisManager->CreateNtupleIColumn("ParentID");
     analysisManager->CreateNtupleSColumn("ProcessName");
 
