@@ -255,8 +255,8 @@
         <box name="scintillator1-SOL" x='500' y='20' z='500' lunit='mm' />
 <!--           BLOCKING OPT SURFACE          -->
 	<opticalsurface name="block" model="LUT" finish="groundteflonair" type="dielectric_LUT" value="1.0">
-		<property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
-		<property name="REFLECTIVITY" ref="BLOCKREFLECTIVITY"/> 
+		<!-- <property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
+		<property name="REFLECTIVITY" ref="BLOCKREFLECTIVITY"/>  -->
 	    </opticalsurface>
     </solids>
 

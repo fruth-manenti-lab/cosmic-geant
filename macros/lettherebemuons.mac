@@ -5,5 +5,5 @@
 /gun/particle mu-
 /gun/direction 0 -1 0
 /gun/energy 125 MeV
-/gun/position 0 10 0 cm
-/run/beamOn 10
+/gun/position 13 10 17 cm
+/run/beamOn 100
