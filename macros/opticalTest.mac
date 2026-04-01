@@ -3,7 +3,8 @@
 /tracking/verbose 0
 /vis/scene/endOfEventAction accumulate 1
 /run/printProgress 100
-/gun/particle mu-
-/gun/direction 0 -1 0
-/gun/energy 1 MeV
+/gun/particle opticalphoton
+/gun/direction 1 -1 0
+/gun/energy 2 eV
 /gun/position 0 10 0 cm
+/run/beamOn 1

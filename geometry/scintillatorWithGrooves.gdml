@@ -167,8 +167,8 @@
         <matrix coldim="1" name="PVTSCINTILLATIONTIMECONSTANT2" values="10"/>                                                                                                           
         <matrix coldim="1" name="SCINTILLATIONYIELD1" values="0.8"/>                                                                                                                       
 	<matrix coldim="1" name="SCINTILLATIONYIELD2" values="0.2"/>   
-	<matrix name="BLOCKTRANSMITTANCE" coldim="2" values="1.0*eV 0.0 7.0*eV 0.0" />
-	<matrix name="BLOCKREFLECTIVITY"  coldim="2" values="1.0*eV 0.0 7.0*eV 0.0" />
+	<matrix name="BLOCKTRANSMITTANCE" coldim="1" values="0.0" />
+	<matrix name="BLOCKREFLECTIVITY" coldim="1" values="0.0" />
 
 </define>
     <materials>
@@ -251,12 +251,61 @@
     <solids>
         <box lunit="m" name="world_solid" x="2" y="2" z="2" />
         <box lunit="cm" name="detector_solid" x="110" y="200" z="110" />
-	    <box name="sipm-SOL" x='6' y='1' z='6' lunit='mm' />
+	<box name="sipm-SOL" x='6' y='1' z='6' lunit='mm' />
         <box name="scintillator1-SOL" x='500' y='20' z='500' lunit='mm' />
+	<box name="scintillatorgroove-SOL" x='510' y='1' z='1' lunit='mm' />
+	<subtraction name='placeholder1-SOL'>
+		<first  ref='scintillator1-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='-218.75'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
+	<subtraction name='placeholder2-SOL'>
+		<first  ref='placeholder1-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='-156.25'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
+	<subtraction name='placeholder3-SOL'>
+		<first  ref='placeholder2-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='-93.75'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
+	<subtraction name='placeholder4-SOL'>
+		<first  ref='placeholder3-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='-31.25'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
+	<subtraction name='placeholder5-SOL'>
+		<first  ref='placeholder4-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='31.25'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
+	<subtraction name='placeholder6-SOL'>
+		<first  ref='placeholder5-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='93.75'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
+	<subtraction name='placeholder7-SOL'>
+		<first  ref='placeholder6-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='156.25'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
+	<subtraction name='scinWithGrooves-SOL'>
+		<first  ref='placeholder7-SOL'/>
+		<second ref='scintillatorgroove-SOL'/>
+		<position name='subPos' x='0' y='9.5' z='218.75'/>
+		<rotation name='subRot' x='0' y='0'    z='0'/>
+	</subtraction>
 <!--           BLOCKING OPT SURFACE          -->
-	<opticalsurface name="block" model="LUT" finish="groundteflonair" type="dielectric_LUT" value="1.0">
-		<property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
-		<property name="REFLECTIVITY" ref="BLOCKREFLECTIVITY"/> 
+	    <opticalsurface name="block" model="glisur" finish="ground" type="dielectric_metal" value="1.0">
+		    <property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
+		    <property name="REFLECTIVITY" ref="BLOCKREFLECTIVITY"/>
 	    </opticalsurface>
     </solids>
 
@@ -270,8 +319,8 @@
 
         <volume name="scintillator1_log">
             <materialref ref="PVT"/>
-            <solidref ref="scintillator1-SOL"/>
-            <auxiliary auxtype="Color" auxvalue="1 0 0"/>
+            <solidref ref="scinWithGrooves-SOL"/>
+            <auxiliary auxtype="Color" auxvalue="0.1 0.5 0"/>
             <auxiliary auxtype="Transparency" auxvalue='1'/>
         </volume>
 
@@ -362,7 +411,7 @@
                 <volumeref ref="detector_logical"/>
             </physvol>
         </volume>
-        <skinsurface name="blockphys" surfaceproperty="block">
+        <skinsurface name="block" surfaceproperty="block">
             <volumeref ref="scintillator1_log"/>
         </skinsurface>
     </structure>
