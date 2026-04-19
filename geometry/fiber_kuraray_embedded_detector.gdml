@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
+    <!-- Embedded 500 mm Y-11 fiber section with a sensitive core, used only to monitor bar-to-fiber collection. -->
+
+    <define>
+        <matrix name="RINDEX_CORE" coldim="2"
+                values="2.25*eV 1.59 2.48*eV 1.59 2.76*eV 1.59 3.10*eV 1.59 3.54*eV 1.59"/>
+        <matrix name="RINDEX_CLAD" coldim="2"
+                values="2.25*eV 1.49 2.48*eV 1.49 2.76*eV 1.49 3.10*eV 1.49 3.54*eV 1.49"/>
+        <matrix name="ABSLENGTH_CORE" coldim="2"
+                values="2.25*eV 350*cm 2.48*eV 350*cm 2.76*eV 350*cm 3.10*eV 350*cm 3.54*eV 350*cm"/>
+        <matrix name="ABSLENGTH_CLAD" coldim="2"
+                values="2.25*eV 1000*cm 2.48*eV 1000*cm 2.76*eV 1000*cm 3.10*eV 1000*cm 3.54*eV 1000*cm"/>
+        <matrix name="WLSABSLENGTH" coldim="2"
+                values="3.54*eV 80*cm 3.35*eV 20*cm 3.10*eV 8*cm 2.88*eV 5*cm 2.76*eV 10*cm 2.61*eV 40*cm 2.48*eV 120*cm 2.25*eV 300*cm"/>
+        <matrix name="WLSCOMPONENT" coldim="2"
+                values="2.76*eV 0.30 2.61*eV 1.00 2.48*eV 0.80 2.38*eV 0.40 2.25*eV 0.10"/>
+        <matrix name="WLSTIMECONSTANT_Y11" coldim="1" values="12*ns"/>
+    </define>
+
+    <materials>
+        <element Z="6" name="C">
+            <atom unit="g/mole" value="12.011"/>
+        </element>
+        <element Z="1" name="H">
+            <atom unit="g/mole" value="1.008"/>
+        </element>
+        <element Z="8" name="O">
+            <atom unit="g/mole" value="15.999"/>
+        </element>
+
+        <material name="Y11Core" state="solid">
+            <D value="1.05" unit="g/cm3"/>
+            <property name="RINDEX" ref="RINDEX_CORE"/>
+            <property name="ABSLENGTH" ref="ABSLENGTH_CORE"/>
+            <property name="WLSABSLENGTH" ref="WLSABSLENGTH"/>
+            <property name="WLSCOMPONENT" ref="WLSCOMPONENT"/>
+            <property name="WLSTIMECONSTANT" ref="WLSTIMECONSTANT_Y11"/>
+            <composite n="8" ref="C"/>
+            <composite n="8" ref="H"/>
+        </material>
+
+        <material name="Y11Clad" state="solid">
+            <D value="1.19" unit="g/cm3"/>
+            <property name="RINDEX" ref="RINDEX_CLAD"/>
+            <property name="ABSLENGTH" ref="ABSLENGTH_CLAD"/>
+            <composite n="5" ref="C"/>
+            <composite n="8" ref="H"/>
+            <composite n="2" ref="O"/>
+        </material>
+    </materials>
+
+    <solids>
+        <box name="fiber_core_solid" x="0.95" y="0.95" z="500" lunit="mm"/>
+        <box name="fiber_clad_solid" x="1.0" y="1.0" z="500" lunit="mm"/>
+    </solids>
+
+    <structure>
+        <volume name="fiber_core">
+            <materialref ref="Y11Core"/>
+            <solidref ref="fiber_core_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.1 0.85 0.1"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.65"/>
+            <auxiliary auxtype="SensDet" auxvalue="FiberCollector"/>
+        </volume>
+
+        <volume name="fiber_clad">
+            <materialref ref="Y11Clad"/>
+            <solidref ref="fiber_clad_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1 0.2 0.9"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.25"/>
+            <physvol>
+                <volumeref ref="fiber_core"/>
+            </physvol>
+        </volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="fiber_clad"/>
+    </setup>
+</gdml>
