@@ -4,21 +4,21 @@
 /tracking/verbose 0
 
 # Use General Particle Source
-/gps/particle opticalphoton
+#/gps/particle opticalphoton
 #/gps/particle gamma
-#/gps/particle mu-
+/gps/particle mu-
 
 # Monochromatic 3 eV (~413 nm)
 /gps/ene/type Mono
-/gps/ene/mono 3.0 eV
-#/gps/ene/mono 125 MeV
+#/gps/ene/mono 3.0 eV
+/gps/ene/mono 125 MeV
 
 # Point-like source at the same position
 /gps/pos/type Point
 #/gps/pos/centre -468.75 -5 -505 mm
 #/gps/pos/centre 31.25 -5.0 -0.5 mm
-/gps/polarization 1 0 0
-/gps/position 0 5 0
+#/gps/polarization 1 0 0
+/gps/position 1 5 0
 
 
 # Fixed direction along +z into the slab/fiber
@@ -27,4 +27,4 @@
 # (Optional) One photon per event – default is 1
 #/gps/number 1
 
-/run/beamOn 1000000
+/run/beamOn 10

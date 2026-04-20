@@ -58,7 +58,7 @@
             <materialref ref="Air"/>
             <solidref ref="world_solid"/>
             <physvol name="fiber_test">
-                <file name="./geometry/fiber_alternative.gdml"/>
+                <file name="./geometry/fiber_kuraray_embedded.gdml"/>
                 <position x="0" y="0" z="0" unit="mm"/>
             </physvol>
             <physvol name="sipm_negz" copynumber="0">
