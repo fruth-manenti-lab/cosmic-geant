@@ -2,7 +2,7 @@
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../schema/gdml.xsd">
 
     <solids>
-	    <box lunit='mm' name='roof-SOL' x='1000' y='2' z='1000'/>
+	    <box lunit='mm' name='roof-SOL' x='500' y='2' z='500'/>
     </solids>
 
     <structure>

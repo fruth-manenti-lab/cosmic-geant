@@ -1,9 +1,9 @@
 /CRY/file ../setup.file
 /run/initialize
 /tracking/verbose 0
-/vis/scene/endOfEventAction accumulate 1
 /run/printProgress 100
 /gun/particle mu-
 /gun/direction 0 -1 0
-/gun/energy 1 MeV
-/gun/position 0 10 0 cm
+/gun/energy 125 MeV
+/gun/position 13 10 17 cm
+/run/beamOn 100

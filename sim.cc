@@ -93,10 +93,10 @@ int main(int argc,char**  argv){
 
         // Start the UI
         // starting a run
-	  	uiManager->ApplyCommand("/vis/open OGL");
-		uiManager->ApplyCommand("/vis/drawVolume");
-		uiManager->ApplyCommand("/vis/viewer/set/autoRefresh true");
-		uiManager->ApplyCommand("/vis/scene/add/trajectories smooth");
+        uiManager->ApplyCommand("/vis/open OGL");
+        uiManager->ApplyCommand("/vis/drawVolume");
+        uiManager->ApplyCommand("/vis/viewer/set/autoRefresh true");
+        uiManager->ApplyCommand("/vis/scene/add/trajectories smooth");
         uiManager->ApplyCommand("/vis/scene/endOfEventAction accumulate -1");
         uiManager->ApplyCommand("/vis/modeling/trajectories/create/drawByParticleID");
         ui->SessionStart();
