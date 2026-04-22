@@ -35,7 +35,7 @@
             <property name="ABSLENGTH" ref="ABSLENGTH_CORE"/>
             <property name="WLSABSLENGTH" ref="WLSABSLENGTH"/>
             <property name="WLSCOMPONENT" ref="WLSCOMPONENT"/>
-            <property name="WLSTIMECONSTANT" ref="WLSTIMECONSTANT_Y11"/> -->
+            <property name="WLSTIMECONSTANT" ref="WLSTIMECONSTANT_Y11"/>
             <composite n="8" ref="C"/>
             <composite n="8" ref="H"/>
         </material>

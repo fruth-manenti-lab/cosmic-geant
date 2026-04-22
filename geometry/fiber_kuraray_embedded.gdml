@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
-    <!-- Embedded 500 mm Y-11 fiber section used inside the scintillator bar for normal transport tests. -->
+    <!-- Embedded 1000 mm Y-11 fiber section used inside long groove or bar geometries. -->
 
     <define>
         <matrix name="RINDEX_CORE" coldim="2"
@@ -51,9 +51,9 @@
     </materials>
 
     <solids>
-        <!-- Embedded section matches the bar length for direct PVT-fiber contact. -->
-        <box name="fiber_embedded_core_solid" x="0.95" y="0.95" z="500" lunit="mm"/>
-        <box name="fiber_embedded_clad_solid" x="1.0" y="1.0" z="500" lunit="mm"/>
+        <!-- Embedded section spans the full 1 m slab/groove length. -->
+        <box name="fiber_embedded_core_solid" x="0.95" y="0.95" z="1000" lunit="mm"/>
+        <box name="fiber_embedded_clad_solid" x="1.0" y="1.0" z="1000" lunit="mm"/>
     </solids>
 
     <structure>
