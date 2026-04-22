@@ -8,7 +8,7 @@
 
     <structure>
         <volume name="sipm">
-            <materialref ref="CeBr3"/>
+            <materialref ref="SiMat"/>
             <solidref ref="sipm-SOL"/>
             <auxiliary auxtype="Color" auxvalue="1 1 1"/>
             <auxiliary auxtype="SensDet"/>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
+
+    <define>
+        <!-- Refractive indices (energies span ~550–350 nm) -->
+        <matrix name="RINDEX_CORE" coldim="2"
+                values="2.25*eV 1.59 2.48*eV 1.59 2.76*eV 1.59 3.10*eV 1.59 3.54*eV 1.59"/>
+        <matrix name="RINDEX_CLAD1" coldim="2"
+                values="2.25*eV 1.49 2.48*eV 1.49 2.76*eV 1.49 3.10*eV 1.49 3.54*eV 1.49"/>
+        <matrix name="RINDEX_CLAD2" coldim="2"
+                values="2.25*eV 1.42 2.48*eV 1.42 2.76*eV 1.42 3.10*eV 1.42 3.54*eV 1.42"/>
+
+        <!-- Bulk attenuation lengths -->
+        <matrix name="ABSLENGTH_CORE" coldim="2"
+                values="2.25*eV 350*cm 2.48*eV 350*cm 2.76*eV 350*cm 3.10*eV 350*cm 3.54*eV 350*cm"/>
+        <matrix name="ABSLENGTH_CLAD" coldim="2"
+                values="2.25*eV 1000*cm 2.48*eV 1000*cm 2.76*eV 1000*cm 3.10*eV 1000*cm 3.54*eV 1000*cm"/>
+
+        <!-- WLS absorption and emission -->
+        <matrix name="WLSABSLENGTH" coldim="2"
+                values="3.54*eV 5*cm 3.35*eV 10*cm 3.10*eV 30*cm 2.88*eV 100*cm"/>
+        <matrix name="WLSCOMPONENT" coldim="2"
+                values="2.76*eV 0.30 2.61*eV 1.00 2.48*eV 0.80 2.38*eV 0.40 2.25*eV 0.10"/>
+    </define>
+
+    <materials>
+        <element Z="6"  name="C"><atom unit="g/mole" value="12.011"/></element>
+        <element Z="1"  name="H"><atom unit="g/mole" value="1.008"/></element>
+        <element Z="8"  name="O"><atom unit="g/mole" value="15.999"/></element>
+        <element Z="9"  name="F"><atom unit="g/mole" value="18.998"/></element>
+
+        <!-- Polystyrene-based WLS core -->
+        <material name="Y11Core" state="solid">
+            <D value="1.05" unit="g/cm3"/>
+            <property name="RINDEX" ref="RINDEX_CORE"/>
+            <property name="ABSLENGTH" ref="ABSLENGTH_CORE"/>
+            <property name="WLSABSLENGTH" ref="WLSABSLENGTH"/>
+            <property name="WLSCOMPONENT" ref="WLSCOMPONENT"/>
+            <property name="WLSTIMECONSTANT" value="12*ns"/>
+            <composite n="8" ref="C"/>
+            <composite n="8" ref="H"/>
+        </material>
+
+        <!-- Inner PMMA cladding -->
+        <material name="Y11Clad1" state="solid">
+            <D value="1.19" unit="g/cm3"/>
+            <property name="RINDEX" ref="RINDEX_CLAD1"/>
+            <property name="ABSLENGTH" ref="ABSLENGTH_CLAD"/>
+            <composite n="5" ref="C"/>
+            <composite n="8" ref="H"/>
+            <composite n="2" ref="O"/>
+        </material>
+
+        <!-- Outer fluoropolymer cladding -->
+        <material name="Y11Clad2" state="solid">
+            <D value="1.43" unit="g/cm3"/>
+            <property name="RINDEX" ref="RINDEX_CLAD2"/>
+            <property name="ABSLENGTH" ref="ABSLENGTH_CLAD"/>
+            <composite n="2" ref="C"/>
+            <composite n="2" ref="F"/>
+        </material>
+    </materials>
+
+    <solids>
+        <!-- 1 mm fiber (core 0.50 mm, inner clad 0.525 mm, outer clad 0.55 mm), length 50 cm -->
+        <tube name="fiber_core_solid" rmin="0"     rmax="0.50"  z="500" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="fiber_clad1_solid" rmin="0.50" rmax="0.525" z="500" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="fiber_clad2_solid" rmin="0.525" rmax="0.55" z="500" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+    </solids>
+
+    <structure>
+        <volume name="fiber_core">
+            <materialref ref="Y11Core"/>
+            <solidref ref="fiber_core_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0 1 0"/> <!-- green -->
+            <auxiliary auxtype="Transparency" auxvalue="0.5"/>
+        </volume>
+
+        <volume name="fiber_clad1">
+            <materialref ref="Y11Clad1"/>
+            <solidref ref="fiber_clad1_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0 0.5 1"/> <!-- cyan-ish -->
+            <auxiliary auxtype="Transparency" auxvalue="0"/>
+            <physvol>
+                <volumeref ref="fiber_core"/>
+            </physvol>
+        </volume>
+
+        <volume name="fiber_clad2">
+            <materialref ref="Y11Clad2"/>
+            <solidref ref="fiber_clad2_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1 0.8 0"/> <!-- yellow-orange -->
+            <auxiliary auxtype="Transparency" auxvalue="0"/>
+            <physvol>
+                <volumeref ref="fiber_clad1"/>
+            </physvol>
+        </volume>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="fiber_clad2"/>
+    </setup>
+</gdml>

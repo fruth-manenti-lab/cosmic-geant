@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
+
+    <define>
+        <matrix coldim="2" name="AIRRINDEX"
+                values="2.25*eV 1.0 2.48*eV 1.0 2.76*eV 1.0 3.10*eV 1.0 3.54*eV 1.0"/>
+        <matrix coldim="2" name="SIRINDEX"
+                values="2.25*eV 4.3 2.48*eV 4.3 2.76*eV 4.3 3.10*eV 4.3 3.54*eV 4.3"/>
+        <matrix name="SIPM_EFFICIENCY" coldim="2" values="2.25*eV 1.0 3.54*eV 1.0"/>
+        <matrix name="SIPM_REFLECTIVITY" coldim="1" values="0.0"/>
+    </define>
+
+    <materials>
+        <element Z="7" name="N">
+            <atom unit="g/mole" value="14.007"/>
+        </element>
+        <element Z="8" name="O">
+            <atom unit="g/mole" value="15.999"/>
+        </element>
+        <element Z="14" name="Si">
+            <atom unit="g/mole" value="28.085"/>
+        </element>
+
+        <material name="Air" state="gas">
+            <property name="RINDEX" ref="AIRRINDEX"/>
+            <D value="0.00129" unit="g/cm3"/>
+            <fraction n="0.7" ref="N"/>
+            <fraction n="0.3" ref="O"/>
+        </material>
+
+        <material name="SiMat" state="solid">
+            <D value="2.33" unit="g/cm3"/>
+            <property name="RINDEX" ref="SIRINDEX"/>
+            <composite n="1" ref="Si"/>
+        </material>
+    </materials>
+
+    <solids>
+        <box name="world_solid" x="50" y="50" z="60" lunit="cm"/>
+        <box name="sipm_solid" x="6" y="6" z="1" lunit="mm"/>
+
+        <opticalsurface name="sipm_optical" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+            <property name="REFLECTIVITY" ref="SIPM_REFLECTIVITY"/>
+            <property name="EFFICIENCY" ref="SIPM_EFFICIENCY"/>
+        </opticalsurface>
+    </solids>
+
+    <structure>
+        <volume name="sipm">
+            <materialref ref="SiMat"/>
+            <solidref ref="sipm_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1 1 1"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.6"/>
+            <auxiliary auxtype="SensDet" auxvalue="SiPM"/>
+        </volume>
+
+        <volume name="world_volume">
+            <materialref ref="Air"/>
+            <solidref ref="world_solid"/>
+            <physvol name="fiber_test">
+                <file name="./geometry/fiber_kuraray_embedded.gdml"/>
+                <position x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+            <physvol name="sipm_negz" copynumber="0">
+                <volumeref ref="sipm"/>
+                <position x="0" y="0" z="-250.5" unit="mm"/>
+            </physvol>
+            <physvol name="sipm_posz" copynumber="1">
+                <volumeref ref="sipm"/>
+                <position x="0" y="0" z="250.5" unit="mm"/>
+            </physvol>
+        </volume>
+
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="world_volume"/>
+    </setup>
+</gdml>

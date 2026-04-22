@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
+    <!-- Main end-to-end test: muon/scintillation in bar, embedded WLS fiber, 5 mm end stubs, grease, and SiPMs. -->
+
+    <define>
+        <rotation name="sipm_to_z" x="90" unit="deg"/>
+
+        <matrix name="AIRRINDEX" coldim="2"
+                values="2.25*eV 1.0 2.48*eV 1.0 2.76*eV 1.0 3.10*eV 1.0 3.54*eV 1.0"/>
+        <matrix name="PVTRINDEX" coldim="2"
+                values="2.25*eV 1.58 2.48*eV 1.58 2.76*eV 1.58 3.10*eV 1.58 3.54*eV 1.58"/>
+        <matrix name="PVTALEN" coldim="2"
+                values="2.25*eV 380*cm 2.48*eV 380*cm 2.76*eV 380*cm 3.10*eV 380*cm 3.54*eV 380*cm"/>
+        <!-- Simple blue scintillation spectrum to feed the Y-11 absorption band. -->
+        <matrix name="PVTSC" coldim="2"
+                values="2.25*eV 0.00 2.55*eV 0.05 2.76*eV 0.30 2.90*eV 1.00 3.05*eV 0.45 3.20*eV 0.08 3.54*eV 0.00"/>
+        <matrix name="PVTSCINTILLATIONYIELD" coldim="1" values="10000"/>
+        <matrix name="PVTRESOLUTIONSCALE" coldim="1" values="1.0"/>
+        <matrix name="PVTSCINTILLATIONTIMECONSTANT1" coldim="1" values="2.1*ns"/>
+        <matrix name="PVTSCINTILLATIONYIELD1" coldim="1" values="1.0"/>
+
+        <matrix name="SIRINDEX" coldim="2"
+                values="2.25*eV 4.3 2.48*eV 4.3 2.76*eV 4.3 3.10*eV 4.3 3.54*eV 4.3"/>
+        <matrix name="GREASERINDEX" coldim="2"
+                values="2.25*eV 1.46 2.48*eV 1.46 2.76*eV 1.46 3.10*eV 1.46 3.54*eV 1.46"/>
+        <matrix name="GREASEABSLENGTH" coldim="2"
+                values="2.25*eV 1000*cm 2.48*eV 1000*cm 2.76*eV 1000*cm 3.10*eV 1000*cm 3.54*eV 1000*cm"/>
+
+        <!-- High-reflectivity rough white wrap to approximate Teflon tape. -->
+        <matrix name="TEFLON_REFLECTIVITY" coldim="2" values="2.25*eV 0.0 3.54*eV 0.0"/>
+
+        <!-- <matrix name="TEFLON_TRANSMITTANCE" coldim="1" values="0.0"/>
+        <matrix name="TEFLON_SPECULARLOBE" coldim="1" values="0.0"/>
+        <matrix name="TEFLON_SPECULARSPIKE" coldim="1" values="0.0"/>
+        <matrix name="TEFLON_BACKSCATTER" coldim="1" values="0.0"/> -->
+    </define>
+
+    <materials>
+        <element Z="6" name="C">
+            <atom unit="g/mole" value="12.011"/>
+        </element>
+        <element Z="1" name="H">
+            <atom unit="g/mole" value="1.008"/>
+        </element>
+        <element Z="8" name="O">
+            <atom unit="g/mole" value="15.999"/>
+        </element>
+        <element Z="7" name="N">
+            <atom unit="g/mole" value="14.007"/>
+        </element>
+        <element Z="14" name="Si">
+            <atom unit="g/mole" value="28.085"/>
+        </element>
+
+        <material name="PVT" state="solid">
+            <D value="1.05" unit="g/cm3"/>
+            <property name="RINDEX" ref="PVTRINDEX"/>
+            <property name="ABSLENGTH" ref="PVTALEN"/>
+            <property name="SCINTILLATIONCOMPONENT1" ref="PVTSC"/>
+            <property name="SCINTILLATIONYIELD" ref="PVTSCINTILLATIONYIELD"/>
+            <property name="SCINTILLATIONTIMECONSTANT1" ref="PVTSCINTILLATIONTIMECONSTANT1"/>
+            <property name="RESOLUTIONSCALE" ref="PVTRESOLUTIONSCALE"/>
+            <property name="SCINTILLATIONYIELD1" ref="PVTSCINTILLATIONYIELD1"/>
+            <composite n="9" ref="C"/>
+            <composite n="10" ref="H"/>
+        </material>
+
+        <material name="Air" state="gas">
+            <property name="RINDEX" ref="AIRRINDEX"/>
+            <D value="0.00129" unit="g/cm3"/>
+            <fraction n="0.7" ref="N"/>
+            <fraction n="0.3" ref="O"/>
+        </material>
+
+        <material name="SiMat" state="solid">
+            <D value="2.33" unit="g/cm3"/>
+            <property name="RINDEX" ref="SIRINDEX"/>
+            <composite n="1" ref="Si"/>
+        </material>
+
+        <material name="OpticalGrease" state="solid">
+            <D value="1.0" unit="g/cm3"/>
+            <property name="RINDEX" ref="GREASERINDEX"/>
+            <property name="ABSLENGTH" ref="GREASEABSLENGTH"/>
+            <composite n="2" ref="C"/>
+            <composite n="6" ref="H"/>
+        </material>
+    </materials>
+
+    <solids>
+        <box name="world_solid" x="60" y="40" z="100" lunit="cm"/>
+        <box name="detector_solid" x="30" y="10" z="90" lunit="cm"/>
+        <box name="bar_solid" x="62.5" y="10" z="500" lunit="mm"/>
+        <box name="sipm_solid" x="6" y="1" z="6" lunit="mm"/>
+        <box name="grease_solid" x="1.2" y="0.2" z="1.2" lunit="mm"/>
+
+        <opticalsurface name="teflon_wrap" model="unified" finish="ground" type="dielectric_dielectric" value="0.2">
+            <property name="REFLECTIVITY" ref="TEFLON_REFLECTIVITY"/>
+            <!-- <property name="TRANSMITTANCE" ref="TEFLON_TRANSMITTANCE"/>
+            <property name="SPECULARLOBECONSTANT" ref="TEFLON_SPECULARLOBE"/>
+            <property name="SPECULARSPIKECONSTANT" ref="TEFLON_SPECULARSPIKE"/>
+            <property name="BACKSCATTERCONSTANT" ref="TEFLON_BACKSCATTER"/> -->
+        </opticalsurface>
+    </solids>
+
+    <structure>
+        <volume name="sipm">
+            <materialref ref="SiMat"/>
+            <solidref ref="sipm_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0 0 1.0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.15"/>
+            <auxiliary auxtype="SensDet" auxvalue="SiPM"/>
+        </volume>
+
+        <volume name="bar">
+            <materialref ref="PVT"/>
+            <solidref ref="bar_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1 1 1"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.65"/>
+            <physvol name="fiber_embedded_in_bar">
+                <file name="./geometry/fiber_kuraray_embedded.gdml"/>
+                <position x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+        </volume>
+
+        <volume name="grease">
+            <materialref ref="OpticalGrease"/>
+            <solidref ref="grease_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1.0 0.8 0.2"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.15"/>
+        </volume>
+
+        <volume name="detector_logical">
+            <materialref ref="Air"/>
+            <solidref ref="detector_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1 1 1"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.0"/>
+
+            <physvol name="bar_phys" copynumber="0">
+                <volumeref ref="bar"/>
+                <position x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+
+            <physvol name="fiber_stub_negz" copynumber="0">
+                <file name="./geometry/fiber_kuraray_stub.gdml"/>
+                <position x="0" y="0" z="-255" unit="mm"/>
+            </physvol>
+
+            <physvol name="fiber_stub_posz" copynumber="1">
+                <file name="./geometry/fiber_kuraray_stub.gdml"/>
+                <position x="0" y="0" z="255" unit="mm"/>
+            </physvol>
+
+            <!-- <physvol name="grease_negz" copynumber="0">
+                <volumeref ref="grease"/>
+                <position x="0" y="0" z="-260.1" unit="mm"/>
+                <rotationref ref="sipm_to_z"/>
+            </physvol> -->
+
+            <physvol name="grease_posz" copynumber="0">
+                <volumeref ref="grease"/>
+                <position x="0" y="0" z="260.1" unit="mm"/>
+                <rotationref ref="sipm_to_z"/>
+            </physvol>
+
+            <!-- <physvol name="sipm_negz" copynumber="0">
+                <volumeref ref="sipm"/>
+                <position x="0" y="0" z="-260.7" unit="mm"/>
+                <rotationref ref="sipm_to_z"/>
+            </physvol> -->
+
+            <physvol name="sipm_posz" copynumber="0">
+                <volumeref ref="sipm"/>
+                <position x="0" y="0" z="260.7" unit="mm"/>
+                <rotationref ref="sipm_to_z"/>
+            </physvol>
+        </volume>
+
+        <volume name="world_volume">
+            <materialref ref="Air"/>
+            <solidref ref="world_solid"/>
+            <physvol name="detector_phys">
+                <volumeref ref="detector_logical"/>
+                <position x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+        </volume>
+
+        <!-- Wrap only the bar surfaces that face detector air. -->
+        <bordersurface name="bar_wrap_outside" surfaceproperty="teflon_wrap">
+            <physvolref ref="bar_phys"/>
+            <physvolref ref="detector_phys"/>
+        </bordersurface>
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="world_volume"/>
+    </setup>
+</gdml>

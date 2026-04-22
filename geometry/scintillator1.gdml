@@ -18,7 +18,7 @@
             <materialref ref="PVT"/>
             <solidref ref="scintillator1-SOL"/>
             <auxiliary auxtype="Color" auxvalue="1 0 0"/>
-            <auxiliary auxtype="Transparency" auxvalue='1'/>
+            <auxiliary auxtype="Transparency" auxvalue='0.5'/>
        </volume>
         <skinsurface name="block" surfaceproperty="block">
             <volumeref ref="scintillator1">

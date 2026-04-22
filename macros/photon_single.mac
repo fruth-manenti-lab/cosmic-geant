@@ -1,0 +1,4 @@
+/vis/modeling/trajectories/select drawByAttribute-0
+/vis/filtering/trajectories/create/attributeFilter
+/vis/filtering/trajectories/attributeFilter-0/setAttribute ID
+/vis/filtering/trajectories/attributeFilter-0/addValue 28
