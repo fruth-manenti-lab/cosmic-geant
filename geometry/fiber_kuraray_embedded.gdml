@@ -52,30 +52,30 @@
 
     <solids>
         <!-- Embedded section matches the bar length for direct PVT-fiber contact. -->
-        <box name="fiber_core_solid" x="0.95" y="0.95" z="500" lunit="mm"/>
-        <box name="fiber_clad_solid" x="1.0" y="1.0" z="500" lunit="mm"/>
+        <box name="fiber_embedded_core_solid" x="0.95" y="0.95" z="500" lunit="mm"/>
+        <box name="fiber_embedded_clad_solid" x="1.0" y="1.0" z="500" lunit="mm"/>
     </solids>
 
     <structure>
-        <volume name="fiber_core">
+        <volume name="fiber_embedded_core">
             <materialref ref="Y11Core"/>
-            <solidref ref="fiber_core_solid"/>
+            <solidref ref="fiber_embedded_core_solid"/>
             <auxiliary auxtype="Color" auxvalue="0.1 0.85 0.1"/>
             <auxiliary auxtype="Transparency" auxvalue="0.65"/>
         </volume>
 
-        <volume name="fiber_clad">
+        <volume name="fiber_embedded_clad">
             <materialref ref="Y11Clad"/>
-            <solidref ref="fiber_clad_solid"/>
+            <solidref ref="fiber_embedded_clad_solid"/>
             <auxiliary auxtype="Color" auxvalue="1 0.2 0.9"/>
             <auxiliary auxtype="Transparency" auxvalue="0.25"/>
             <physvol>
-                <volumeref ref="fiber_core"/>
+                <volumeref ref="fiber_embedded_core"/>
             </physvol>
         </volume>
     </structure>
 
     <setup name="Default" version="1.0">
-        <world ref="fiber_clad"/>
+        <world ref="fiber_embedded_clad"/>
     </setup>
 </gdml>

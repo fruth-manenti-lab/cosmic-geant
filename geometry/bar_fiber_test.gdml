@@ -27,11 +27,12 @@
                 values="2.25*eV 1000*cm 2.48*eV 1000*cm 2.76*eV 1000*cm 3.10*eV 1000*cm 3.54*eV 1000*cm"/>
 
         <!-- High-reflectivity rough white wrap to approximate Teflon tape. -->
-        <matrix name="TEFLON_REFLECTIVITY" coldim="1" values="0.98"/>
-        <matrix name="TEFLON_TRANSMITTANCE" coldim="1" values="0.0"/>
+        <matrix name="TEFLON_REFLECTIVITY" coldim="2" values="2.25*eV 0.0 3.54*eV 0.0"/>
+
+        <!-- <matrix name="TEFLON_TRANSMITTANCE" coldim="1" values="0.0"/>
         <matrix name="TEFLON_SPECULARLOBE" coldim="1" values="0.0"/>
         <matrix name="TEFLON_SPECULARSPIKE" coldim="1" values="0.0"/>
-        <matrix name="TEFLON_BACKSCATTER" coldim="1" values="0.0"/>
+        <matrix name="TEFLON_BACKSCATTER" coldim="1" values="0.0"/> -->
     </define>
 
     <materials>
@@ -93,12 +94,12 @@
         <box name="sipm_solid" x="6" y="1" z="6" lunit="mm"/>
         <box name="grease_solid" x="1.2" y="0.2" z="1.2" lunit="mm"/>
 
-        <opticalsurface name="teflon_wrap" model="unified" finish="ground" type="dielectric_metal" value="0.2">
+        <opticalsurface name="teflon_wrap" model="unified" finish="ground" type="dielectric_dielectric" value="0.2">
             <property name="REFLECTIVITY" ref="TEFLON_REFLECTIVITY"/>
-            <property name="TRANSMITTANCE" ref="TEFLON_TRANSMITTANCE"/>
+            <!-- <property name="TRANSMITTANCE" ref="TEFLON_TRANSMITTANCE"/>
             <property name="SPECULARLOBECONSTANT" ref="TEFLON_SPECULARLOBE"/>
             <property name="SPECULARSPIKECONSTANT" ref="TEFLON_SPECULARSPIKE"/>
-            <property name="BACKSCATTERCONSTANT" ref="TEFLON_BACKSCATTER"/>
+            <property name="BACKSCATTERCONSTANT" ref="TEFLON_BACKSCATTER"/> -->
         </opticalsurface>
     </solids>
 
@@ -150,25 +151,25 @@
                 <position x="0" y="0" z="255" unit="mm"/>
             </physvol>
 
-            <physvol name="grease_negz" copynumber="0">
+            <!-- <physvol name="grease_negz" copynumber="0">
                 <volumeref ref="grease"/>
                 <position x="0" y="0" z="-260.1" unit="mm"/>
                 <rotationref ref="sipm_to_z"/>
-            </physvol>
+            </physvol> -->
 
-            <physvol name="grease_posz" copynumber="1">
+            <physvol name="grease_posz" copynumber="0">
                 <volumeref ref="grease"/>
                 <position x="0" y="0" z="260.1" unit="mm"/>
                 <rotationref ref="sipm_to_z"/>
             </physvol>
 
-            <physvol name="sipm_negz" copynumber="0">
+            <!-- <physvol name="sipm_negz" copynumber="0">
                 <volumeref ref="sipm"/>
                 <position x="0" y="0" z="-260.7" unit="mm"/>
                 <rotationref ref="sipm_to_z"/>
-            </physvol>
+            </physvol> -->
 
-            <physvol name="sipm_posz" copynumber="1">
+            <physvol name="sipm_posz" copynumber="0">
                 <volumeref ref="sipm"/>
                 <position x="0" y="0" z="260.7" unit="mm"/>
                 <rotationref ref="sipm_to_z"/>
