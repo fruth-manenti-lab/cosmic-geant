@@ -4,4 +4,4 @@
 /vis/scene/endOfEventAction accumulate 1
 /run/printProgress 100
 /gun/position 0 10 20 cm
-/run/beamOn 1000
+/run/beamOn 1

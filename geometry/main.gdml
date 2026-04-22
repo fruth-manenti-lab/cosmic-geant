@@ -4,11 +4,12 @@
     <define>
 	<position name="roofpos" x='0' y='60' z='0' unit='cm'/>
 	<position name="scintillator1pos" x='-250' z='-250' y='0' unit='mm'/>
-	<position name="scintillator2pos" x='250' z='-250'  y='0' unit='mm'/>
-	<position name="scintillator3pos" x='250'  z='250' y='0' unit='mm'/>
-	<position name="scintillator4pos" x='-250'  z='250'  y='0' unit='mm'/>
+    <position name="scintillator2pos" x='250' z='-250'  y='0' unit='mm'/>
+    <position name="scintillator3pos" x='250'  z='250' y='0' unit='mm'/>
+    <position name="scintillator4pos" x='-250'  z='250'  y='0' unit='mm'/>
     <position name="sipmpos" x='-468.75'  z='-500.5'  y='0' unit='mm'/>
     <rotation name="sipmrot" x='90' unit='deg'/>
+    <rotation name="fiber_to_x" y="90" unit="deg"/>
     <variable name='i' value='0'/> <!--scintillator 1-->
     <variable name='j' value='0'/>
     <variable name='k' value='0'/> <!--scintillator 2-->
@@ -17,6 +18,8 @@
     <variable name='n' value='0'/>
     <variable name='o' value='0'/> <!--scintillator 4-->
     <variable name='p' value='0'/>
+
+    <variable name="fib" value='0'/>
     <matrix coldim="2" name="AIRRINDEX" values="2.034*eV 1 2.068*eV 1 2.103*eV 1 2.139*eV 1 2.177*eV 1 2.216*eV 1 2.256*eV 1 2.298*eV 1 2.341*eV 1 2.386*eV 1 2.433*eV 1 2.481*eV 1 2.532*eV 1 2.585*eV 1 2.64*eV 1 2.697*eV 1 2.757*eV 1 2.82*eV 1 2.885*eV 1 2.954*eV 1 3.026*eV 1 3.102*eV 1 3.181*eV 1 3.265*eV 1 3.353*eV 1 3.446*eV 1 3.545*eV 1 3.649*eV 1 3.76*eV 1 3.877*eV 1 4.002*eV 1 4.136*eV 1"/>
     <matrix coldim="2" name="PVTRINDEX" values="2.034*eV 1.58 2.068*eV 1.58 2.103*eV 1.58 2.139*eV 1.58 
                                                 2.177*eV 1.58 2.216*eV 1.58 2.256*eV 1.58 2.298*eV 1.58 
@@ -306,6 +309,11 @@
                     <position x="-500 +31.25 + i*62.5" z='-500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
                 </physvol>
+                <physvol copynumber='i'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <!-- Centered halfway between SIPM face (z=-500.5) and slab midplane so it extends into the bar -->
+                    <position x='-500 +31.25 + i*62.5' z='-250.5' y='0' unit='mm'/>
+                </physvol>
             </loop>
 
             <loop for='j' to='7' step='1'>
@@ -313,6 +321,11 @@
                     <volumeref ref='sipm'/>
                     <position x="-500.5" z='-500 +31.25 + j*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
+                </physvol>
+                <physvol copynumber='108+j'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <position x='-250.5' z='-500 +31.25 + j*62.5' y='0' unit='mm'/>
+                    <rotationref ref='fiber_to_x'/>
                 </physvol>
             </loop>
 <!--              SCINTILLATOR 2             -->
@@ -322,12 +335,21 @@
                     <position x="31.25 + k*62.5" z='-500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
                 </physvol>
+                <physvol copynumber='116+k'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <position x='31.25 + k*62.5' z='-250.5' y='0' unit='mm'/>
+                </physvol>
             </loop>
             <loop for='l' to='7' step='1'>
                 <physvol copynumber="l+24">
                     <volumeref ref='sipm'/>
                     <position x="500.5" z='-500 +31.25 + l*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
+                </physvol>
+                <physvol copynumber='124+l'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <position x='250.5' z='-500 +31.25 + l*62.5' y='0' unit='mm'/>
+                    <rotationref ref='fiber_to_x'/>
                 </physvol>
             </loop>
 <!--              SCINTILLATOR 3             -->
@@ -337,6 +359,11 @@
                     <position x="500.5" z='0 +31.25 + M*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
                 </physvol>
+                <physvol copynumber='132+M'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <position x='250.5' z='0 +31.25 + M*62.5' y='0' unit='mm'/>
+                    <rotationref ref='fiber_to_x'/>
+                </physvol>
             </loop>		
 
             <loop for='n' to='7' step='1'>
@@ -344,6 +371,10 @@
                     <volumeref ref='sipm'/>
                     <position x="-500 +31.25 + n*62.5" z='500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
+                </physvol>
+                <physvol copynumber='140+n'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <position x='-500 +31.25 + n*62.5' z='250.5' y='0' unit='mm'/>
                 </physvol>
             </loop>
 <!--              SCINTILLATOR 4             -->
@@ -353,6 +384,11 @@
                     <position x="-500.5" z='0 +31.25 + o*62.5'  y='0' unit='mm'/>
                     <rotation name="sipmrot" z='90' unit='deg'/>
                 </physvol>
+                <physvol copynumber='148+o'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <position x='-250.5' z='0 +31.25 + o*62.5' y='0' unit='mm'/>
+                    <rotationref ref='fiber_to_x'/>
+                </physvol>
             </loop>		
 
             <loop for='p' to='7' step='1'>
@@ -360,6 +396,10 @@
                     <volumeref ref='sipm'/>
                     <position x="+31.25 + p*62.5" z='500.5'  y='0' unit='mm'/>
                     <rotationref ref='sipmrot'/>
+                </physvol>
+                <physvol copynumber='156+p'>
+                    <file name='./geometry/fiber.gdml'/>
+                    <position x='+31.25 + p*62.5' z='250.5' y='0' unit='mm'/>
                 </physvol>
             </loop>
 <!--              END SIPM LOOPS             -->
