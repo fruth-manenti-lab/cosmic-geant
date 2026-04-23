@@ -139,7 +139,7 @@
                                              2.433*eV 0.070 2.481*eV 0.085 2.487*eV 0.090 2.496*eV 0.095 2.506*eV 0.098
                                              2.516*eV 0.100 2.524*eV 0.110 2.531*eV 0.120 2.539*eV 0.130 2.547*eV 0.140"/>
         <matrix coldim="2" name="PVTMIEHG" values="1.56962*eV 1.67024e+08 1.58974*eV 1.58727e+08 1.61039*eV 1.50742e+08 1.63157*eV 1.43062e+08 1.65333*eV 1.3568e+08 1.67567*eV 1.28587e+08 1.69863*eV 1.21776e+08 1.72222*eV 1.1524e+08 1.74647*eV 1.0897e+08 1.77142*eV 1.02959e+08 1.7971*eV 9.72004e+07 1.82352*eV 9.16869e+07 1.85074*eV 8.64113e+07 1.87878*eV 8.13668e+07 1.90769*eV 7.65464e+07 1.93749*eV 7.19435e+07 1.96825*eV 6.75513e+07 1.99999*eV 6.33634e+07 2.03278*eV 5.93732e+07 2.06666*eV 5.55746e+07 2.10169*eV 5.19612e+07 2.13793*eV 4.8527e+07 2.17543*eV 4.52659e+07 2.21428*eV 4.21719e+07 2.25454*eV 3.92394e+07 2.29629*eV 3.64625e+07 2.33962*eV 3.38357e+07 2.38461*eV 3.13534e+07 2.43137*eV 2.90103e+07 2.47999*eV 2.6801e+07 2.53061*eV 2.47204e+07 2.58333*eV 2.27634e+07 2.63829*eV 2.09249e+07 2.69565*eV 1.92001e+07 2.75555*eV 1.75842e+07 2.81817*eV 1.60724e+07 2.88371*eV 1.46604e+07 2.95237*eV 1.33435e+07 3.02438*eV 1.21173e+07 3.09999*eV 1.09777e+07 3.17948*eV 9.92042e+06 3.26315*eV 8.94141e+06 3.35134*eV 8.03671e+06 3.44444*eV 7.20247e+06 3.54285*eV 6.43493e+06 3.64705*eV 5.73043e+06 3.75757*eV 5.08542e+06 3.87499*eV 4.49647e+06 3.99999*eV 3.96021e+06 4.13332*eV 3.47341e+06 4.27585*eV 3.03294e+06 4.42856*eV 2.63575e+06 4.59258*eV 2.27891e+06 4.76922*eV 1.95959e+06 4.95999*eV 1.67506e+06 5.16665*eV 1.42271e+06 5.39129*eV 1.2e+06 5.63635*eV 1.00453e+06 5.90475*eV 833967 6.19998*eV 686106"/>
-        <matrix coldim="1" name="PVTSCINTILLATIONYIELD" values="50"/>
+        <matrix coldim="1" name="PVTSCINTILLATIONYIELD" values="10000"/>
         <matrix coldim="1" name="PVTMIEHG_FORWARD" values="0.99"/>
         <matrix coldim="1" name="PVTMIEHG_BACKWARD" values="0.99"/>
         <matrix coldim="1" name="PVTMIEHG_FORWARD_RATIO" values="0.8"/>
@@ -430,15 +430,16 @@
             <position x="lane_start + 15*lane_pitch" y="groove_bottom_y" z="0" unit="mm"/>
         </subtraction>
 
-        <opticalsurface name="aluminum_foil_surface" model="unified" finish="polished" type="dielectric_metal" value="0.0">
-            <property name="REFLECTIVITY" ref="ALFOIL_REFLECTIVITY"/>
-            <property name="EFFICIENCY" ref="ALFOIL_EFFICIENCY"/>
+        <!-- <opticalsurface name="aluminum_foil_surface" model="unified" finish="polished" type="dielectric_metal" value="0.0"> -->
+        <opticalsurface name="aluminum_foil_surface" model="LUT" finish="groundteflonair" type="dielectric_LUT" value="1.0">
+            <!-- <property name="REFLECTIVITY" ref="ALFOIL_REFLECTIVITY"/>
+            <property name="EFFICIENCY" ref="ALFOIL_EFFICIENCY"/> -->
         </opticalsurface>
     </solids>
 
     <structure>
         <volume name="groove_z">
-            <materialref ref="Air"/>
+            <materialref ref="OpticalGrease"/>
             <solidref ref="groove_z_solid"/>
             <auxiliary auxtype="Color" auxvalue="0.6 0.9 1.0"/>
             <auxiliary auxtype="Transparency" auxvalue="0.1"/>
@@ -448,7 +449,7 @@
         </volume>
 
         <volume name="groove_x">
-            <materialref ref="Air"/>
+            <materialref ref="OpticalGrease"/>
             <solidref ref="groove_x_solid"/>
             <auxiliary auxtype="Color" auxvalue="0.6 0.9 1.0"/>
             <auxiliary auxtype="Transparency" auxvalue="0.1"/>
@@ -628,6 +629,18 @@
             <physvolref ref="slab_phys"/>
             <physvolref ref="foil_negz_phys"/>
         </bordersurface>
+
+        <skinsurface name="foil_y_skin" surfaceproperty="aluminum_foil_surface">
+            <volumeref ref="foil_y_face"/>
+        </skinsurface>
+
+        <skinsurface name="foil_x_skin" surfaceproperty="aluminum_foil_surface">
+            <volumeref ref="foil_x_face"/>
+        </skinsurface>
+
+        <skinsurface name="foil_z_skin" surfaceproperty="aluminum_foil_surface">
+            <volumeref ref="foil_z_face"/>
+        </skinsurface>
     </structure>
 
     <setup name="Default" version="1.0">
