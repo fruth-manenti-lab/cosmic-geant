@@ -556,7 +556,7 @@
             <!-- +z family: negative stub only, positive stub + grease + SiPM. -->
             <loop for="sipmXIndex" to="15" step="1">
                 <physvol copynumber="25+sipmXIndex">
-                    <file name="./geometry/fiber_kuraray_stub.gdml"/>
+                    <file name="./geometry/fiber_kuraray_stub_capped.gdml"/>
                     <position x="lane_start + sipmXIndex*lane_pitch" y="groove_bottom_y" z="stub_neg_pos" unit="mm"/>
                 </physvol>
                 <physvol copynumber="50+sipmXIndex">
@@ -578,7 +578,7 @@
             <!-- +x family: negative stub only, positive stub + grease + SiPM. -->
             <loop for="sipmZIndex" to="15" step="1">
                 <physvol copynumber="225+sipmZIndex">
-                    <file name="./geometry/fiber_kuraray_stub.gdml"/>
+                    <file name="./geometry/fiber_kuraray_stub_capped.gdml"/>
                     <position x="stub_neg_pos" y="groove_top_y" z="lane_start + sipmZIndex*lane_pitch" unit="mm"/>
                     <rotationref ref="fiber_to_x"/>
                 </physvol>
