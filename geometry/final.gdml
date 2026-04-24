@@ -30,6 +30,9 @@
         <variable name="sipm_half_len" value="0.25"/>
         <variable name="placement_clearance" value="0.02"/>
         <variable name="foil_half_thickness" value="0.025"/>
+        <variable name="stub_outer_size" value="1.04"/>
+        <variable name="foil_hole_clearance" value="0.02"/>
+        <variable name="foil_hole_size" value="stub_outer_size+foil_hole_clearance"/>
         <variable name="groove_bottom_y" value="-slab_half_y+groove_half_y"/>
         <variable name="groove_top_y" value="slab_half_y-groove_half_y"/>
         <variable name="stub_neg_pos" value="-slab_half_xy-stub_half_len"/>
@@ -42,7 +45,7 @@
         <variable name="foil_bottom_pos" value="-slab_half_y-foil_half_thickness"/>
 
         <matrix coldim="2" name="AIRRINDEX" values="2.034*eV 1 2.068*eV 1 2.103*eV 1 2.139*eV 1 2.177*eV 1 2.216*eV 1 2.256*eV 1 2.298*eV 1 2.341*eV 1 2.386*eV 1 2.433*eV 1 2.481*eV 1 2.532*eV 1 2.585*eV 1 2.64*eV 1 2.697*eV 1 2.757*eV 1 2.82*eV 1 2.885*eV 1 2.954*eV 1 3.026*eV 1 3.102*eV 1 3.181*eV 1 3.265*eV 1 3.353*eV 1 3.446*eV 1 3.545*eV 1 3.649*eV 1 3.76*eV 1 3.877*eV 1 4.002*eV 1 4.136*eV 1"/>
-        <matrix coldim="2" name="PVTRINDEX" values="2.034*eV 1.58 2.068*eV 1.58 2.103*eV 1.58 2.139*eV 1.58 
+        <matrix coldim="2" name="PVTRINDEX" values="1.573*eV 1.58 2.034*eV 1.58 2.068*eV 1.58 2.103*eV 1.58 2.139*eV 1.58 
                                                 2.177*eV 1.58 2.216*eV 1.58 2.256*eV 1.58 2.298*eV 1.58 
                                                 2.341*eV 1.58 2.386*eV 1.58 2.433*eV 1.58 2.481*eV 1.58 
                                                 2.487*eV 1.58 2.496*eV 1.58 2.506*eV 1.58 2.516*eV 1.58 
@@ -88,7 +91,7 @@
                                                 5.174*eV 1.58 5.202*eV 1.58 5.235*eV 1.58 5.265*eV 1.58 
                                                 5.294*eV 1.58 5.330*eV 1.58 5.413*eV 1.58 5.493*eV 1.58
                                                 5.556*eV 1.58 5.611*eV 1.58"/>
-        <matrix coldim="2" name="PVTALEN" values="2.034*eV 380.*cm 2.068*eV 380.*cm 2.103*eV 380.*cm 2.139*eV 380.*cm 
+        <matrix coldim="2" name="PVTALEN" values="1.573*eV 380.*cm 2.034*eV 380.*cm 2.068*eV 380.*cm 2.103*eV 380.*cm 2.139*eV 380.*cm 
                                                 2.177*eV 380.*cm 2.216*eV 380.*cm 2.256*eV 380.*cm 2.298*eV 380.*cm 
                                                 2.341*eV 380.*cm 2.386*eV 380.*cm 2.433*eV 380.*cm 2.481*eV 380.*cm 
                                                 2.487*eV 380.*cm 2.496*eV 380.*cm 2.506*eV 380.*cm 2.516*eV 380.*cm 
@@ -265,8 +268,10 @@
         <box lunit="mm" name="foil_y_face_solid" x="1000" y="0.05" z="1000"/>
         <box lunit="mm" name="foil_x_face_base" x="0.05" y="20" z="1000"/>
         <box lunit="mm" name="foil_z_face_base" x="1000" y="20" z="0.05"/>
-        <box lunit="mm" name="foil_x_hole" x="0.051" y="1.3" z="1.3"/>
-        <box lunit="mm" name="foil_z_hole" x="1.3" y="1.3" z="0.051"/>
+        <!-- Match the perforations to the 1.04 mm coated stub envelope with only a
+             small clearance so the foil does not leave a large optical escape gap. -->
+        <box lunit="mm" name="foil_x_hole" x="0.051" y="foil_hole_size" z="foil_hole_size"/>
+        <box lunit="mm" name="foil_z_hole" x="foil_hole_size" y="foil_hole_size" z="0.051"/>
 
         <subtraction name="foil_x_face_step_0">
             <first ref="foil_x_face_base"/>

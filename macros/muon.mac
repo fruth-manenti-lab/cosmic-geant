@@ -18,7 +18,7 @@
 #/gps/pos/centre -468.75 -5 -505 mm
 #/gps/pos/centre 31.25 -5.0 -0.5 mm
 #/gps/polarization 1 0 0
-/gps/position 1 5 0
+/gps/position 10 5 10
 
 
 # Fixed direction along +z into the slab/fiber
@@ -27,4 +27,4 @@
 # (Optional) One photon per event – default is 1
 #/gps/number 1
 
-/run/beamOn 10
+/run/beamOn 100
