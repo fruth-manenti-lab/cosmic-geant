@@ -11,7 +11,7 @@
 # Monochromatic 3 eV (~413 nm)
 /gps/ene/type Mono
 #/gps/ene/mono 3.0 eV
-/gps/ene/mono 125 MeV
+/gps/ene/mono 1000 MeV
 
 # Point-like source at the same position
 /gps/pos/type Point
