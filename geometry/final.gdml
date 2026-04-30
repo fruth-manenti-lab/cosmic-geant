@@ -261,13 +261,13 @@
 
     <solids>
         <box lunit="m" name="world_solid" x="2" y="2" z="2"/>
-        <box lunit="mm" name="scint_solid" x="1000" y="20" z="1000"/>
+        <box lunit="mm" name="scint_solid" x="1000" y="2*slab_half_y" z="1000"/>
         <box lunit="mm" name="groove_z_solid" x="1.2" y="1.2" z="1000"/>
         <box lunit="mm" name="groove_x_solid" x="1000" y="1.2" z="1.2"/>
         <box lunit="mm" name="grease_solid" x="1" y="0.1" z="1"/>
         <box lunit="mm" name="foil_y_face_solid" x="1000" y="0.05" z="1000"/>
-        <box lunit="mm" name="foil_x_face_base" x="0.05" y="20" z="1000"/>
-        <box lunit="mm" name="foil_z_face_base" x="1000" y="20" z="0.05"/>
+        <box lunit="mm" name="foil_x_face_base" x="0.05" y="2*slab_half_y" z="1000"/>
+        <box lunit="mm" name="foil_z_face_base" x="1000" y="2*slab_half_y" z="0.05"/>
         <!-- Match the perforations to the 1.04 mm coated stub envelope with only a
              small clearance so the foil does not leave a large optical escape gap. -->
         <box lunit="mm" name="foil_x_hole" x="0.051" y="foil_hole_size" z="foil_hole_size"/>
