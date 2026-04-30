@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
-    <!-- Embedded 500 mm Y-11 fiber section used inside the scintillator bar for normal transport tests. -->
+    <!-- Embedded 1000 mm Y-11 fiber section used inside long groove or bar geometries. -->
 
     <define>
         <matrix name="RINDEX_CORE" coldim="2"
@@ -11,10 +11,14 @@
                 values="2.25*eV 350*cm 2.48*eV 350*cm 2.76*eV 350*cm 3.10*eV 350*cm 3.54*eV 350*cm"/>
         <matrix name="ABSLENGTH_CLAD" coldim="2"
                 values="2.25*eV 1000*cm 2.48*eV 1000*cm 2.76*eV 1000*cm 3.10*eV 1000*cm 3.54*eV 1000*cm"/>
-        <matrix name="WLSABSLENGTH" coldim="2"
-                values="3.54*eV 80*cm 3.35*eV 20*cm 3.10*eV 8*cm 2.88*eV 5*cm 2.76*eV 10*cm 2.61*eV 40*cm 2.48*eV 120*cm 2.25*eV 300*cm"/>
-        <matrix name="WLSCOMPONENT" coldim="2"
-                values="2.76*eV 0.30 2.61*eV 1.00 2.48*eV 0.80 2.38*eV 0.40 2.25*eV 0.10"/>
+        <!-- Derived from the digitized Kuraray spectra using the Beer-Lambert normalization
+             described in analysis/kuraray/y11_wlsabslength_derivation.md.
+             The digitized wavelength axes were shifted so the absorption and emission peaks
+             land at the known Kuraray Y-11 values of 430 nm and 476 nm respectively. -->
+        <matrix name="KurarayWLSABSLENGTH" coldim="2"
+                values="2.128294*eV 109.111933*mm 2.168022*eV 116.060485*mm 2.233046*eV 189.595617*mm 2.307925*eV 7.832514*mm 2.343121*eV 3.243197*mm 2.368617*eV 1.869837*mm 2.378808*eV 1.285700*mm 2.396841*eV 0.999384*mm 2.411962*eV 0.786959*mm 2.433671*eV 0.657502*mm 2.447080*eV 0.579719*mm 2.460417*eV 0.513195*mm 2.485828*eV 0.443923*mm 2.521211*eV 0.403463*mm 2.582474*eV 0.387786*mm 2.614677*eV 0.410906*mm 2.699710*eV 0.431501*mm 2.743030*eV 0.398689*mm 2.778453*eV 0.371351*mm 2.844365*eV 0.343531*mm 2.900476*eV 0.348798*mm 2.930486*eV 0.373958*mm 2.976573*eV 0.407672*mm 3.021984*eV 0.450593*mm 3.062775*eV 0.493111*mm 3.152931*eV 0.544154*mm 3.244516*eV 0.591537*mm 3.342161*eV 0.676031*mm 3.418390*eV 0.776404*mm 3.491895*eV 0.907805*mm 3.581951*eV 1.122149*mm 3.684734*eV 1.459674*mm 3.805185*eV 2.081229*mm 3.985874*eV 3.373817*mm 4.152249*eV 4.855403*mm 4.461013*eV 7.205620*mm 4.764717*eV 9.553526*mm"/>
+        <matrix name="KurarayWLSCOMPONENT" coldim="2"
+                values="1.572728*eV 0.007425 1.585833*eV 0.007485 1.625408*eV 0.015467 1.663831*eV 0.025618 1.711569*eV 0.029308 1.759822*eV 0.041155 1.820782*eV 0.066530 1.872275*eV 0.118551 1.912230*eV 0.157248 1.954966*eV 0.196643 2.001329*eV 0.246826 2.063781*eV 0.294707 2.098746*eV 0.355964 2.123077*eV 0.429513 2.148398*eV 0.497931 2.166254*eV 0.548418 2.185238*eV 0.593073 2.212355*eV 0.663640 2.239110*eV 0.723450 2.293615*eV 0.770461 2.368234*eV 0.712273 2.432765*eV 0.717037 2.460960*eV 0.784716 2.498215*eV 0.859199 2.531014*eV 0.936944 2.572067*eV 0.997340 2.624227*eV 0.939848 2.640900*eV 0.873278 2.659365*eV 0.789795 2.679694*eV 0.688804 2.700392*eV 0.618739 2.712398*eV 0.535762 2.731536*eV 0.437155 2.751703*eV 0.365716 2.775224*eV 0.289158 2.795938*eV 0.217737 2.837581*eV 0.140997 2.897944*eV 0.073395 3.020641*eV 0.012272 3.154225*eV 0.000486 3.254575*eV 0.004250"/>
         <matrix name="WLSTIMECONSTANT_Y11" coldim="1" values="12*ns"/>
     </define>
 
@@ -33,8 +37,8 @@
             <D value="1.05" unit="g/cm3"/>
             <property name="RINDEX" ref="RINDEX_CORE"/>
             <property name="ABSLENGTH" ref="ABSLENGTH_CORE"/>
-            <property name="WLSABSLENGTH" ref="WLSABSLENGTH"/>
-            <property name="WLSCOMPONENT" ref="WLSCOMPONENT"/>
+            <property name="WLSABSLENGTH" ref="KurarayWLSABSLENGTH"/>
+            <property name="WLSCOMPONENT" ref="KurarayWLSCOMPONENT"/>
             <property name="WLSTIMECONSTANT" ref="WLSTIMECONSTANT_Y11"/>
             <composite n="8" ref="C"/>
             <composite n="8" ref="H"/>
@@ -51,9 +55,9 @@
     </materials>
 
     <solids>
-        <!-- Embedded section matches the bar length for direct PVT-fiber contact. -->
-        <box name="fiber_embedded_core_solid" x="0.95" y="0.95" z="500" lunit="mm"/>
-        <box name="fiber_embedded_clad_solid" x="1.0" y="1.0" z="500" lunit="mm"/>
+        <!-- Embedded section spans the full 1 m slab/groove length. -->
+        <box name="fiber_embedded_core_solid" x="0.95" y="0.95" z="1000" lunit="mm"/>
+        <box name="fiber_embedded_clad_solid" x="1.0" y="1.0" z="1000" lunit="mm"/>
     </solids>
 
     <structure>

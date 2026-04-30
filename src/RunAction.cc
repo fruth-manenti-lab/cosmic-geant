@@ -9,6 +9,7 @@ RunAction::RunAction(PrimaryGeneratorAction * aGenerator) : generator(aGenerator
 {   
     // Create a Default filename that can be changed by the user using UI commands
     G4String defaultFilename = "MUON";
+    baseFilename = defaultFilename;
 
     RunAction::BookAnalysis(defaultFilename);
 }
@@ -21,25 +22,40 @@ void RunAction::BeginOfRunAction(const G4Run* run)
     if (isMaster) G4cout << ">>> Run " << run->GetRunID() << " starting..." << G4endl;
 
     auto analysisManager = G4AnalysisManager::Instance();
-    analysisManager->Reset();
-    G4String filename = analysisManager->GetFileName();
-    analysisManager->OpenFile(filename);
+    analysisManager->SetFileName(BuildRunFilename(baseFilename, run->GetRunID()));
+    analysisManager->OpenFile();
 }
 
 void RunAction::EndOfRunAction(const G4Run* run)
 {
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->Write();
-    analysisManager->CloseFile(false);
+    analysisManager->CloseFile();
 #ifndef ADD_RADIOACTIVE
-    // G4cout << "Total time simulated: " << generator->generator->timeSimulated() << " seconds\n";
-    G4double line = generator->generator->timeSimulated();
-    std::ofstream outfile("time.csv",std::ios::app);
-    if (outfile.is_open()) {
-    outfile << line << std::endl;
-    outfile.close();
+    if (!isMaster && generator != nullptr && generator->generator != nullptr) {
+        G4double line = generator->generator->timeSimulated();
+        std::ofstream outfile(BuildRunTimeFilename(baseFilename, run->GetRunID()));
+        if (outfile.is_open()) {
+            outfile << line << std::endl;
+            outfile.close();
+        }
     }
 #endif
+}
+
+G4String RunAction::BuildRunFilename(const G4String& baseFilename, G4int runId)
+{
+    G4String filename = baseFilename;
+    filename += "-run";
+    filename += std::to_string(runId);
+    return filename;
+}
+
+G4String RunAction::BuildRunTimeFilename(const G4String& baseFilename, G4int runId)
+{
+    G4String filename = BuildRunFilename(baseFilename, runId);
+    filename += "-time.csv";
+    return filename;
 }
 
 void RunAction::BookAnalysis(G4String filename, G4bool ntupleMerging){

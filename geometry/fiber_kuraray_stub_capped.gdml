@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
-    <!-- Short 10 mm Y-11 end stub with reflective side coating and an open readout face. -->
+    <!-- Short 10 mm Y-11 end stub with reflective side coating and a mirrored outer end cap on local -z. -->
 
     <define>
+        <variable name="stub_length" value="10"/>
+        <variable name="stub_half_len" value="stub_length/2"/>
+        <variable name="cap_thickness" value="0.02"/>
+        <variable name="cap_half_len" value="cap_thickness/2"/>
+        <variable name="mother_length" value="stub_length+2*cap_thickness"/>
+        <variable name="capped_end_cap_pos_z" value="-stub_half_len-cap_half_len"/>
+
         <matrix name="AIRRINDEX" coldim="2"
                 values="2.25*eV 1.0 2.48*eV 1.0 2.76*eV 1.0 3.10*eV 1.0 3.54*eV 1.0"/>
         <matrix name="RINDEX_CORE" coldim="2"
@@ -22,7 +29,7 @@
                 values="1.572728*eV 0.007425 1.585833*eV 0.007485 1.625408*eV 0.015467 1.663831*eV 0.025618 1.711569*eV 0.029308 1.759822*eV 0.041155 1.820782*eV 0.066530 1.872275*eV 0.118551 1.912230*eV 0.157248 1.954966*eV 0.196643 2.001329*eV 0.246826 2.063781*eV 0.294707 2.098746*eV 0.355964 2.123077*eV 0.429513 2.148398*eV 0.497931 2.166254*eV 0.548418 2.185238*eV 0.593073 2.212355*eV 0.663640 2.239110*eV 0.723450 2.293615*eV 0.770461 2.368234*eV 0.712273 2.432765*eV 0.717037 2.460960*eV 0.784716 2.498215*eV 0.859199 2.531014*eV 0.936944 2.572067*eV 0.997340 2.624227*eV 0.939848 2.640900*eV 0.873278 2.659365*eV 0.789795 2.679694*eV 0.688804 2.700392*eV 0.618739 2.712398*eV 0.535762 2.731536*eV 0.437155 2.751703*eV 0.365716 2.775224*eV 0.289158 2.795938*eV 0.217737 2.837581*eV 0.140997 2.897944*eV 0.073395 3.020641*eV 0.012272 3.154225*eV 0.000486 3.254575*eV 0.004250"/>
         <matrix name="WLSTIMECONSTANT_Y11" coldim="1" values="12*ns"/>
         <matrix name="ALCOATING_REFLECTIVITY" coldim="2"
-                values="2.25*eV 0.92 2.48*eV 0.92 2.76*eV 0.92 3.10*eV 0.92 3.54*eV 0.92"/>
+                values="2.25*eV 0.99 2.48*eV 0.99 2.76*eV 0.99 3.10*eV 0.99 3.54*eV 0.99"/>
     </define>
 
     <materials>
@@ -76,64 +83,80 @@
     </materials>
 
     <solids>
-        <!-- 5 mm protrusion per side means a 10 mm full-length stub. -->
-        <box name="fiber_stub_mother_solid" x="1.04" y="1.04" z="10" lunit="mm"/>
-        <box name="fiber_stub_core_solid" x="0.95" y="0.95" z="10" lunit="mm"/>
-        <box name="fiber_stub_clad_solid" x="1.0" y="1.0" z="10" lunit="mm"/>
-        <box name="fiber_stub_coating_outer" x="1.04" y="1.04" z="10" lunit="mm"/>
-        <box name="fiber_stub_coating_inner" x="1.00" y="1.00" z="12" lunit="mm"/>
-        <subtraction name="fiber_stub_side_coating_solid">
-            <first ref="fiber_stub_coating_outer"/>
-            <second ref="fiber_stub_coating_inner"/>
+        <box name="fiber_stub_capped_mother_solid" x="1.04" y="1.04" z="mother_length" lunit="mm"/>
+        <box name="fiber_stub_capped_core_solid" x="0.95" y="0.95" z="stub_length" lunit="mm"/>
+        <box name="fiber_stub_capped_clad_solid" x="1.0" y="1.0" z="stub_length" lunit="mm"/>
+        <box name="fiber_stub_capped_coating_outer" x="1.04" y="1.04" z="stub_length" lunit="mm"/>
+        <box name="fiber_stub_capped_coating_inner" x="1.00" y="1.00" z="12" lunit="mm"/>
+        <subtraction name="fiber_stub_capped_side_coating_solid">
+            <first ref="fiber_stub_capped_coating_outer"/>
+            <second ref="fiber_stub_capped_coating_inner"/>
         </subtraction>
+        <box name="fiber_stub_capped_end_cap_solid" x="1.04" y="1.04" z="cap_thickness" lunit="mm"/>
 
-        <opticalsurface name="stub_coating_surface" model="unified" finish="polished" type="dielectric_metal" value="0.0">
+        <opticalsurface name="stub_capped_coating_surface" model="unified" finish="polished" type="dielectric_metal" value="0.0">
             <property name="REFLECTIVITY" ref="ALCOATING_REFLECTIVITY"/>
         </opticalsurface>
     </solids>
 
     <structure>
-        <volume name="fiber_stub_core">
+        <volume name="fiber_stub_capped_core">
             <materialref ref="Y11Core"/>
-            <solidref ref="fiber_stub_core_solid"/>
+            <solidref ref="fiber_stub_capped_core_solid"/>
             <auxiliary auxtype="Color" auxvalue="0.1 0.85 0.1"/>
             <auxiliary auxtype="Transparency" auxvalue="0.65"/>
         </volume>
 
-        <volume name="fiber_stub_clad">
+        <volume name="fiber_stub_capped_clad">
             <materialref ref="Y11Clad"/>
-            <solidref ref="fiber_stub_clad_solid"/>
+            <solidref ref="fiber_stub_capped_clad_solid"/>
             <auxiliary auxtype="Color" auxvalue="1 0.2 0.9"/>
             <auxiliary auxtype="Transparency" auxvalue="0.25"/>
             <physvol>
-                <volumeref ref="fiber_stub_core"/>
+                <volumeref ref="fiber_stub_capped_core"/>
             </physvol>
         </volume>
 
-        <volume name="fiber_stub_side_coating">
+        <volume name="fiber_stub_capped_side_coating">
             <materialref ref="Aluminum"/>
-            <solidref ref="fiber_stub_side_coating_solid"/>
+            <solidref ref="fiber_stub_capped_side_coating_solid"/>
             <auxiliary auxtype="Color" auxvalue="0.8 0.8 0.85"/>
             <auxiliary auxtype="Transparency" auxvalue="0.1"/>
         </volume>
 
-        <volume name="fiber_stub_module">
+        <volume name="fiber_stub_capped_end_cap">
+            <materialref ref="Aluminum"/>
+            <solidref ref="fiber_stub_capped_end_cap_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.8 0.8 0.85"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.1"/>
+        </volume>
+
+        <volume name="fiber_stub_capped_module">
             <materialref ref="Air"/>
-            <solidref ref="fiber_stub_mother_solid"/>
+            <solidref ref="fiber_stub_capped_mother_solid"/>
             <physvol>
-                <volumeref ref="fiber_stub_side_coating"/>
+                <volumeref ref="fiber_stub_capped_side_coating"/>
+                <position x="0" y="0" z="0.01" unit="mm"/>
             </physvol>
             <physvol>
-                <volumeref ref="fiber_stub_clad"/>
+                <volumeref ref="fiber_stub_capped_clad"/>
+            </physvol>
+            <physvol>
+                <volumeref ref="fiber_stub_capped_end_cap"/>
+                <position x="0" y="0" z="capped_end_cap_pos_z" unit="mm"/>
             </physvol>
         </volume>
 
-        <skinsurface name="fiber_stub_side_coating_skin" surfaceproperty="stub_coating_surface">
-            <volumeref ref="fiber_stub_side_coating"/>
+        <skinsurface name="fiber_stub_capped_side_coating_skin" surfaceproperty="stub_capped_coating_surface">
+            <volumeref ref="fiber_stub_capped_side_coating"/>
+        </skinsurface>
+
+        <skinsurface name="fiber_stub_capped_end_cap_skin" surfaceproperty="stub_capped_coating_surface">
+            <volumeref ref="fiber_stub_capped_end_cap"/>
         </skinsurface>
     </structure>
 
     <setup name="Default" version="1.0">
-        <world ref="fiber_stub_module"/>
+        <world ref="fiber_stub_capped_module"/>
     </setup>
 </gdml>

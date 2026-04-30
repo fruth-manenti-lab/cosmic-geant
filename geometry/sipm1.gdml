@@ -3,7 +3,7 @@
 
 
     <solids>
-	    <box name="sipm-SOL" x='3' y='1' z='3' lunit='mm' />
+	    <box name="sipm-SOL" x='1' y='0.5' z='1' lunit='mm' />
    </solids>
 
     <structure>

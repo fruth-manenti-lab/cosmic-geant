@@ -21,7 +21,7 @@
             <auxiliary auxtype="Transparency" auxvalue='0.5'/>
        </volume>
         <skinsurface name="block" surfaceproperty="block">
-            <volumeref ref="scintillator1">
+            <volumeref ref="scintillator1"/>
         </skinsurface>
     </structure>
 
