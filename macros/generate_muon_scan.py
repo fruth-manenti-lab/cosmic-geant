@@ -7,7 +7,7 @@ import re
 import tempfile
 
 
-DEFAULT_NUM_POINTS = 1000
+DEFAULT_NUM_POINTS = 256
 DEFAULT_POSITION_UNIT = "cm"
 UNIT_SCALE_FROM_MM = {
     "mm": 1.0,
@@ -173,6 +173,18 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_NUM_POINTS,
         help=f"Total number of scan points to generate. Default: {DEFAULT_NUM_POINTS}.",
     )
+    parser.add_argument(
+        "--events-per-position",
+        type=int,
+        default=None,
+        help="Override the template /run/beamOn count for each scan point.",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=None,
+        help="Output macro path. Default: macros/muon_scan.mac.",
+    )
     return parser.parse_args()
 
 
@@ -185,7 +197,7 @@ def main() -> None:
     repo_root = macros_dir.parent
 
     muon_mac_path = macros_dir / "muon.mac"
-    output_mac_path = macros_dir / "muon_scan.mac"
+    output_mac_path = args.output if args.output is not None else macros_dir / "muon_scan.mac"
     gdml_path = repo_root / "geometry" / "final.gdml"
 
     variables = load_gdml_variables(gdml_path)
@@ -193,6 +205,10 @@ def main() -> None:
     template_lines, beam_on_line, source_y, unit_scale_from_mm, unit = load_template_lines(
         muon_mac_path
     )
+    if args.events_per_position is not None:
+        if args.events_per_position <= 0:
+            raise ValueError("--events-per-position must be a positive integer")
+        beam_on_line = f"/run/beamOn {args.events_per_position}"
     x_points, z_points = choose_grid_dimensions(args.num_points)
     slab_half_xy = slab_half_xy_mm * unit_scale_from_mm
     positions = build_scan_positions(slab_half_xy, source_y, x_points, z_points)

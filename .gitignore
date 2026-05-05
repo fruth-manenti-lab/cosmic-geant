@@ -11,3 +11,12 @@ analysis/*.png
 hpc/start*
 *build*
 *vacuum*
+
+# Generated SiPM reconstruction data products kept outside git.
+analysis/sipm_reconstruction_session/training_scan_data_1024/
+analysis/sipm_reconstruction_session/test_scan_data_1000/
+analysis/sipm_reconstruction_session/results/*_predictions.csv
+analysis/sipm_reconstruction_session/results/knn_sipm_best_predictions_*.csv
+analysis/sipm_reconstruction_session/results/knn_sipm_sweep_*.csv
+analysis/sipm_reconstruction_session/notebooks/*_executed.ipynb
+analysis/sipm_reconstruction_session/*.pdf

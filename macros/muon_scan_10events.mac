@@ -12,2052 +12,2052 @@
 /vis/scene/endOfEventAction accumulate -1
 /vis/scene/endOfRunAction accumulate
 /gps/position -46.969697 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 -1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 1.515152 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 4.545455 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 7.575758 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 10.606061 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 13.636364 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 16.666667 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 19.696970 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 22.727273 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 25.757576 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 28.787879 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 31.818182 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 34.848485 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 37.878788 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 40.909091 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 43.939394 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -46.969697 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -43.939394 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -40.909091 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -37.878788 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -34.848485 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -31.818182 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -28.787879 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -25.757576 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -22.727273 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -19.696970 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -16.666667 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -13.636364 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -10.606061 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -7.575758 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -4.545455 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position -1.515152 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 1.515152 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 4.545455 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 7.575758 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 10.606061 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 13.636364 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 16.666667 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 19.696970 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 22.727273 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 25.757576 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 28.787879 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 31.818182 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 34.848485 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 37.878788 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 40.909091 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 43.939394 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /gps/position 46.969697 5.000000 46.969697 cm
-/run/beamOn 100
+/run/beamOn 10
 /vis/viewer/set/autoRefresh true
 /vis/viewer/refresh

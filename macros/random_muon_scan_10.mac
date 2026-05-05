@@ -1,0 +1,33 @@
+# Small random muon scan for RunAction output testing.
+/run/initialize
+/tracking/verbose 0
+/gps/particle mu-
+/gps/ene/type Mono
+/gps/ene/mono 1000 MeV
+/gps/pos/type Point
+/gps/direction 0 -1 0
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/gps/position -40.0 5.0 -40.0 cm
+/run/beamOn 1
+/gps/position -30.0 5.0 -20.0 cm
+/run/beamOn 1
+/gps/position -20.0 5.0 0.0 cm
+/run/beamOn 1
+/gps/position -10.0 5.0 20.0 cm
+/run/beamOn 1
+/gps/position 0.0 5.0 40.0 cm
+/run/beamOn 1
+/gps/position 10.0 5.0 -40.0 cm
+/run/beamOn 1
+/gps/position 20.0 5.0 -20.0 cm
+/run/beamOn 1
+/gps/position 30.0 5.0 0.0 cm
+/run/beamOn 1
+/gps/position 40.0 5.0 20.0 cm
+/run/beamOn 1
+/gps/position 0.0 5.0 0.0 cm
+/run/beamOn 1
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

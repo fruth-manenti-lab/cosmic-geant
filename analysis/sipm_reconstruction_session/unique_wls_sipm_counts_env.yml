@@ -1,0 +1,12 @@
+name: unique-wls-sipm-counts
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - ipykernel
+  - nbconvert
+  - matplotlib
+  - numpy
+  - pandas>=2.2
+  - scikit-learn
+  - pip
