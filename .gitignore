@@ -20,3 +20,6 @@ analysis/sipm_reconstruction_session/results/knn_sipm_best_predictions_*.csv
 analysis/sipm_reconstruction_session/results/knn_sipm_sweep_*.csv
 analysis/sipm_reconstruction_session/notebooks/*_executed.ipynb
 analysis/sipm_reconstruction_session/*.pdf
+analysis/sipm_reconstruction_session/new_geometry_may7/training_scan_data_*/
+analysis/sipm_reconstruction_session/new_geometry_may7/test_scan_data_*/
+analysis/sipm_reconstruction_session/new_geometry_may7/results/*predictions*.csv

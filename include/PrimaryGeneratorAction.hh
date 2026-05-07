@@ -8,6 +8,13 @@
 #include "G4GeneralParticleSource.hh"
 #include "G4IonTable.hh"
 
+#elif defined(ADD_SCAN)
+
+#include "G4ParticleGun.hh"
+#include "G4ParticleTable.hh"
+
+#include <vector>
+
 #else
 
 #include "ParticleMessenger.hh"
@@ -33,6 +40,10 @@ class G4ParticleDefinition;                                     // Store paramet
 class ParticleMessenger;                                        // Class that handles user input
 #endif 
 
+#ifdef ADD_SCAN
+class ScanMessenger;
+#endif
+
 class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 {
 	public:
@@ -40,7 +51,10 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 		~PrimaryGeneratorAction();
 	
 		void GeneratePrimaries(G4Event* event);
-#ifndef ADD_RADIOACTIVE
+#ifdef ADD_SCAN
+		void SetScanPositionFile(const G4String& path);
+#endif
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_SCAN)
 		void InputCRY();
 		void UpdateCRY(std::string* input);
 		void CRYFromFile(G4String newFilename);
@@ -50,6 +64,21 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 
 #ifdef ADD_RADIOACTIVE
 		G4GeneralParticleSource* particleGun;
+#elif defined(ADD_SCAN)
+		struct ScanPosition {
+			G4int index = -1;
+			G4ThreeVector position;
+		};
+
+		G4ParticleGun* particleGun;
+		G4ParticleTable* particleTable;
+		std::vector<ScanPosition> scanPositions;
+		ScanMessenger* scanMessenger = nullptr;
+		G4String scanPositionFile;
+		G4bool scanPositionsLoaded = false;
+
+		void LoadScanPositions(const G4String& path);
+		G4String ResolveScanPositionFile(const char* filename) const;
 #else
 		G4ParticleGun* particleGun;
 		std::vector<CRYParticle*> *vect;
@@ -62,4 +91,3 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 
 
 #endif
-

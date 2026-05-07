@@ -147,6 +147,70 @@ Using only 10 events per scan position makes the 68% radial error worse by about
 
 This check used the first 10 events from each run deterministically. A more complete version would repeat the test with several random 10-event subsets per position and quote the spread.
 
+## New Geometry Check: No Stubs, Alternating SiPM Sides
+
+A second reconstruction check was run after changing the geometry to remove the stubs and place the SiPMs directly on the fiber ends, with alternating positive/negative SiPM sides for each fiber set. This test is separate from the original results above.
+
+The training sample for this check used the May 7 fixed scan output:
+
+- Raw training folder: `build/1024_muon_scan_may7_2026`
+- Converted training folder: `analysis/sipm_reconstruction_session/new_geometry_may7/training_scan_data_1024`
+- Number of scan positions: 1024
+- Events per position: 10
+- File layout: old style, one Geant4 run per scan position.
+
+The random test sample used the new one-run `ADD_SCAN` output:
+
+- Raw test folder: `new_build/output`
+- Converted test folder: `analysis/sipm_reconstruction_session/new_geometry_may7/test_scan_data_1000`
+- Number of random test events: 1000
+- File layout: one Geant4 run split across worker-thread ntuple files.
+
+For the `ADD_SCAN` output, the event-to-position mapping is no longer inferred from the output filename. Instead, it is read from the source-truth ntuple files, `MUON-run0_nt_source_t*.csv`. Each test event has an `EventID`, `SourceIndex`, `SourceCycle`, and true source position. The conversion script for this format is:
+
+`scripts/prepare_add_scan_test_data.py`
+
+### New Geometry Results
+
+| Method | Mean radial error | Median radial error | 68% radial error | 95% radial error | sigma x | sigma z |
+|---|---:|---:|---:|---:|---:|---:|
+| kNN event library | 2.58 cm | 2.25 cm | 2.99 cm | 5.60 cm | 2.09 cm | 2.21 cm |
+| Projection centroid | 10.61 cm | 9.62 cm | 12.66 cm | 22.04 cm | 8.70 cm | 8.55 cm |
+
+The best kNN configuration for this new-geometry check was:
+
+- Reference: individual training events.
+- Distance: Euclidean distance after L1 normalization.
+- `k = 12`
+- Neighbor weighting: inverse-square distance weighting.
+
+This is a major improvement over the earlier kNN result. The 68% radial error improves from 4.40 cm to 2.99 cm, and the 95% radial error improves from 13.73 cm to 5.60 cm. The projection centroid remains much worse than kNN. The all-32-channel physical centroid is not appropriate for this alternating-SiPM geometry because the old fixed-edge SiPM-position assumption no longer matches the detector layout.
+
+![New geometry kNN and centroid comparison](new_geometry_may7/figures/knn_centroid_comparison.png)
+
+### Dense 10000-Position Training Check
+
+A denser fixed-position training set was also generated for the new geometry:
+
+- Position macro: `macros/muon_scan_10000_1event_positions.mac`
+- One-run driver macro: `macros/muon_scan_one_run_10000_1event.mac`
+- Raw training folder: `new_build/10000_training_scan_may7`
+- Converted training folder: `analysis/sipm_reconstruction_session/new_geometry_may7/training_scan_data_10000_1event`
+- Number of scan positions: 10000
+- Events per position: 1
+- Grid: 100 by 100, with about 0.99 cm spacing in x and z.
+
+This uses the `ADD_SCAN` source-truth output, so the training labels come from `SourceIndex` and the source position columns rather than from separate run numbers. The same 1000 random ADD_SCAN test events were used.
+
+| Training library | Best kNN setting | Mean radial error | Median radial error | 68% radial error | 95% radial error | sigma x | sigma z |
+|---|---|---:|---:|---:|---:|---:|---:|
+| 1024 positions x 10 events | k=12, euclidean, L1, inverse-square | 2.58 cm | 2.25 cm | 2.99 cm | 5.60 cm | 2.09 cm | 2.21 cm |
+| 10000 positions x 1 event | k=16, euclidean, L1, inverse | 2.54 cm | 2.26 cm | 2.95 cm | 5.50 cm | 2.03 cm | 2.23 cm |
+
+The denser 10000-position library improves the result only slightly: the 68% radial error changes from 2.99 cm to 2.95 cm. This suggests that simply making the grid much denser is not enough to dramatically improve single-event reconstruction. The remaining error is likely coming from event-to-event photon statistics, detector response degeneracy, or the limited information content of a single 32-channel hit pattern.
+
+![New geometry kNN training library comparison](new_geometry_may7/figures/knn_training_library_comparison.png)
+
 ## Packaged Session Artifacts
 
 This folder collects the SiPM reconstruction work touched during the session:
@@ -158,6 +222,7 @@ This folder collects the SiPM reconstruction work touched during the session:
 - `training_scan_data_1024/`: converted fixed-position training data, stored locally/saved separately.
 - `test_scan_data_1000/`: converted random-position test data, stored locally/saved separately.
 - `data_manifests/`: manifest for matching random test events to generated positions.
+- `new_geometry_may7/`: separate new-geometry reconstruction check using May 7 fixed-scan training data and one-run `ADD_SCAN` random test data.
 
 The Geant4 macro sources remain in the repo-level `macros/` folder:
 

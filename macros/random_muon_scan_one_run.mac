@@ -1,0 +1,16 @@
+# One-run random-position scan for ADD_SCAN builds.
+#
+# The position file below was generated with generate_random_muon_scan.py.
+# Its rows are random already, so reading them sequentially gives a reproducible
+# random test sample. With 1000 events and 1000 positions, each position is used
+# once.
+
+/run/initialize
+/tracking/verbose 0
+/scan/positionFile macros/random_muon_scan.mac
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/run/beamOn 1000
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

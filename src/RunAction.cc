@@ -41,7 +41,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->Write();
     analysisManager->CloseFile();
-#ifndef ADD_RADIOACTIVE
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_SCAN)
     if (!isMaster && generator != nullptr && generator->generator != nullptr) {
         G4double line = generator->generator->timeSimulated();
         std::ofstream outfile(BuildRunTimeFilename(baseFilename, activeRunId));
@@ -91,6 +91,24 @@ void RunAction::BookAnalysis(G4String filename, G4bool ntupleMerging){
     analysisManager->CreateNtupleSColumn("OriginVolume");
     analysisManager->CreateNtupleIColumn("ParentID");
     analysisManager->CreateNtupleSColumn("ProcessName");
+#ifdef ADD_SCAN
+    analysisManager->CreateNtupleIColumn("SourceIndex");
+    analysisManager->CreateNtupleIColumn("SourceCycle");
+    analysisManager->CreateNtupleDColumn("SourceX");
+    analysisManager->CreateNtupleDColumn("SourceY");
+    analysisManager->CreateNtupleDColumn("SourceZ");
+#endif
 
     analysisManager->FinishNtuple();
+
+#ifdef ADD_SCAN
+    analysisManager->CreateNtuple("source", "Muon scan source truth by event");
+    analysisManager->CreateNtupleIColumn("EventID");
+    analysisManager->CreateNtupleIColumn("SourceIndex");
+    analysisManager->CreateNtupleIColumn("SourceCycle");
+    analysisManager->CreateNtupleDColumn("SourceX");
+    analysisManager->CreateNtupleDColumn("SourceY");
+    analysisManager->CreateNtupleDColumn("SourceZ");
+    analysisManager->FinishNtuple();
+#endif
 }
