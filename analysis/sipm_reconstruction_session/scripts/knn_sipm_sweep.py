@@ -88,6 +88,24 @@ def load_event_folder(path: Path) -> pd.DataFrame:
     return pd.concat(frames, ignore_index=True)
 
 
+def load_training_events(training_dir: Path, macro: Path) -> pd.DataFrame:
+    events = load_event_folder(training_dir)
+    manifest_path = training_dir / "test_manifest.csv"
+    if manifest_path.exists():
+        manifest = pd.read_csv(manifest_path)
+        labels = manifest[["run_id", "true_x_cm", "true_z_cm"]].copy()
+        labels = labels.rename(columns={"true_x_cm": "x_cm", "true_z_cm": "z_cm"})
+        if "source_index" in manifest.columns:
+            labels["position_id"] = manifest["source_index"].astype(int)
+        else:
+            labels["position_id"] = labels["run_id"].astype(int)
+        return events.merge(labels, on="run_id", validate="one_to_one")
+
+    labels = parse_muon_scan_positions(macro)
+    labels["position_id"] = labels["run_id"]
+    return events.merge(labels, on="run_id", validate="many_to_one")
+
+
 def load_test_events(test_dir: Path) -> pd.DataFrame:
     manifest = pd.read_csv(test_dir / "test_manifest.csv")
     frames = []
@@ -185,23 +203,26 @@ def summarize(predictions: pd.DataFrame, config: dict[str, object]) -> dict[str,
 
 def main() -> None:
     args = parse_args()
-    labels = parse_muon_scan_positions(args.macro)
-    train_events = load_event_folder(args.training_dir).merge(labels, on="run_id", validate="many_to_one")
+    train_events = load_training_events(args.training_dir, args.macro)
     if args.max_events_per_run is not None:
         if args.max_events_per_run <= 0:
             raise ValueError("--max-events-per-run must be positive")
         train_events = (
             train_events.sort_values(["run_id", "event_id"])
-            .groupby("run_id", group_keys=False)
+            .groupby("position_id", group_keys=False)
             .head(args.max_events_per_run)
             .reset_index(drop=True)
         )
     test_events = load_test_events(args.test_dir)
     templates = (
-        train_events.groupby("run_id", as_index=False)[SIPM_COLUMNS]
-        .mean()
-        .merge(labels, on="run_id", validate="one_to_one")
+        train_events.groupby("position_id", as_index=False)[SIPM_COLUMNS].mean()
+        .merge(
+            train_events[["position_id", "x_cm", "z_cm"]].drop_duplicates("position_id"),
+            on="position_id",
+            validate="one_to_one",
+        )
     )
+    templates["run_id"] = templates["position_id"]
 
     references = {}
     if args.reference in ("templates", "both"):

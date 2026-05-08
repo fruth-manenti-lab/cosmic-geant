@@ -13,6 +13,7 @@
 /vis/viewer/set/autoRefresh false
 /vis/scene/endOfEventAction accumulate -1
 /vis/scene/endOfRunAction accumulate
+/run/printProgress 102
 /run/beamOn 10240
 /vis/viewer/set/autoRefresh true
 /vis/viewer/refresh

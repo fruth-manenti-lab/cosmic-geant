@@ -62,6 +62,11 @@ def load_training_events(path: Path, labels: pd.DataFrame) -> pd.DataFrame:
     if not frames:
         raise FileNotFoundError(f"No training event CSVs found in {path}")
     events = pd.concat(frames, ignore_index=True)
+    manifest_path = path / "test_manifest.csv"
+    if manifest_path.exists():
+        manifest = pd.read_csv(manifest_path)
+        manifest_labels = manifest[["run_id", "true_x_cm", "true_z_cm"]].copy()
+        return events.merge(manifest_labels, on="run_id", validate="one_to_one")
     return events.merge(labels, on="run_id", validate="many_to_one")
 
 

@@ -1,0 +1,42 @@
+campaign_id:
+description:
+
+geometry:
+  geometry_id:
+  geometry_file:
+  geometry_registry: geometry/GEOMETRY_REGISTRY.md
+  git_commit:
+
+build:
+  build_dir:
+  executable:
+  compile_options:
+    ADD_SCAN:
+    ADD_RADIOACTIVE:
+  geant4_version:
+
+source:
+  macro:
+  source_position_file:
+  position_generation:
+    type:
+    seed:
+    grid:
+    bounds:
+  n_events:
+  events_per_position:
+  event_position_mapping:
+
+outputs:
+  raw_output_path:
+  source_truth_files:
+  hit_files:
+  converted_output_path:
+  large_files_saved_separately:
+
+analysis:
+  scripts:
+  results:
+  figures:
+  notes:
+
