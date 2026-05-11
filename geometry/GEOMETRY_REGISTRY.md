@@ -34,6 +34,19 @@ This file tracks the detector geometry variants used for SiPM reconstruction stu
 - Foil holes: positive and negative side faces are perforated for the stub penetrations.
 - Purpose: isolates the effect of alternating the SiPM readout pattern while keeping the original stub optics.
 
+## `geom-stubs-double-ended`
+
+- File: `geometry/final_stubs_double_ended_sipms.gdml`
+- Readout: every fiber is read out on both ends.
+- `sipm_100` to `sipm_115`: z-running fibers read out on `+z`.
+- `sipm_200` to `sipm_215`: z-running fibers read out on `-z`.
+- `sipm_300` to `sipm_315`: x-running fibers read out on `+x`.
+- `sipm_400` to `sipm_415`: x-running fibers read out on `-x`.
+- Fiber ends: external coated fiber stubs are present on both ends.
+- Readout ends: all external stubs use `geometry/fiber_kuraray_stub.gdml`, the coated stub with an open readout face.
+- Foil holes: positive and negative side faces are perforated for the stub/readout penetrations.
+- Purpose: tests whether collecting light from both fiber ends improves reconstruction enough to justify doubling the readout channel count.
+
 ## `geom-nostubs-pos`
 
 - File: `geometry/final_no_stubs_pos_sipms.gdml`

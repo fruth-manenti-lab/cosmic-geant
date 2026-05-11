@@ -29,3 +29,6 @@ analysis/sipm_reconstruction_session/nostubs_pos_may8/results/*predictions*.csv
 analysis/sipm_reconstruction_session/stubs_alt_may8/training_scan_data_*/
 analysis/sipm_reconstruction_session/stubs_alt_may8/test_scan_data_*/
 analysis/sipm_reconstruction_session/stubs_alt_may8/results/*predictions*.csv
+analysis/sipm_reconstruction_session/double_ended_quad_may10/training_scan_data_*/
+analysis/sipm_reconstruction_session/double_ended_quad_may10/test_scan_data_*/
+analysis/sipm_reconstruction_session/double_ended_quad_may10/results/*predictions*.csv

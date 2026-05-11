@@ -15,8 +15,15 @@ from pathlib import Path
 import pandas as pd
 
 
-SIPM_COPIES = tuple(range(100, 116)) + tuple(range(300, 316))
-SIPM_COLUMNS = [f"sipm_{copy}" for copy in SIPM_COPIES]
+SIPM_COPY_PRESETS = {
+    "standard": tuple(range(100, 116)) + tuple(range(300, 316)),
+    "double-ended": (
+        tuple(range(100, 116))
+        + tuple(range(200, 216))
+        + tuple(range(300, 316))
+        + tuple(range(400, 416))
+    ),
+}
 HIT_REQUIRED_COLUMNS = {"EventID", "TrackID", "Volume", "Copynumber", "ProcessName"}
 SOURCE_REQUIRED_COLUMNS = {"EventID", "SourceIndex", "SourceCycle", "SourceX", "SourceY", "SourceZ"}
 
@@ -38,6 +45,12 @@ def parse_args() -> argparse.Namespace:
         help="Directory for per-event SiPM count CSVs and test_manifest.csv.",
     )
     parser.add_argument("--process-name", default="OpWLS")
+    parser.add_argument(
+        "--sipm-preset",
+        choices=sorted(SIPM_COPY_PRESETS),
+        default="standard",
+        help="SiPM copy-number set to convert.",
+    )
     parser.add_argument("--overwrite", action="store_true")
     return parser.parse_args()
 
@@ -73,7 +86,12 @@ def load_source_truth(input_dir: Path) -> pd.DataFrame:
     return truth
 
 
-def load_hit_counts(input_dir: Path, process_name: str, event_ids: pd.Series) -> pd.DataFrame:
+def load_hit_counts(
+    input_dir: Path,
+    process_name: str,
+    event_ids: pd.Series,
+    sipm_copies: tuple[int, ...],
+) -> pd.DataFrame:
     paths = sorted(input_dir.glob("MUON-run*_nt_hits_t*.csv"))
     if not paths:
         raise FileNotFoundError(f"No hit CSV shards found in {input_dir}")
@@ -89,7 +107,7 @@ def load_hit_counts(input_dir: Path, process_name: str, event_ids: pd.Series) ->
         if df.empty:
             continue
         df["Copynumber"] = df["Copynumber"].astype(int)
-        df = df.loc[df["Copynumber"].isin(SIPM_COPIES)]
+        df = df.loc[df["Copynumber"].isin(sipm_copies)]
         frames.append(df)
 
     if frames:
@@ -106,10 +124,10 @@ def load_hit_counts(input_dir: Path, process_name: str, event_ids: pd.Series) ->
         output = pd.DataFrame(index=pd.Index([], name="EventID"))
 
     output = (
-        output.reindex(index=event_ids.to_numpy(), columns=SIPM_COPIES, fill_value=0)
+        output.reindex(index=event_ids.to_numpy(), columns=sipm_copies, fill_value=0)
         .fillna(0)
         .astype("int64")
-        .rename(columns={copy: f"sipm_{copy}" for copy in SIPM_COPIES})
+        .rename(columns={copy: f"sipm_{copy}" for copy in sipm_copies})
         .reset_index()
     )
     return output.rename(columns={"index": "EventID"})
@@ -122,8 +140,10 @@ def main() -> None:
     if not input_dir.exists():
         raise FileNotFoundError(f"Input directory does not exist: {input_dir}")
 
+    sipm_copies = SIPM_COPY_PRESETS[args.sipm_preset]
+    sipm_columns = [f"sipm_{copy}" for copy in sipm_copies]
     truth = load_source_truth(input_dir)
-    counts = load_hit_counts(input_dir, args.process_name, truth["EventID"])
+    counts = load_hit_counts(input_dir, args.process_name, truth["EventID"], sipm_copies)
     merged = truth.merge(counts, on="EventID", validate="one_to_one")
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -134,8 +154,8 @@ def main() -> None:
         output_path = output_dir / output_name
         if args.overwrite or not output_path.exists():
             out = pd.DataFrame(
-                [{"EventID": event_id, **{col: int(row[col]) for col in SIPM_COLUMNS}}],
-                columns=["EventID", *SIPM_COLUMNS],
+                [{"EventID": event_id, **{col: int(row[col]) for col in sipm_columns}}],
+                columns=["EventID", *sipm_columns],
             )
             out.to_csv(output_path, index=False)
 

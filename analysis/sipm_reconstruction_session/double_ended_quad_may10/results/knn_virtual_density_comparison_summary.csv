@@ -1,0 +1,3 @@
+"training_density","n_base_positions","n_reference","k","metric","normalization","weighting","mean_err_r_cm","median_err_r_cm","p68_err_r_cm","p95_err_r_cm","sigma_err_x_cm","sigma_err_z_cm"
+"2500 positions x 10","2500","100000","16","euclidean","l1","inverse","1.8899357496294686","1.6204313637576888","2.211597170291912","4.4245639044323335","1.580596972585716","1.5834643808208213"
+"256 positions x 10","256","10240","16","euclidean","l1","inverse","2.1428678547680464","1.8311632553560666","2.4365702433203924","4.8502786520505685","1.808402835173927","1.775879956817324"
