@@ -15,9 +15,13 @@
     <variable name='p' value='0'/>
     <variable name="slab_half_y" value="10"/>
     <variable name="grease_half_y" value="0.05"/>
+    <variable name="grease_size" value="6"/>
     <variable name="sipm_half_y" value="0.5"/>
+    <variable name="sipm_size" value="6"/>
     <variable name="teflon_half_thickness" value="0.025"/>
-    <variable name="teflon_hole_size" value="6.2"/>
+    <variable name="teflon_hole_clearance" value="1.0"/>
+    <variable name="teflon_hole_size" value="sipm_size+teflon_hole_clearance"/>
+    <variable name="teflon_hole_y" value="2*teflon_half_thickness+1.0"/>
     <variable name="grease_y" value="slab_half_y+grease_half_y"/>
     <variable name="sipm_y" value="slab_half_y+2*grease_half_y+sipm_half_y"/>
     <variable name="teflon_top_y" value="slab_half_y+teflon_half_thickness"/>
@@ -304,13 +308,13 @@
         <box lunit="m" name="world_solid" x="2" y="2" z="2" />
         <box lunit="cm" name="detector_solid" x="110" y="200" z="110" />
         <box name="scintillator_slab_solid" x="1000" y="20" z="1000" lunit="mm" />
-        <box name="grease-SOL" x="6" y="0.1" z="6" lunit="mm" />
-	    <box name="sipm-SOL" x='6' y='1' z='6' lunit='mm' />
+        <box name="grease-SOL" x="grease_size" y="0.1" z="grease_size" lunit="mm" />
+	    <box name="sipm-SOL" x='sipm_size' y='1' z='sipm_size' lunit='mm' />
         <box name="teflon_top_base" x="1000" y="2*teflon_half_thickness" z="1000" lunit="mm" />
         <box name="teflon_bottom_solid" x="1000" y="2*teflon_half_thickness" z="1000" lunit="mm" />
         <box name="teflon_x_side_solid" x="2*teflon_half_thickness" y="20" z="1000" lunit="mm" />
         <box name="teflon_z_side_solid" x="1000" y="20" z="2*teflon_half_thickness" lunit="mm" />
-        <box name="teflon_hole" x="teflon_hole_size" y="2*teflon_half_thickness+0.002" z="teflon_hole_size" lunit="mm" />
+        <box name="teflon_hole" x="teflon_hole_size" y="teflon_hole_y" z="teflon_hole_size" lunit="mm" />
         <subtraction name="teflon_top_step_0">
             <first ref="teflon_top_base"/>
             <second ref="teflon_hole"/>
