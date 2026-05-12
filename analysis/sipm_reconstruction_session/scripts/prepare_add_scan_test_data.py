@@ -17,6 +17,7 @@ import pandas as pd
 
 SIPM_COPY_PRESETS = {
     "standard": tuple(range(100, 116)) + tuple(range(300, 316)),
+    "facemount": tuple(range(32)),
     "double-ended": (
         tuple(range(100, 116))
         + tuple(range(200, 216))
@@ -44,7 +45,11 @@ def parse_args() -> argparse.Namespace:
         default=Path("analysis/sipm_reconstruction_session/test_scan_data_add_scan"),
         help="Directory for per-event SiPM count CSVs and test_manifest.csv.",
     )
-    parser.add_argument("--process-name", default="OpWLS")
+    parser.add_argument(
+        "--process-name",
+        default="OpWLS",
+        help="Hit ProcessName to count, or 'any' to count all SiPM sensitive-detector hits.",
+    )
     parser.add_argument(
         "--sipm-preset",
         choices=sorted(SIPM_COPY_PRESETS),
@@ -99,7 +104,8 @@ def load_hit_counts(
     frames = []
     for path in paths:
         df = read_wcsv(path, HIT_REQUIRED_COLUMNS)
-        df = df.loc[df["ProcessName"] == process_name]
+        if process_name.lower() not in {"any", "all", "*"}:
+            df = df.loc[df["ProcessName"] == process_name]
         if df.empty:
             continue
         sipm_mask = df["Volume"].astype(str).str.contains("sipm", case=False, na=False)

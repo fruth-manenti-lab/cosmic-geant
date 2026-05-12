@@ -16,7 +16,7 @@
 
 ## Purpose
 
-The goal of this study is to reconstruct the transverse muon hit position in the detector from the SiPM count pattern produced by a single simulated muon. Most initial studies used a 32-channel readout, while the newest double-ended geometry uses 64 channels. The target comparison point is the existing simple SiPM-weighting estimate, which gives roughly 2 cm one-sigma position deviation on a single hit.
+The goal of this study is to reconstruct the transverse muon hit position in the detector from the SiPM count pattern produced by a single simulated muon. Most initial studies used a 32-channel fiber-end readout, the double-ended geometry uses 64 channels, and the newest face-mount study returns to 32 channels mounted directly over a 1 m x 1 m slab. The target comparison point is the existing simple SiPM-weighting estimate, which gives roughly 2 cm one-sigma position deviation on a single hit.
 
 The central design question became:
 
@@ -25,13 +25,14 @@ Does the reconstruction improve because we remove fiber stubs,
 or because we change the SiPM readout pattern?
 ```
 
-To answer that, five geometries are compared in a controlled order:
+To answer that, six geometries are compared in a controlled order:
 
 1. Baseline geometry with stubs and all SiPMs on positive sides.
 2. No-stub geometry with the same positive-side SiPM pattern.
 3. No-stub geometry with alternating SiPM sides.
 4. Stubbed geometry with alternating SiPM sides.
 5. Stubbed geometry with SiPMs on both ends of every fiber.
+6. 1 m face-mount slab geometry with 32 SiPMs placed beside quadrant diagonals.
 
 ## Detector Readout Geometries
 
@@ -46,6 +47,13 @@ The double-ended geometry adds the opposite readout ends and is represented by 6
 - `sipm_200` to `sipm_215`: z-running fibers read out on `-z`.
 - `sipm_300` to `sipm_315`: x-running fibers read out on `+x`.
 - `sipm_400` to `sipm_415`: x-running fibers read out on `-x`.
+
+The face-mount geometry uses a different 32-channel convention:
+
+- `sipm_0` to `sipm_31`: 6 mm x 6 mm SiPMs above a 1 m x 1 m slab.
+- The slab is divided into 16 squares.
+- Each quadrant contains two diagonals, and each of the 16 small squares contains two SiPMs.
+- The SiPM pair centers are offset 5.9 cm from the relevant diagonal.
 
 The schematics below are top views in the detector x-z plane. Blue lines are the z-running fiber family, orange lines are the x-running fiber family, black squares are SiPMs, green squares are grease/contact regions, and dashed gray extensions are external fiber stubs.
 
@@ -115,6 +123,21 @@ This geometry is symmetric under x and z reflections. To reduce simulation time,
 
 ![Positive-quadrant virtual mapping](figures/positive_quadrant_virtual_mapping.svg)
 
+### Geometry F: 1 m Face-Mount Diagonal SiPMs
+
+- Geometry ID: `geom-facemount-1m-diagonal`
+- GDML: `geometry/faceMountGeometry_1m_diagonal_sipms.gdml`
+- Stub state: no fiber stubs.
+- Readout pattern: 32 SiPMs face-mounted above the slab, with two SiPMs per 25 cm x 25 cm small square.
+- `sipm_0` to `sipm_31`: 6 mm x 6 mm SiPMs arranged beside quadrant diagonals.
+- Reason for testing: checks whether direct face-mounted SiPMs can outperform fiber-end readout with the same 32-channel count.
+
+![Face-mount 1 m diagonal SiPM layout](../../geometry/facemount_1m_diagonal_sipm_preview.png)
+
+The face-mount layout is also symmetric under x and z reflections. The positive-quadrant training scan can therefore be expanded virtually by reflecting the hit position and permuting the 32 SiPM columns according to the geometric copy-number map below.
+
+![Face-mount virtual SiPM mapping](../../geometry/facemount_1m_virtual_sipm_mapping.png)
+
 ## Simulation Samples
 
 The simulations are Geant4 single-muon scans. Two types of samples are used:
@@ -149,6 +172,14 @@ For the double-ended geometry the same convention is extended to:
  sipm_300, ..., sipm_315,
  sipm_400, ..., sipm_415]
 ```
+
+For the face-mount geometry the event vector is:
+
+```text
+[sipm_0, ..., sipm_31]
+```
+
+These are direct SiPM sensitive-detector hits in `sipm_PV`. Unlike the fiber WLS analyses, the face-mount conversion counts all SiPM hits with `--process-name any`, because the relevant hit records are tagged as `Scintillation` and `Cerenkov` rather than `OpWLS`.
 
 The conversion scripts are:
 
@@ -186,6 +217,8 @@ The SiPM count columns are permuted consistently with each reflection. For examp
 
 The virtual rows are not written as duplicate training files. They are created only in memory for the kNN nearest-neighbor search. The 1000-event random test set remains the real positive-quadrant sample.
 
+The same virtual expansion was used for the face-mount geometry. In that case the copy-number permutation is derived from the 32 physical SiPM coordinates, so each reflection maps `sipm_0` to `sipm_31` by the actual diagonal layout rather than by fiber lane index.
+
 ### One-Axis Readout Masking
 
 The double-ended event data can also be re-analyzed as if only one opposite pair of detector sides had SiPMs installed. This is done by masking the kNN feature vector, not by rerunning Geant4:
@@ -213,18 +246,19 @@ All quoted test results below use 1000 random single-muon test events. Configura
 
 | Rank | Configuration | Channels | Stub state | SiPM pattern | Training library | Best kNN setting | Mean radial error | Median radial error | 68% radial error | 95% radial error |
 |---:|---|---:|---|---|---|---|---:|---:|---:|---:|
-| 1 | `geom-stubs-double-ended`, all four sides | 64 | stubs present | both ends of every fiber | positive quadrant: 2500 positions x 10 events, reflected virtually | k=16, euclidean, L1 counts, inverse | 1.89 cm | 1.62 cm | 2.21 cm | 4.42 cm |
-| 2 | `geom-stubs-double-ended`, density control | 64 | stubs present | both ends of every fiber | positive quadrant: 256 positions x 10 events, reflected virtually | k=16, euclidean, L1 counts, inverse | 2.14 cm | 1.83 cm | 2.44 cm | 4.85 cm |
-| 3 | `geom-nostubs-alt` | 32 | no stubs | alternating sides | 1024 positions x 10 events | k=12, euclidean, L1 counts, inverse-square | 2.58 cm | 2.25 cm | 2.99 cm | 5.60 cm |
-| 4 | `geom-stubs-alt` | 32 | stubs present | alternating sides | 1024 positions x 10 events | k=12, euclidean, L1 counts, inverse-square | 2.70 cm | 2.35 cm | 3.11 cm | 6.24 cm |
-| 5 | `geom-stubs-double-ended`, `+z/-z` sides only | 32 | stubs present | one opposite side pair only | positive quadrant: 2500 positions x 10 events, reflected virtually | k=32, euclidean, L1 counts, inverse | 3.58 cm | 3.13 cm | 4.18 cm | 7.99 cm |
-| 6 | `geom-stubs-double-ended`, `+x/-x` sides only | 32 | stubs present | one opposite side pair only | positive quadrant: 2500 positions x 10 events, reflected virtually | k=32, euclidean, L1 counts, inverse-square | 3.69 cm | 3.22 cm | 4.37 cm | 8.49 cm |
-| 7 | `geom-final-stubs-pos` | 32 | stubs present | positive sides only | 1024 positions x 100 events | k=48, euclidean, raw counts, inverse-square | 4.30 cm | 2.87 cm | 4.40 cm | 13.73 cm |
-| 8 | `geom-nostubs-pos` | 32 | no stubs | positive sides only | 1024 positions x 10 events | k=12, euclidean, sqrt counts, inverse-square | 4.64 cm | 3.22 cm | 4.71 cm | 14.12 cm |
+| 1 | `geom-facemount-1m-diagonal` | 32 | no fiber stubs | face-mounted diagonal pairs | positive quadrant: 256 positions x 10 events, reflected virtually | k=16, euclidean, L1 counts, inverse-square | 1.75 cm | 1.23 cm | 1.74 cm | 5.05 cm |
+| 2 | `geom-stubs-double-ended`, all four sides | 64 | stubs present | both ends of every fiber | positive quadrant: 2500 positions x 10 events, reflected virtually | k=16, euclidean, L1 counts, inverse | 1.89 cm | 1.62 cm | 2.21 cm | 4.42 cm |
+| 3 | `geom-stubs-double-ended`, density control | 64 | stubs present | both ends of every fiber | positive quadrant: 256 positions x 10 events, reflected virtually | k=16, euclidean, L1 counts, inverse | 2.14 cm | 1.83 cm | 2.44 cm | 4.85 cm |
+| 4 | `geom-nostubs-alt` | 32 | no stubs | alternating sides | 1024 positions x 10 events | k=12, euclidean, L1 counts, inverse-square | 2.58 cm | 2.25 cm | 2.99 cm | 5.60 cm |
+| 5 | `geom-stubs-alt` | 32 | stubs present | alternating sides | 1024 positions x 10 events | k=12, euclidean, L1 counts, inverse-square | 2.70 cm | 2.35 cm | 3.11 cm | 6.24 cm |
+| 6 | `geom-stubs-double-ended`, `+z/-z` sides only | 32 | stubs present | one opposite side pair only | positive quadrant: 2500 positions x 10 events, reflected virtually | k=32, euclidean, L1 counts, inverse | 3.58 cm | 3.13 cm | 4.18 cm | 7.99 cm |
+| 7 | `geom-stubs-double-ended`, `+x/-x` sides only | 32 | stubs present | one opposite side pair only | positive quadrant: 2500 positions x 10 events, reflected virtually | k=32, euclidean, L1 counts, inverse-square | 3.69 cm | 3.22 cm | 4.37 cm | 8.49 cm |
+| 8 | `geom-final-stubs-pos` | 32 | stubs present | positive sides only | 1024 positions x 100 events | k=48, euclidean, raw counts, inverse-square | 4.30 cm | 2.87 cm | 4.40 cm | 13.73 cm |
+| 9 | `geom-nostubs-pos` | 32 | no stubs | positive sides only | 1024 positions x 10 events | k=12, euclidean, sqrt counts, inverse-square | 4.64 cm | 3.22 cm | 4.71 cm | 14.12 cm |
 
-The ranking shows three useful regimes. Full double-ended readout is the clear best configuration, even when its training density is reduced to match the older effective full-slab density. Alternating 32-channel readout is the next tier. One-axis opposite-side readout is better than the weakest positive-side configurations in tail behavior, but it is not competitive with either full double-ended readout or alternating-side 32-channel readout.
+The ranking shows four useful regimes. The new 32-channel face-mount diagonal layout gives the best mean, median, and 68% radial errors in this report. Full double-ended readout is still the best fiber-end configuration, even when its training density is reduced to match the older effective full-slab density. Alternating 32-channel fiber-end readout is the next tier. One-axis opposite-side readout is better than the weakest positive-side configurations in tail behavior, but it is not competitive with face-mounted readout, full double-ended readout, or alternating-side 32-channel readout.
 
-The key 32-channel comparisons are Geometry A versus Geometry D, and Geometry B versus Geometry C. In both pairs, the alternating readout pattern improves reconstruction substantially. Comparing Geometry C and Geometry D suggests that restoring stubs slightly worsens the alternating-readout performance, but the effect is much smaller than the effect of changing the readout pattern. Geometry E is a larger design change because it doubles the readout to 64 channels and uses positive-quadrant symmetry to reduce the simulation load.
+The key fiber-end 32-channel comparisons are Geometry A versus Geometry D, and Geometry B versus Geometry C. In both pairs, the alternating readout pattern improves reconstruction substantially. Comparing Geometry C and Geometry D suggests that restoring stubs slightly worsens the alternating-readout performance, but the effect is much smaller than the effect of changing the readout pattern. Geometry E is a larger design change because it doubles the readout to 64 channels and uses positive-quadrant symmetry to reduce the simulation load. Geometry F is different again: it removes the fiber-end readout assumption and places the 32 SiPMs directly above the slab.
 
 ### Baseline: Stubs, Positive-Side SiPMs
 
@@ -294,6 +328,41 @@ These tests use the same converted double-ended event data but mask the kNN inpu
 
 The one-axis masks lose precision mainly in the coordinate along the readout-side direction. With only `+z/-z` sides, `sigma z` grows to 3.56 cm while `sigma x` stays near 1.92 cm. With only `+x/-x` sides, the pattern flips: `sigma x` grows to 3.70 cm while `sigma z` stays near 1.95 cm.
 
+An explicit light-sharing feature test was also run for the one-axis masks. For
+each opposite SiPM pair, 16 ratio features were appended to the 32 count
+channels after count normalization. Two definitions were tested:
+`(positive-negative)/(positive+negative)` and
+`positive/(positive+negative)`, with small scale factors from 0.02 to 0.5.
+This did not improve the kNN result; the best configuration for both axes
+remained the count-only baseline in the table above. The ratio features appear
+to mostly reweight information already present in the normalized count vector,
+and larger ratio weights worsened the nearest-neighbor metric.
+
+### Face-Mount 1 m Diagonal SiPMs
+
+This configuration uses 32 direct face-mounted SiPM channels instead of fiber-end SiPM families. The training and random test scans were generated in the positive quadrant:
+
+- Geometry: `geometry/faceMountGeometry_1m_diagonal_sipms.gdml`
+- Training macro: `macros/muon_scan_positive_quadrant_256x10_one_run.mac`
+- Training positions: `macros/muon_scan_positive_quadrant_256_positions.mac`
+- Training library: 256 positive-quadrant positions x 10 events = 2560 real training events.
+- Random test macro: `macros/random_muon_scan_positive_quadrant_1000_one_run.mac`
+- Random test sample: 1000 positive-quadrant events.
+- kNN reference: individual training events expanded virtually into four quadrants, giving 10240 in-memory reference vectors.
+
+The face-mount conversion uses copy numbers `0..31` and counts all `sipm_PV` sensitive-detector hits. This is different from the WLS fiber studies, where the conversion counts unique `OpWLS` photon tracks.
+
+| Method | Training density | Mean radial error | Median radial error | 68% radial error | 95% radial error | sigma x | sigma z |
+|---|---|---:|---:|---:|---:|---:|---:|
+| kNN event library with virtual quadrants | 256 positions x 10 events | 1.75 cm | 1.23 cm | 1.74 cm | 5.05 cm | 1.81 cm | 1.81 cm |
+| kNN event library, positive quadrant only | 256 positions x 10 events | 1.76 cm | 1.26 cm | 1.75 cm | 5.05 cm | 1.82 cm | 1.81 cm |
+
+The virtual reference is slightly better on the positive-quadrant test set. The nearest neighbors remain mostly in the real positive quadrant, with `991/1000` best matches from `Q++`; the few adjacent-quadrant matches are consistent with events near symmetry boundaries.
+
+![Face-mount random scan reconstruction](facemount_may12/figures/random_scan_reconstruction.png)
+
+![Face-mount radial error histogram](facemount_may12/figures/radial_error_histogram.png)
+
 ## Design Interpretation
 
 ### What Removing Stubs Did
@@ -320,11 +389,17 @@ That reinforces the same conclusion: the readout pattern is the dominant improve
 
 The double-ended geometry changes the problem more strongly than alternating sides. Instead of choosing one readout side per fiber, it measures both ends of every fiber. That doubles the count vector from 32 channels to 64 channels and gives the model direct information about light sharing along each fiber.
 
-With the dense positive-quadrant scan and virtual quadrant expansion, the 68% radial error improves to 2.21 cm. That is the best result in this report so far. It is also close to the original 2 cm one-sigma target from the simple weighting method, but with a much better 95% tail than the positive-side geometries.
+With the dense positive-quadrant scan and virtual quadrant expansion, the 68% radial error improves to 2.21 cm. That is the best fiber-end result in this report so far. It is also close to the original 2 cm one-sigma target from the simple weighting method, but with a much better 95% tail than the positive-side geometries.
 
 To separate geometry improvement from training density, the same analysis was repeated using only 256 evenly spread positive-quadrant positions. This gives 1024 effective full-slab positions after reflection, matching the old training density. The 68% radial error becomes 2.44 cm. Therefore, the denser 2500-position quadrant grid helps, but the double-ended readout itself appears to be the larger improvement over the previous 32-channel geometries.
 
 Masking the same double-ended data down to one opposite side pair gives intermediate performance: 4.18 cm 68% radial error for `+z/-z` only and 4.37 cm for `+x/-x` only. These masks preserve useful information from opposite-end light sharing, but they lose the orthogonal pair needed for balanced x-z reconstruction. The result is much worse than full double-ended readout and also worse than the alternating-side 32-channel layouts.
+
+### What Face-Mount Diagonal Readout Did
+
+The face-mount diagonal layout is the first 32-channel geometry in this study to beat the dense 64-channel double-ended fiber-end result on the central error metrics. With only 256 positive-quadrant training positions, virtual expansion, and 1000 random positive-quadrant test events, it reaches 1.74 cm 68% radial error and 1.23 cm median radial error.
+
+This is not a direct stub-versus-no-stub control, because the optical collection mechanism is different. The important result is that direct face-mounted SiPM placement appears to carry stronger local position information per channel than the fiber-end layouts tested so far. The 95% error tail remains about 5.05 cm, so the next useful check is whether the outliers are dominated by edge events, optical-statistics fluctuations, or residual mapping symmetry.
 
 ### Why kNN Beats Centroid
 
@@ -339,10 +414,11 @@ Centroid remains useful as a baseline and sanity check, but it is not competitiv
 3. Alternating SiPM sides gives a large improvement in single-event localization, both with and without stubs.
 4. Among 32-channel geometries with the standard 1024-position x 10-event training scale, `geom-nostubs-alt` remains best, at 2.99 cm 68% radial error.
 5. The stubbed alternating geometry is close but slightly worse, at 3.11 cm 68% radial error.
-6. The 64-channel double-ended geometry gives the best numerical result so far: 2.21 cm 68% radial error with the dense positive-quadrant scan and virtual quadrant expansion.
-7. Reducing the double-ended training density to 256 positive-quadrant positions, equivalent to 1024 full-slab positions after reflection, gives 2.44 cm 68% radial error. This is worse than the dense scan but still better than the previous 32-channel geometries.
+6. The 64-channel double-ended fiber-end geometry gives the best fiber-end result so far: 2.21 cm 68% radial error with the dense positive-quadrant scan and virtual quadrant expansion.
+7. Reducing the double-ended training density to 256 positive-quadrant positions, equivalent to 1024 full-slab positions after reflection, gives 2.44 cm 68% radial error. This is worse than the dense scan but still better than the previous 32-channel fiber-end geometries.
 8. Masking the double-ended data to only one opposite side pair gives 4.18 cm 68% radial error for `+z/-z` only and 4.37 cm for `+x/-x` only. This is not a good replacement for full double-ended or alternating-side readout.
-9. The next improvement probably needs either a better statistical model of single-event fluctuations, a learned regression model beyond nearest-neighbor matching, or additional feature engineering that uses the double-ended light-sharing ratios explicitly.
+9. The 32-channel face-mount diagonal geometry gives the best result in this report so far: 1.74 cm 68% radial error and 1.23 cm median radial error using 256 positive-quadrant positions x 10 events with virtual quadrant expansion.
+10. The next improvement probably needs either a better statistical model of single-event fluctuations, a learned regression model beyond nearest-neighbor matching, or additional feature engineering that uses local face-mount topology and edge behavior explicitly.
 
 ## Data Provenance
 
@@ -361,6 +437,7 @@ Specific metadata files:
 - `analysis/sipm_reconstruction_session/nostubs_pos_may8/RUN_METADATA.yml`
 - `analysis/sipm_reconstruction_session/stubs_alt_may8/RUN_METADATA.yml`
 - `analysis/sipm_reconstruction_session/double_ended_quad_may10/RUN_METADATA.yml`
+- `analysis/sipm_reconstruction_session/facemount_may12/README.md`
 
 The recommended naming rule is:
 
@@ -417,6 +494,7 @@ This folder collects the SiPM reconstruction work touched during the session:
 - `nostubs_pos_may8/`: `geom-nostubs-pos` reconstruction results.
 - `stubs_alt_may8/`: `geom-stubs-alt` reconstruction results.
 - `double_ended_quad_may10/`: `geom-stubs-double-ended` positive-quadrant reconstruction results.
+- `facemount_may12/`: `geom-facemount-1m-diagonal` positive-quadrant reconstruction results.
 
 Primary report outputs:
 
@@ -427,5 +505,12 @@ Primary report outputs:
 - `nostubs_pos_may8/figures/knn_centroid_comparison.png`
 - `stubs_alt_may8/figures/knn_centroid_comparison.png`
 - `figures/positive_quadrant_virtual_mapping.svg`
+- `../../geometry/facemount_1m_diagonal_sipm_preview.png`
+- `../../geometry/facemount_1m_virtual_sipm_mapping.png`
+- `facemount_may12/figures/random_scan_reconstruction.png`
+- `facemount_may12/figures/radial_error_histogram.png`
+- `facemount_may12/results/knn_virtual_quadrant_sweep_results.csv`
+- `facemount_may12/results/knn_virtual_vs_positive_summary.csv`
 - `double_ended_quad_may10/results/knn_virtual_density_comparison_summary.csv`
 - `double_ended_quad_may10/results/knn_virtual_axis_readout_comparison_summary.csv`
+- `double_ended_quad_may10/results/knn_virtual_axis_ratio_feature_comparison_summary.csv`

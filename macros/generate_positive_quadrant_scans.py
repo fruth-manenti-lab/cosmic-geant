@@ -12,6 +12,7 @@ from generate_muon_scan import (
 
 
 GRID_POINTS_PER_AXIS = 50
+GRID_256_POINTS_PER_AXIS = 16
 EVENTS_PER_GRID_POSITION = 10
 RANDOM_EVENTS = 1000
 RANDOM_SEED = 20260509
@@ -83,10 +84,15 @@ def main() -> None:
     half_width = variables["slab_half_xy"] * unit_scale_from_mm
 
     grid_positions = build_quadrant_grid(half_width, source_y, GRID_POINTS_PER_AXIS)
+    grid_256_positions = build_quadrant_grid(
+        half_width, source_y, GRID_256_POINTS_PER_AXIS
+    )
     random_positions = build_quadrant_random(half_width, source_y, RANDOM_EVENTS, RANDOM_SEED)
 
     grid_position_file = macros_dir / "muon_scan_positive_quadrant_2500_positions.mac"
     grid_wrapper_file = macros_dir / "muon_scan_positive_quadrant_2500x10_one_run.mac"
+    grid_256_position_file = macros_dir / "muon_scan_positive_quadrant_256_positions.mac"
+    grid_256_wrapper_file = macros_dir / "muon_scan_positive_quadrant_256x10_one_run.mac"
     random_position_file = macros_dir / "random_muon_scan_positive_quadrant_1000_positions.mac"
     random_wrapper_file = macros_dir / "random_muon_scan_positive_quadrant_1000_one_run.mac"
     random_csv_file = macros_dir / "random_muon_scan_positive_quadrant_1000_positions.csv"
@@ -117,6 +123,37 @@ def main() -> None:
             "/vis/scene/endOfRunAction accumulate",
             "/run/printProgress 2500",
             f"/run/beamOn {len(grid_positions) * EVENTS_PER_GRID_POSITION}",
+            "/vis/viewer/set/autoRefresh true",
+            "/vis/viewer/refresh",
+        ],
+    )
+
+    grid_256_step = half_width / GRID_256_POINTS_PER_AXIS
+    write_lines(
+        grid_256_position_file,
+        [
+            "# Positive-quadrant 256-position training grid for ADD_SCAN builds.",
+            f"# x,z span [0, {half_width:.6f}] {unit} using {GRID_256_POINTS_PER_AXIS}x{GRID_256_POINTS_PER_AXIS} bin centers.",
+            f"# Grid pitch: {grid_256_step:.6f} {unit}.",
+            f"# Total positions: {len(grid_256_positions)}.",
+            *[format_position_line(position, unit) for position in grid_256_positions],
+        ],
+    )
+
+    write_lines(
+        grid_256_wrapper_file,
+        [
+            "# One-run positive-quadrant 256-position training scan for ADD_SCAN builds.",
+            "# Event i uses position i % 256, so 2560 events gives 10 muons per position.",
+            "",
+            "/run/initialize",
+            "/tracking/verbose 0",
+            f"/scan/positionFile macros/{grid_256_position_file.name}",
+            "/vis/viewer/set/autoRefresh false",
+            "/vis/scene/endOfEventAction accumulate -1",
+            "/vis/scene/endOfRunAction accumulate",
+            "/run/printProgress 256",
+            f"/run/beamOn {len(grid_256_positions) * EVENTS_PER_GRID_POSITION}",
             "/vis/viewer/set/autoRefresh true",
             "/vis/viewer/refresh",
         ],
@@ -155,6 +192,8 @@ def main() -> None:
 
     print(f"Wrote {grid_position_file}")
     print(f"Wrote {grid_wrapper_file}")
+    print(f"Wrote {grid_256_position_file}")
+    print(f"Wrote {grid_256_wrapper_file}")
     print(f"Wrote {random_position_file}")
     print(f"Wrote {random_wrapper_file}")
     print(f"Wrote {random_csv_file}")

@@ -93,6 +93,20 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--normalizations", default="l1")
     parser.add_argument("--weightings", default="uniform,inverse,inverse2")
     parser.add_argument(
+        "--ratio-features",
+        default="none",
+        help=(
+            "Comma-separated ratio feature modes to append after count "
+            "normalization: none, signed, or fraction. signed=(pos-neg)/(pos+neg); "
+            "fraction=pos/(pos+neg)."
+        ),
+    )
+    parser.add_argument(
+        "--ratio-scales",
+        default="1.0",
+        help="Comma-separated scale factors applied to appended ratio features.",
+    )
+    parser.add_argument(
         "--limit-grid-per-axis",
         type=int,
         default=None,
@@ -276,6 +290,64 @@ def normalize(x: np.ndarray, mode: str) -> np.ndarray:
     raise ValueError(mode)
 
 
+def ratio_pairs(readout_axis: str) -> list[tuple[str, str, str]]:
+    pairs: list[tuple[str, str, str]] = []
+    if readout_axis in {"all", "z"}:
+        pairs.extend(
+            (f"sipm_{100 + index}", f"sipm_{200 + index}", f"z_ratio_{index}")
+            for index in range(16)
+        )
+    if readout_axis in {"all", "x"}:
+        pairs.extend(
+            (f"sipm_{300 + index}", f"sipm_{400 + index}", f"x_ratio_{index}")
+            for index in range(16)
+        )
+    return pairs
+
+
+def ratio_matrix(df: pd.DataFrame, readout_axis: str, mode: str, scale: float) -> np.ndarray:
+    if mode == "none":
+        return np.empty((len(df), 0), dtype=np.float64)
+    columns = []
+    for positive_col, negative_col, _ in ratio_pairs(readout_axis):
+        positive = df[positive_col].to_numpy(dtype=np.float64)
+        negative = df[negative_col].to_numpy(dtype=np.float64)
+        total = positive + negative
+        if mode == "signed":
+            ratio = np.divide(
+                positive - negative,
+                np.maximum(total, EPS),
+                out=np.zeros_like(total, dtype=np.float64),
+                where=total > 0.0,
+            )
+        elif mode == "fraction":
+            ratio = np.divide(
+                positive,
+                np.maximum(total, EPS),
+                out=np.full_like(total, 0.5, dtype=np.float64),
+                where=total > 0.0,
+            )
+        else:
+            raise ValueError(mode)
+        columns.append(ratio * scale)
+    return np.column_stack(columns) if columns else np.empty((len(df), 0), dtype=np.float64)
+
+
+def build_feature_matrix(
+    df: pd.DataFrame,
+    feature_columns: list[str],
+    readout_axis: str,
+    norm_mode: str,
+    ratio_mode: str,
+    ratio_scale: float,
+) -> np.ndarray:
+    counts = normalize(df[feature_columns].to_numpy(), norm_mode)
+    ratios = ratio_matrix(df, readout_axis, ratio_mode, ratio_scale)
+    if ratios.shape[1] == 0:
+        return counts
+    return np.hstack([counts, ratios])
+
+
 def kneighbors_numpy(
     x_ref: np.ndarray,
     x_test: np.ndarray,
@@ -317,13 +389,30 @@ def predict_knn(
     reference: pd.DataFrame,
     test: pd.DataFrame,
     feature_columns: list[str],
+    readout_axis: str,
     k: int,
     metric: str,
     norm_mode: str,
     weight_mode: str,
+    ratio_mode: str,
+    ratio_scale: float,
 ) -> pd.DataFrame:
-    x_ref = normalize(reference[feature_columns].to_numpy(), norm_mode)
-    x_test = normalize(test[feature_columns].to_numpy(), norm_mode)
+    x_ref = build_feature_matrix(
+        reference,
+        feature_columns,
+        readout_axis,
+        norm_mode,
+        ratio_mode,
+        ratio_scale,
+    )
+    x_test = build_feature_matrix(
+        test,
+        feature_columns,
+        readout_axis,
+        norm_mode,
+        ratio_mode,
+        ratio_scale,
+    )
     if NearestNeighbors is None:
         distances, indices = kneighbors_numpy(x_ref, x_test, k, metric)
     else:
@@ -403,6 +492,8 @@ def main() -> None:
     metrics = parse_csv_arg(args.metrics)
     norms = parse_csv_arg(args.normalizations)
     weights = parse_csv_arg(args.weightings)
+    ratio_modes = parse_csv_arg(args.ratio_features)
+    ratio_scales = parse_csv_arg(args.ratio_scales, float)
 
     summary_rows = []
     best_predictions = None
@@ -411,32 +502,45 @@ def main() -> None:
         for metric in metrics:
             for norm_mode in norms:
                 for weight_mode in weights:
-                    config = {
-                        "reference": "events",
-                        "virtual_quadrants": not args.no_virtual_quadrants,
-                        "readout_axis": args.readout_axis,
-                        "n_readout_channels": len(feature_columns),
-                        "k": k,
-                        "metric": metric,
-                        "normalization": norm_mode,
-                        "weighting": weight_mode,
-                        "n_reference": len(reference),
-                        "n_base_positions": n_base_positions,
-                    }
-                    predictions = predict_knn(
-                        reference,
-                        test_events,
-                        feature_columns,
-                        k,
-                        metric,
-                        norm_mode,
-                        weight_mode,
-                    )
-                    row = summarize(predictions, config)
-                    summary_rows.append(row)
-                    if best_row is None or row["p68_err_r_cm"] < best_row["p68_err_r_cm"]:
-                        best_row = row
-                        best_predictions = predictions.assign(**config)
+                    for ratio_mode in ratio_modes:
+                        scales = [0.0] if ratio_mode == "none" else ratio_scales
+                        for ratio_scale in scales:
+                            n_ratio_features = (
+                                0 if ratio_mode == "none" else len(ratio_pairs(args.readout_axis))
+                            )
+                            config = {
+                                "reference": "events",
+                                "virtual_quadrants": not args.no_virtual_quadrants,
+                                "readout_axis": args.readout_axis,
+                                "n_readout_channels": len(feature_columns),
+                                "ratio_features": ratio_mode,
+                                "ratio_scale": ratio_scale,
+                                "n_ratio_features": n_ratio_features,
+                                "n_features": len(feature_columns) + n_ratio_features,
+                                "k": k,
+                                "metric": metric,
+                                "normalization": norm_mode,
+                                "weighting": weight_mode,
+                                "n_reference": len(reference),
+                                "n_base_positions": n_base_positions,
+                            }
+                            predictions = predict_knn(
+                                reference,
+                                test_events,
+                                feature_columns,
+                                args.readout_axis,
+                                k,
+                                metric,
+                                norm_mode,
+                                weight_mode,
+                                ratio_mode,
+                                ratio_scale,
+                            )
+                            row = summarize(predictions, config)
+                            summary_rows.append(row)
+                            if best_row is None or row["p68_err_r_cm"] < best_row["p68_err_r_cm"]:
+                                best_row = row
+                                best_predictions = predictions.assign(**config)
 
     results = pd.DataFrame(summary_rows).sort_values("p68_err_r_cm").reset_index(drop=True)
     args.output.parent.mkdir(parents=True, exist_ok=True)

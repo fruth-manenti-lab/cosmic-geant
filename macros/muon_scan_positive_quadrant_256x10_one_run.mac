@@ -1,0 +1,13 @@
+# One-run positive-quadrant 256-position training scan for ADD_SCAN builds.
+# Event i uses position i % 256, so 2560 events gives 10 muons per position.
+
+/run/initialize
+/tracking/verbose 0
+/scan/positionFile macros/muon_scan_positive_quadrant_256_positions.mac
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/run/printProgress 256
+/run/beamOn 2560
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

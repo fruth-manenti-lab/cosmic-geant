@@ -30,3 +30,24 @@ Best p68 radial errors from the May 10 virtual-quadrant sweep:
 | all four sides | 64 | k=16 inverse | 2.21 | 4.42 |
 | +x/-x only | 32 | k=32 inverse2 | 4.37 | 8.49 |
 | +z/-z only | 32 | k=32 inverse | 4.18 | 7.99 |
+
+## One-axis ratio feature test
+
+The one-axis masks were also tested with explicit positive/negative side
+light-sharing features appended to the 32 count channels. The count channels
+were normalized first, then 16 ratio features were appended:
+
+- signed ratio: `(positive_side - negative_side) / (positive_side + negative_side)`
+- positive fraction: `positive_side / (positive_side + negative_side)`
+
+Focused sweeps around the previous optimum (`k=32`, inverse and inverse-square
+weighting, ratio scales 0.02 to 0.5) did not improve the one-axis results. The
+best row remained the count-only baseline for both axes:
+
+| readout | best feature set | p68 error (cm) | p95 error (cm) |
+| --- | --- | ---: | ---: |
+| +x/-x only | counts only | 4.37 | 8.49 |
+| +z/-z only | counts only | 4.18 | 7.99 |
+
+The compact ratio-feature comparison is in
+`results/knn_virtual_axis_ratio_feature_comparison_summary.csv`.
