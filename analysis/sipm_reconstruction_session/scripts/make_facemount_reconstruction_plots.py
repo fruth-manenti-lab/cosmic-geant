@@ -28,6 +28,8 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("analysis/sipm_reconstruction_session/facemount_may12/figures"),
     )
+    parser.add_argument("--reconstruction-title", default="Face-mount random scan reconstruction")
+    parser.add_argument("--histogram-title", default="Face-mount radial reconstruction error")
     return parser.parse_args()
 
 
@@ -42,7 +44,7 @@ def add_error_columns(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
-def plot_reconstruction(df: pd.DataFrame, output_path: Path) -> None:
+def plot_reconstruction(df: pd.DataFrame, output_path: Path, title: str) -> None:
     fig, ax = plt.subplots(figsize=(7.6, 7.1), dpi=180)
     sc = ax.scatter(
         df["true_x_cm"],
@@ -81,7 +83,7 @@ def plot_reconstruction(df: pd.DataFrame, output_path: Path) -> None:
         zorder=4,
     )
 
-    ax.set_title("Face-mount random scan reconstruction")
+    ax.set_title(title)
     ax.set_xlabel("x [cm]")
     ax.set_ylabel("z [cm]")
     ax.set_aspect("equal", adjustable="box")
@@ -96,7 +98,7 @@ def plot_reconstruction(df: pd.DataFrame, output_path: Path) -> None:
     plt.close(fig)
 
 
-def plot_histogram(df: pd.DataFrame, output_path: Path) -> None:
+def plot_histogram(df: pd.DataFrame, output_path: Path, title: str) -> None:
     mean = df["err_r_cm"].mean()
     median = df["err_r_cm"].median()
     p68 = df["err_r_cm"].quantile(0.68)
@@ -111,7 +113,7 @@ def plot_histogram(df: pd.DataFrame, output_path: Path) -> None:
     ax.axvline(median, color="#16a34a", linewidth=2.0, label=f"median {median:.2f} cm")
     ax.axvline(p68, color="#f97316", linewidth=2.0, label=f"68% {p68:.2f} cm")
     ax.axvline(p95, color="#dc2626", linewidth=2.0, label=f"95% {p95:.2f} cm")
-    ax.set_title("Face-mount radial reconstruction error")
+    ax.set_title(title)
     ax.set_xlabel("radial position error [cm]")
     ax.set_ylabel("events")
     ax.grid(axis="y", alpha=0.25)
@@ -125,8 +127,16 @@ def main() -> None:
     args = parse_args()
     df = add_error_columns(pd.read_csv(args.predictions))
     args.output_dir.mkdir(parents=True, exist_ok=True)
-    plot_reconstruction(df, args.output_dir / "random_scan_reconstruction.png")
-    plot_histogram(df, args.output_dir / "radial_error_histogram.png")
+    plot_reconstruction(
+        df,
+        args.output_dir / "random_scan_reconstruction.png",
+        args.reconstruction_title,
+    )
+    plot_histogram(
+        df,
+        args.output_dir / "radial_error_histogram.png",
+        args.histogram_title,
+    )
     print(f"Wrote {args.output_dir / 'random_scan_reconstruction.png'}")
     print(f"Wrote {args.output_dir / 'radial_error_histogram.png'}")
 

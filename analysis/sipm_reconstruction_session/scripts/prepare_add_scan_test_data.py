@@ -18,6 +18,7 @@ import pandas as pd
 SIPM_COPY_PRESETS = {
     "standard": tuple(range(100, 116)) + tuple(range(300, 316)),
     "facemount": tuple(range(32)),
+    "hybrid": tuple(range(16)) + tuple(range(100, 116)),
     "double-ended": (
         tuple(range(100, 116))
         + tuple(range(200, 216))
