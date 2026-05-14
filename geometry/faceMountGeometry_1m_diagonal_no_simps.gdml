@@ -370,10 +370,10 @@
             <property name="REFLECTIVITY" ref="VANTA_BLACK_REFLECTIVITY"/>
             <property name="EFFICIENCY" ref="VANTA_BLACK_EFFICIENCY"/>
         </opticalsurface>
-        <opticalsurface name="sipm_detection_surface" model="unified" finish="polished" type="dielectric_metal" value="1.0">
+        <!-- <opticalsurface name="sipm_detection_surface" model="unified" finish="polished" type="dielectric_metal" value="1.0">
             <property name="EFFICIENCY" ref="SIPM_EFFICIENCY"/>
             <property name="REFLECTIVITY" ref="SIPM_REFLECTIVITY"/>
-        </opticalsurface>
+        </opticalsurface> -->
         <opticalsurface name="clear_interface_surface" model="unified" finish="polished" type="dielectric_dielectric" value="1.0"/>
     </solids>
 
@@ -571,12 +571,12 @@
         <skinsurface name="grease_skin" surfaceproperty="clear_interface_surface">
             <volumeref ref="grease"/>
         </skinsurface>
-        <skinsurface name="sipm_skin" surfaceproperty="sipm_detection_surface">
+        <!-- <skinsurface name="sipm_skin" surfaceproperty="sipm_detection_surface">
             <volumeref ref="sipm"/>
-        </skinsurface>
-        <!-- <skinsurface name="teflon_top_skin" surfaceproperty="teflon_diffuse_surface">
-            <volumeref ref="teflon_top_wrap"/>
         </skinsurface> -->
+        <skinsurface name="teflon_top_skin" surfaceproperty="teflon_diffuse_surface">
+            <volumeref ref="teflon_top_wrap"/>
+        </skinsurface>
         <skinsurface name="teflon_bottom_skin" surfaceproperty="teflon_diffuse_surface">
             <volumeref ref="teflon_bottom_wrap"/>
         </skinsurface>
