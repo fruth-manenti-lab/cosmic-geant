@@ -399,12 +399,12 @@
             <auxiliary auxtype="Transparency" auxvalue="0.5"/>
         </volume>
 
-        <!-- <volume name="teflon_top_wrap">
+        <volume name="teflon_top_wrap">
             <materialref ref="Teflon"/>
-            <solidref ref="teflon_top_step_31"/>
+            <solidref ref="teflon_top_base"/>
             <auxiliary auxtype="Color" auxvalue="1 0.35 0.75"/>
             <auxiliary auxtype="Transparency" auxvalue="0.85"/>
-        </volume> -->
+        </volume>
 
         <volume name="teflon_bottom_wrap">
             <materialref ref="Teflon"/>
@@ -440,10 +440,10 @@
                     <volumeref ref="scintillator_slab"/>
 	        </physvol>
 
-            <!-- <physvol name="teflon_top_phys">
+            <physvol name="teflon_top_phys">
                 <volumeref ref="teflon_top_wrap"/>
                 <position x="0" y="teflon_top_y" z="0" unit="mm"/>
-            </physvol> -->
+            </physvol>
             <physvol name="teflon_bottom_phys">
                 <volumeref ref="teflon_bottom_wrap"/>
                 <position x="0" y="teflon_bottom_y" z="0" unit="mm"/>
