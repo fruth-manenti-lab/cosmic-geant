@@ -321,42 +321,7 @@
         <box name="teflon_x_side_solid" x="2*teflon_half_thickness" y="20" z="1000" lunit="mm" />
         <box name="teflon_z_side_solid" x="1000" y="20" z="2*teflon_half_thickness" lunit="mm" />
         <box name="teflon_hole" x="teflon_hole_size" y="teflon_hole_y" z="teflon_hole_size" lunit="mm" />
-        <!-- <subtraction name="teflon_top_step_0">
-            <first ref="teflon_top_base"/>
-            <second ref="teflon_hole"/>
-            <position x="sipm0_x" y="0" z="sipm0_z" unit="mm"/>
-        </subtraction>
-        <subtraction name="teflon_top_step_1"><first ref="teflon_top_step_0"/><second ref="teflon_hole"/><position x="sipm1_x" y="0" z="sipm1_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_2"><first ref="teflon_top_step_1"/><second ref="teflon_hole"/><position x="sipm2_x" y="0" z="sipm2_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_3"><first ref="teflon_top_step_2"/><second ref="teflon_hole"/><position x="sipm3_x" y="0" z="sipm3_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_4"><first ref="teflon_top_step_3"/><second ref="teflon_hole"/><position x="sipm4_x" y="0" z="sipm4_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_5"><first ref="teflon_top_step_4"/><second ref="teflon_hole"/><position x="sipm5_x" y="0" z="sipm5_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_6"><first ref="teflon_top_step_5"/><second ref="teflon_hole"/><position x="sipm6_x" y="0" z="sipm6_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_7"><first ref="teflon_top_step_6"/><second ref="teflon_hole"/><position x="sipm7_x" y="0" z="sipm7_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_8"><first ref="teflon_top_step_7"/><second ref="teflon_hole"/><position x="sipm8_x" y="0" z="sipm8_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_9"><first ref="teflon_top_step_8"/><second ref="teflon_hole"/><position x="sipm9_x" y="0" z="sipm9_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_10"><first ref="teflon_top_step_9"/><second ref="teflon_hole"/><position x="sipm10_x" y="0" z="sipm10_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_11"><first ref="teflon_top_step_10"/><second ref="teflon_hole"/><position x="sipm11_x" y="0" z="sipm11_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_12"><first ref="teflon_top_step_11"/><second ref="teflon_hole"/><position x="sipm12_x" y="0" z="sipm12_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_13"><first ref="teflon_top_step_12"/><second ref="teflon_hole"/><position x="sipm13_x" y="0" z="sipm13_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_14"><first ref="teflon_top_step_13"/><second ref="teflon_hole"/><position x="sipm14_x" y="0" z="sipm14_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_15"><first ref="teflon_top_step_14"/><second ref="teflon_hole"/><position x="sipm15_x" y="0" z="sipm15_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_16"><first ref="teflon_top_step_15"/><second ref="teflon_hole"/><position x="sipm16_x" y="0" z="sipm16_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_17"><first ref="teflon_top_step_16"/><second ref="teflon_hole"/><position x="sipm17_x" y="0" z="sipm17_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_18"><first ref="teflon_top_step_17"/><second ref="teflon_hole"/><position x="sipm18_x" y="0" z="sipm18_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_19"><first ref="teflon_top_step_18"/><second ref="teflon_hole"/><position x="sipm19_x" y="0" z="sipm19_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_20"><first ref="teflon_top_step_19"/><second ref="teflon_hole"/><position x="sipm20_x" y="0" z="sipm20_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_21"><first ref="teflon_top_step_20"/><second ref="teflon_hole"/><position x="sipm21_x" y="0" z="sipm21_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_22"><first ref="teflon_top_step_21"/><second ref="teflon_hole"/><position x="sipm22_x" y="0" z="sipm22_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_23"><first ref="teflon_top_step_22"/><second ref="teflon_hole"/><position x="sipm23_x" y="0" z="sipm23_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_24"><first ref="teflon_top_step_23"/><second ref="teflon_hole"/><position x="sipm24_x" y="0" z="sipm24_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_25"><first ref="teflon_top_step_24"/><second ref="teflon_hole"/><position x="sipm25_x" y="0" z="sipm25_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_26"><first ref="teflon_top_step_25"/><second ref="teflon_hole"/><position x="sipm26_x" y="0" z="sipm26_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_27"><first ref="teflon_top_step_26"/><second ref="teflon_hole"/><position x="sipm27_x" y="0" z="sipm27_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_28"><first ref="teflon_top_step_27"/><second ref="teflon_hole"/><position x="sipm28_x" y="0" z="sipm28_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_29"><first ref="teflon_top_step_28"/><second ref="teflon_hole"/><position x="sipm29_x" y="0" z="sipm29_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_30"><first ref="teflon_top_step_29"/><second ref="teflon_hole"/><position x="sipm30_x" y="0" z="sipm30_z" unit="mm"/></subtraction>
-        <subtraction name="teflon_top_step_31"><first ref="teflon_top_step_30"/><second ref="teflon_hole"/><position x="sipm31_x" y="0" z="sipm31_z" unit="mm"/></subtraction> -->
+
 <!--           BLOCKING OPT SURFACE          -->
 	    <opticalsurface name="block" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
 		    <property name="TRANSMITTANCE" ref="BLOCKTRANSMITTANCE"/>
@@ -370,10 +335,6 @@
             <property name="REFLECTIVITY" ref="VANTA_BLACK_REFLECTIVITY"/>
             <property name="EFFICIENCY" ref="VANTA_BLACK_EFFICIENCY"/>
         </opticalsurface>
-        <!-- <opticalsurface name="sipm_detection_surface" model="unified" finish="polished" type="dielectric_metal" value="1.0">
-            <property name="EFFICIENCY" ref="SIPM_EFFICIENCY"/>
-            <property name="REFLECTIVITY" ref="SIPM_REFLECTIVITY"/>
-        </opticalsurface> -->
         <opticalsurface name="clear_interface_surface" model="unified" finish="polished" type="dielectric_dielectric" value="1.0"/>
     </solids>
 
@@ -465,85 +426,14 @@
                 <position x="0" y="0" z="-teflon_side_z" unit="mm"/>
             </physvol>
 
-<!--              BEGIN SIPM LOOPS       *_*SIPMs here were removed as physical volumes    --> 
-<!--              1 m slab, 4 x 4 cells, two SiPMs per cell.
-                  Each SiPM center is 59 mm from its local quadrant diagonal. -->
-            <!-- <physvol copynumber="100"><volumeref ref="grease"/><position x="sipm0_x" z="sipm0_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="0"><volumeref ref="sipm"/><position x="sipm0_x" z="sipm0_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="101"><volumeref ref="grease"/><position x="sipm1_x" z="sipm1_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="1"><volumeref ref="sipm"/><position x="sipm1_x" z="sipm1_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="102"><volumeref ref="grease"/><position x="sipm2_x" z="sipm2_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="2"><volumeref ref="sipm"/><position x="sipm2_x" z="sipm2_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="103"><volumeref ref="grease"/><position x="sipm3_x" z="sipm3_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="3"><volumeref ref="sipm"/><position x="sipm3_x" z="sipm3_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="104"><volumeref ref="grease"/><position x="sipm4_x" z="sipm4_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="4"><volumeref ref="sipm"/><position x="sipm4_x" z="sipm4_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="105"><volumeref ref="grease"/><position x="sipm5_x" z="sipm5_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="5"><volumeref ref="sipm"/><position x="sipm5_x" z="sipm5_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="106"><volumeref ref="grease"/><position x="sipm6_x" z="sipm6_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="6"><volumeref ref="sipm"/><position x="sipm6_x" z="sipm6_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="107"><volumeref ref="grease"/><position x="sipm7_x" z="sipm7_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="7"><volumeref ref="sipm"/><position x="sipm7_x" z="sipm7_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="108"><volumeref ref="grease"/><position x="sipm8_x" z="sipm8_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="8"><volumeref ref="sipm"/><position x="sipm8_x" z="sipm8_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="109"><volumeref ref="grease"/><position x="sipm9_x" z="sipm9_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="9"><volumeref ref="sipm"/><position x="sipm9_x" z="sipm9_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="110"><volumeref ref="grease"/><position x="sipm10_x" z="sipm10_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="10"><volumeref ref="sipm"/><position x="sipm10_x" z="sipm10_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="111"><volumeref ref="grease"/><position x="sipm11_x" z="sipm11_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="11"><volumeref ref="sipm"/><position x="sipm11_x" z="sipm11_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="112"><volumeref ref="grease"/><position x="sipm12_x" z="sipm12_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="12"><volumeref ref="sipm"/><position x="sipm12_x" z="sipm12_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="113"><volumeref ref="grease"/><position x="sipm13_x" z="sipm13_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="13"><volumeref ref="sipm"/><position x="sipm13_x" z="sipm13_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="114"><volumeref ref="grease"/><position x="sipm14_x" z="sipm14_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="14"><volumeref ref="sipm"/><position x="sipm14_x" z="sipm14_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="115"><volumeref ref="grease"/><position x="sipm15_x" z="sipm15_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="15"><volumeref ref="sipm"/><position x="sipm15_x" z="sipm15_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="116"><volumeref ref="grease"/><position x="sipm16_x" z="sipm16_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="16"><volumeref ref="sipm"/><position x="sipm16_x" z="sipm16_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="117"><volumeref ref="grease"/><position x="sipm17_x" z="sipm17_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="17"><volumeref ref="sipm"/><position x="sipm17_x" z="sipm17_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="118"><volumeref ref="grease"/><position x="sipm18_x" z="sipm18_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="18"><volumeref ref="sipm"/><position x="sipm18_x" z="sipm18_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="119"><volumeref ref="grease"/><position x="sipm19_x" z="sipm19_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="19"><volumeref ref="sipm"/><position x="sipm19_x" z="sipm19_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="120"><volumeref ref="grease"/><position x="sipm20_x" z="sipm20_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="20"><volumeref ref="sipm"/><position x="sipm20_x" z="sipm20_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="121"><volumeref ref="grease"/><position x="sipm21_x" z="sipm21_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="21"><volumeref ref="sipm"/><position x="sipm21_x" z="sipm21_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="122"><volumeref ref="grease"/><position x="sipm22_x" z="sipm22_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="22"><volumeref ref="sipm"/><position x="sipm22_x" z="sipm22_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="123"><volumeref ref="grease"/><position x="sipm23_x" z="sipm23_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="23"><volumeref ref="sipm"/><position x="sipm23_x" z="sipm23_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="124"><volumeref ref="grease"/><position x="sipm24_x" z="sipm24_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="24"><volumeref ref="sipm"/><position x="sipm24_x" z="sipm24_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="125"><volumeref ref="grease"/><position x="sipm25_x" z="sipm25_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="25"><volumeref ref="sipm"/><position x="sipm25_x" z="sipm25_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="126"><volumeref ref="grease"/><position x="sipm26_x" z="sipm26_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="26"><volumeref ref="sipm"/><position x="sipm26_x" z="sipm26_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="127"><volumeref ref="grease"/><position x="sipm27_x" z="sipm27_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="27"><volumeref ref="sipm"/><position x="sipm27_x" z="sipm27_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="128"><volumeref ref="grease"/><position x="sipm28_x" z="sipm28_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="28"><volumeref ref="sipm"/><position x="sipm28_x" z="sipm28_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="129"><volumeref ref="grease"/><position x="sipm29_x" z="sipm29_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="29"><volumeref ref="sipm"/><position x="sipm29_x" z="sipm29_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="130"><volumeref ref="grease"/><position x="sipm30_x" z="sipm30_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="30"><volumeref ref="sipm"/><position x="sipm30_x" z="sipm30_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="131"><volumeref ref="grease"/><position x="sipm31_x" z="sipm31_z" y="grease_y" unit="mm"/><rotationref ref="sipmrot"/></physvol>
-            <physvol copynumber="31"><volumeref ref="sipm"/><position x="sipm31_x" z="sipm31_z" y="sipm_y" unit="mm"/><rotationref ref="sipmrot"/></physvol> -->
-
-<!--              END SIPM PLACEMENTS        -->
-
-<!--               BLOCKS                    -->
             <auxiliary auxtype="Transparency" auxvalue="0"/>
             <auxiliary auxtype="Transparency" auxvalue="0"/>
         </volume>
 
-        <!-- <bordersurface name="slab_to_teflon_top" surfaceproperty="teflon_diffuse_surface">
+        <bordersurface name="slab_to_teflon_top" surfaceproperty="teflon_diffuse_surface">
             <physvolref ref="slab_phys"/>
             <physvolref ref="teflon_top_phys"/>
-        </bordersurface> -->
+        </bordersurface>
         <bordersurface name="slab_to_teflon_bottom" surfaceproperty="teflon_diffuse_surface">
             <physvolref ref="slab_phys"/>
             <physvolref ref="teflon_bottom_phys"/>
@@ -571,9 +461,6 @@
         <skinsurface name="grease_skin" surfaceproperty="clear_interface_surface">
             <volumeref ref="grease"/>
         </skinsurface>
-        <!-- <skinsurface name="sipm_skin" surfaceproperty="sipm_detection_surface">
-            <volumeref ref="sipm"/>
-        </skinsurface> -->
         <skinsurface name="teflon_top_skin" surfaceproperty="teflon_diffuse_surface">
             <volumeref ref="teflon_top_wrap"/>
         </skinsurface>
