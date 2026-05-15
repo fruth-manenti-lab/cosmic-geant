@@ -358,6 +358,7 @@
             <solidref ref="scintillator_slab_solid"/>
             <auxiliary auxtype="Color" auxvalue="1 1 1"/>
             <auxiliary auxtype="Transparency" auxvalue="0.5"/>
+                        <auxiliary auxtype="SensDet"/>
         </volume>
 
         <volume name="teflon_top_wrap">
