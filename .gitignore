@@ -11,6 +11,7 @@ analysis/*.png
 hpc/start*
 *build*
 *vacuum*
+muon_data_analysis
 
 # Generated SiPM reconstruction data products kept outside git.
 analysis/sipm_reconstruction_session/training_scan_data_1024/
