@@ -48,21 +48,25 @@ void EventAction::EndOfEventAction(const G4Event* event)
             analysisManager->FillNtupleIColumn(0, 1,hit->getTrackID());
             analysisManager->FillNtupleSColumn(0, 2,hit->getParticle());
             analysisManager->FillNtupleDColumn(0, 3,hit->getEnergyDeposited()/keV);
-            analysisManager->FillNtupleDColumn(0, 4,hit->getTime()/ns);
-            analysisManager->FillNtupleSColumn(0, 5,hit->getVolume());
-            analysisManager->FillNtupleDColumn(0, 6,hit->getCopyNo());
-            analysisManager->FillNtupleDColumn(0, 7,hit->getInitialEnergy()/keV);
-            analysisManager->FillNtupleSColumn(0, 8,hit->getOrigin());
-            analysisManager->FillNtupleIColumn(0, 9,hit->getParentID());
-            analysisManager->FillNtupleSColumn(0, 10,hit->getProcessName());
+            analysisManager->FillNtupleDColumn(0, 4,hit->getPosition()[0]);
+            analysisManager->FillNtupleDColumn(0, 5,hit->getPosition()[1]);
+            analysisManager->FillNtupleDColumn(0, 6,hit->getPosition()[2]);
+            analysisManager->FillNtupleDColumn(0, 7,hit->getTime()/ns);
+            analysisManager->FillNtupleSColumn(0, 8,hit->getVolume());
+            analysisManager->FillNtupleDColumn(0, 9,hit->getCopyNo());
+            analysisManager->FillNtupleDColumn(0, 10,hit->getInitialEnergy()/keV);
+            analysisManager->FillNtupleSColumn(0, 11,hit->getOrigin());
+            analysisManager->FillNtupleIColumn(0, 12,hit->getParentID());
+            analysisManager->FillNtupleSColumn(0, 13,hit->getProcessName());
+            analysisManager->FillNtupleDColumn(0, 14,hit->getStepID());
 #ifdef ADD_SCAN
             if (scanInfo != nullptr) {
                 const auto& sourcePosition = scanInfo->GetSourcePosition();
-                analysisManager->FillNtupleIColumn(0, 11, scanInfo->GetSourceIndex());
-                analysisManager->FillNtupleIColumn(0, 12, scanInfo->GetSourceCycle());
-                analysisManager->FillNtupleDColumn(0, 13, sourcePosition.x() / cm);
-                analysisManager->FillNtupleDColumn(0, 14, sourcePosition.y() / cm);
-                analysisManager->FillNtupleDColumn(0, 15, sourcePosition.z() / cm);
+                analysisManager->FillNtupleIColumn(0, 15, scanInfo->GetSourceIndex());
+                analysisManager->FillNtupleIColumn(0, 16, scanInfo->GetSourceCycle());
+                analysisManager->FillNtupleDColumn(0, 17, sourcePosition.x() / cm);
+                analysisManager->FillNtupleDColumn(0, 18, sourcePosition.y() / cm);
+                analysisManager->FillNtupleDColumn(0, 19, sourcePosition.z() / cm);
             }
 #endif
             analysisManager->AddNtupleRow(0);

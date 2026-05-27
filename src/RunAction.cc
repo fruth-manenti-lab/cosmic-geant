@@ -84,6 +84,9 @@ void RunAction::BookAnalysis(G4String filename, G4bool ntupleMerging){
     analysisManager->CreateNtupleIColumn("TrackID");
     analysisManager->CreateNtupleSColumn("Particle");
     analysisManager->CreateNtupleDColumn("EnergyDeposited");
+    analysisManager->CreateNtupleDColumn("XPosition");
+    analysisManager->CreateNtupleDColumn("YPosition");
+    analysisManager->CreateNtupleDColumn("ZPosition");
     analysisManager->CreateNtupleDColumn("LocalTime");
     analysisManager->CreateNtupleSColumn("Volume");
     analysisManager->CreateNtupleDColumn("Copynumber");
@@ -91,6 +94,7 @@ void RunAction::BookAnalysis(G4String filename, G4bool ntupleMerging){
     analysisManager->CreateNtupleSColumn("OriginVolume");
     analysisManager->CreateNtupleIColumn("ParentID");
     analysisManager->CreateNtupleSColumn("ProcessName");
+    analysisManager->CreateNtupleDColumn("StepID");
 #ifdef ADD_SCAN
     analysisManager->CreateNtupleIColumn("SourceIndex");
     analysisManager->CreateNtupleIColumn("SourceCycle");
@@ -98,7 +102,6 @@ void RunAction::BookAnalysis(G4String filename, G4bool ntupleMerging){
     analysisManager->CreateNtupleDColumn("SourceY");
     analysisManager->CreateNtupleDColumn("SourceZ");
 #endif
-
     analysisManager->FinishNtuple();
 
 #ifdef ADD_SCAN
