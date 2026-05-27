@@ -39,14 +39,14 @@ def filter_photons_by_sipm(
     ID_COL = "TrackID"
     STEP_COL = "StepID"
     X_COL = "XPosition"
-    Y_COL = "YPosition"
+    Z_COL = "ZPosition"
     
     half_size = sipm_size / 2.0
     sipm_bounds = []
-    for cx, cy in sipm_centers:
+    for cx, cz in sipm_centers:
         sipm_bounds.append({
             'x_min': cx - half_size, 'x_max': cx + half_size,
-            'y_min': cy - half_size, 'y_max': cy + half_size
+            'z_min': cz - half_size, 'z_max': cz + half_size
         })
 
     dead_photons = set() # To track dead photons 
@@ -55,7 +55,7 @@ def filter_photons_by_sipm(
     # Read the file in chunks
     chunks = pd.read_csv(input_file, chunksize=chunk_size)
 
-   for chunk in chunks:
+    for chunk in chunks:
         chunk = chunk.sort_values(by=[ID_COL, STEP_COL]).reset_index(drop=True)
         keep_rows = []
 
