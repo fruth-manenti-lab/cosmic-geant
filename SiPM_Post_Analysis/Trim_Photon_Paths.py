@@ -134,5 +134,5 @@ if __name__ == "__main__":
             output_file=out_path,
             sipm_centers=MY_8_SIPMS,
             sipm_size=6,          # Explicitly set SiPM size to 6
-            chunk_size=100000     # Adjust based on your RAM limits
+            chunk_size=500     # Adjust based on your RAM limits
         )
