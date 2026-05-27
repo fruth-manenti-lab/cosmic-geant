@@ -35,6 +35,7 @@ def filter_photons_by_sipm(
     output_file, # str - Path to save the trimmed CSV
     sipm_centers, # list of tuples/lists, 8 pairs of (x, y) coordinates
     sipm_size=6.0, 
+    chunk_size=100000 # FIXED: Added chunk_size to function parameters
 ):
     ID_COL = "TrackID"
     STEP_COL = "StepID"
@@ -42,14 +43,17 @@ def filter_photons_by_sipm(
     Z_COL = "ZPosition"
     
     half_size = sipm_size / 2.0
-    sipm_bounds = []
+    
+    # FIXED: Replaced sipm_bounds with sipm_segments to match the intersection loop
+    sipm_segments = []
     for cx, cz in sipm_centers:
-        sipm_bounds.append({
-            'x_min': cx - half_size, 'x_max': cx + half_size,
-            'z_min': cz - half_size, 'z_max': cz + half_size
-        })
+        # Define each SiPM as a line segment spanning from x_min to x_max at depth cz
+        s_p1 = (cx - half_size, cz)
+        s_p2 = (cx + half_size, cz)
+        sipm_segments.append((s_p1, s_p2))
 
     dead_photons = set() # To track dead photons 
+    last_positions = {}  # FIXED: Initialized the dictionary to track step history
     first_chunk = True
 
     # Read the file in chunks
@@ -107,15 +111,14 @@ def filter_photons_by_sipm(
     print(f"Successfully processed: {os.path.basename(input_file)}")
 
 
-
 if __name__ == "__main__":
     MY_8_SIPMS = [
         (50, 50),   (100, 50),  (150, 50),  (200, 50),
         (50, 150),  (100, 150), (150, 150), (200, 150)
     ]
     
-    INPUT_DIR = "path/to/input_csvs"
-    OUTPUT_DIR = "path/to/output_csvs"
+    INPUT_DIR = ""
+    OUTPUT_DIR = ""
     
     if not os.path.exists(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
