@@ -1,0 +1,2 @@
+events,mean_max_sipm_count,median_max_sipm_count,p90_max_sipm_count,p95_max_sipm_count,min_max_sipm_count,max_max_sipm_count
+1000,430.022,338.0,763.7000000000002,1030.2999999999997,59,5986
