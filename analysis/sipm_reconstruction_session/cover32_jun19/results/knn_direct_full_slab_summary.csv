@@ -1,0 +1,2 @@
+test_events,best_k,best_metric,best_normalization,best_weighting,mae_x_cm,mae_z_cm,mean_radial_error_cm,median_radial_error_cm,p68_radial_error_cm,p90_radial_error_cm,p95_radial_error_cm,rmse_radial_error_cm,sigma_x_cm,sigma_z_cm,bias_x_cm,bias_z_cm
+1000,8,euclidean,l1,inverse2,0.7466025573946542,0.7704607725775229,1.2301128315774625,0.9522467369650363,1.3334367545295898,2.4882549594277497,3.318538382376328,1.5759536214569976,1.0824108233952379,1.1451146865941888,-0.05623796806443952,-0.007012325620027141
