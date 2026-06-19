@@ -1,0 +1,13 @@
+# Full-slab random 1000-event cover32 face-mount muon scan for ADD_SCAN builds.
+# Positions are in macros/cover32_random_muon_1000_positions.mac.
+
+/run/initialize
+/tracking/verbose 0
+/scan/positionFile macros/cover32_random_muon_1000_positions.mac
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/run/printProgress 100
+/run/beamOn 1000
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

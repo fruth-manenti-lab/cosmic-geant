@@ -1,0 +1,13 @@
+# Full-slab 100x100 one-muon-per-position cover32 face-mount training scan for ADD_SCAN builds.
+# Positions are in macros/cover32_training_muon_10000_positions.mac.
+
+/run/initialize
+/tracking/verbose 0
+/scan/positionFile macros/cover32_training_muon_10000_positions.mac
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/run/printProgress 100
+/run/beamOn 10000
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

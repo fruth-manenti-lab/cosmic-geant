@@ -56,3 +56,12 @@ This file tracks the detector geometry variants used for SiPM reconstruction stu
 - Fiber ends: no external stubs; SiPMs couple directly to embedded fiber ends through grease.
 - Foil holes: only positive readout side faces are perforated; negative side faces are closed foil.
 - Purpose: isolates the effect of removing fiber stubs while keeping the original positive-side readout pattern.
+
+
+## `geom-facemount-cover32`
+
+- File: `geometry/faceMountGeometry_1m_cover32_sipms.gdml`
+- Readout: 32 top face-mount 6 mm x 6 mm SiPMs.
+- Layout: SiPM x/z centers are the best numerical 32-point unit-square covering found in `analysis/unit_square_32_covering/results/best_points.csv`, mapped onto a `1 m x 1 m` slab.
+- Mapping: `analysis/unit_square_32_covering/results/cover32_sipm_mapping_mm.csv` lists unit-square coordinates, millimeter coordinates, and SiPM copy numbers.
+- Purpose: tests a minimax-covering face-mount layout against full-slab random and 100x100 training muon scans.
