@@ -74,6 +74,38 @@ Best setting:
 | Sigma x | 1.082 cm |
 | Sigma z | 1.145 cm |
 
+
+## Random-Scan Max-SiPM Count Histogram
+
+For each of the 1000 random full-slab muon events, the 32 SiPM count columns were reduced to the single largest SiPM count in that event. The histogram therefore shows the distribution of
+
+```text
+max(sipm_0, sipm_1, ..., sipm_31)
+```
+
+over random muon events.
+
+Summary of the per-event maximum SiPM count:
+
+| Metric | Value |
+|---|---:|
+| Events | 1000 |
+| Minimum | 59 |
+| Mean | 430.0 |
+| Median | 338 |
+| 90% quantile | 763.7 |
+| 95% quantile | 1030.3 |
+| Maximum | 5986 |
+
+Histogram outputs:
+
+- `results/random_scan_max_sipm_count_histogram.png` - linear x-axis, 50-count bins, with overflow annotation.
+- `results/random_scan_max_sipm_count_histogram_bins.csv` - explicit linear histogram bin counts.
+- `results/random_scan_max_sipm_count_histogram_logx.png` - log-scaled x-axis version.
+- `results/random_scan_max_sipm_count_histogram_logx_bins.csv` - explicit log-x histogram bin counts.
+- `results/random_scan_max_sipm_count_by_event.csv` - event-level max SiPM ID and max count.
+- `results/random_scan_max_sipm_count_summary.csv` - compact summary table.
+
 ## Outputs
 
 - `results/knn_direct_full_slab_sweep_results.csv`
