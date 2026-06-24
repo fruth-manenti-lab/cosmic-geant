@@ -117,6 +117,32 @@ def filter_photons_by_sipm(
 
     print(f"Successfully processed: {os.path.basename(input_file)}")
 
+def parse_sipms(spec):
+    """Parse SiPM centres from an inline spec 'x,z;x,z;...' or a file path.
+
+    A file may contain one 'x,z' per line, or be a CSV with two columns
+    (header optional). Returns a list of (x, z) tuples, or [] if spec is None.
+    """
+    if not spec:
+        return []
+    centers = []
+    if os.path.exists(spec):
+        with open(spec) as f:
+            for line in f:
+                line = line.strip()
+                if not line or line[0].isalpha():   # skip blanks / header rows
+                    continue
+                parts = line.replace(",", " ").split()
+                centers.append((float(parts[0]), float(parts[1])))
+    else:
+        for pair in spec.split(";"):
+            pair = pair.strip()
+            if not pair:
+                continue
+            x, z = (float(v) for v in pair.split(","))
+            centers.append((x, z))
+    return centers
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -125,15 +151,15 @@ if __name__ == "__main__":
     )
     parser.add_argument("input_dir",
                         help="directory containing the input ntuple CSV files")
+    parser.add_argument("--sipms", default=None,
+                   help="SiPM centres to overlay: inline 'x,z;x,z;...' or a path to "
+                        "a file with one 'x,z' per line")
     args = parser.parse_args()
 
     INPUT_DIR = args.input_dir
     OUTPUT_DIR = os.path.join(INPUT_DIR, "trimmed")
 
-    MY_8_SIPMS = [
-        (333.28, 416.72),   (416.72, 333.28),  (166.72, 416.72),  (83.28, 333.28),
-        (166.72, 83.28),  (83.28, 166.72), (333.28, 83.28), (416.72, 166.72),
-    ]
+    MY_8_SIPMS = parse_sipms(args.sipms)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -150,3 +176,4 @@ if __name__ == "__main__":
             sipm_size=6,
             chunk_size=500,
         )
+
