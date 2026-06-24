@@ -15,6 +15,7 @@ matplotlib.use("Agg")  # safe headless default; use --show for an interactive wi
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.lines import Line2D
+from matplotlib.patches import Rectangle
 
 X_COL, Y_COL, Z_COL = "XPosition", "YPosition", "ZPosition"
 TID_COL, EID_COL, STEP_COL, PARENT_COL = "TrackID", "EventID", "StepID", "ParentID"
@@ -127,13 +128,13 @@ def parse_sipms(spec):
 
 
 def draw_sipms(ax, centers, size):
-    """Draw each SiPM as a horizontal bar at z=cz spanning x in [cx-size/2, cx+size/2],
-    matching exactly how the filter models them."""
     half = size / 2.0
     for cx, cz in centers:
-        ax.plot([cx - half, cx + half], [cz, cz], color="crimson", lw=4,
-                solid_capstyle="butt", zorder=8, alpha=0.9)
-        ax.plot(cx, cz, marker="s", ms=4, color="crimson", zorder=9)
+        ax.add_patch(Rectangle(
+            (cx - half, cz - half), size, size,
+            facecolor="crimson", edgecolor="crimson", lw=0.5,
+            zorder=8, alpha=0.9,
+        ))
 
 
 def make_figure(event_df, track_ids, title=None, sipms=None, sipm_size=6.0):

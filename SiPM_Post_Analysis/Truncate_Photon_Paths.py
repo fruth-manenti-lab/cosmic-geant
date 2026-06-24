@@ -159,7 +159,7 @@ if __name__ == "__main__":
     INPUT_DIR = args.input_dir
     OUTPUT_DIR = os.path.join(INPUT_DIR, "trimmed")
 
-    MY_8_SIPMS = parse_sipms(args.sipms)
+    MY_SIPMS = parse_sipms(args.sipms)
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -172,7 +172,7 @@ if __name__ == "__main__":
         filter_photons_by_sipm(
             input_file=file_path,
             output_file=out_path,
-            sipm_centers=MY_8_SIPMS,
+            sipm_centers=MY_SIPMS,
             sipm_size=6,
             chunk_size=500,
         )
