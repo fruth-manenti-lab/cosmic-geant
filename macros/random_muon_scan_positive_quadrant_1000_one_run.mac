@@ -1,0 +1,13 @@
+# One-run positive-quadrant random test scan for ADD_SCAN builds.
+# With 1000 events and 1000 source positions, each random position is used once.
+
+/run/initialize
+/tracking/verbose 0
+/scan/positionFile macros/random_muon_scan_positive_quadrant_1000_positions.mac
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/run/printProgress 100
+/run/beamOn 1000
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

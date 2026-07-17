@@ -1,0 +1,65 @@
+campaign_id: 20260508_geom-stubs-alt_reconstruction_v01
+description: Stubbed geometry check with alternating positive/negative SiPM readout.
+
+geometry:
+  geometry_id: geom-stubs-alt
+  geometry_file: geometry/final_stubs_alternating.gdml
+  geometry_registry: geometry/GEOMETRY_REGISTRY.md
+  git_commit:
+
+build:
+  build_dir: new_build
+  executable: new_build/sim
+  compile_options:
+    ADD_SCAN: true
+    ADD_RADIOACTIVE: false
+  geant4_version:
+
+source_samples:
+  fixed_scan_1024x10:
+    raw_output_path: new_build/1000x10_training_scan_may8_stubs_alternating_sipm
+    converted_output_path: analysis/sipm_reconstruction_session/stubs_alt_may8/training_scan_data_1024x10
+    geometry_id: geom-stubs-alt
+    macro: macros/muon_scan_one_run_10events.mac
+    source_position_file: macros/muon_scan_10events.mac
+    n_positions: 1024
+    events_per_position: 10
+    n_events: 10240
+    event_position_mapping: ADD_SCAN source truth; EventID maps to SourceIndex in MUON-run0_nt_source_t*.csv.
+    large_files_saved_separately: true
+  random_scan_1000:
+    raw_output_path: new_build/1000_random_scan_may8_stubs_alternating_sipm
+    converted_output_path: analysis/sipm_reconstruction_session/stubs_alt_may8/test_scan_data_1000
+    geometry_id: geom-stubs-alt
+    macro: macros/random_muon_scan_one_run.mac
+    source_position_file: macros/random_muon_scan.mac
+    n_events: 1000
+    event_position_mapping: ADD_SCAN source truth; EventID maps to SourceIndex in MUON-run0_nt_source_t*.csv.
+    large_files_saved_separately: true
+
+analysis:
+  scripts:
+    - analysis/sipm_reconstruction_session/scripts/prepare_add_scan_test_data.py
+    - analysis/sipm_reconstruction_session/scripts/knn_sipm_sweep.py
+    - analysis/sipm_reconstruction_session/scripts/centroid_sipm_baseline.py
+    - analysis/sipm_reconstruction_session/scripts/make_method_comparison_plot.py
+  results:
+    kNN:
+      best_setting: k=12, euclidean, L1 normalization, inverse-square weighting
+      mean_radial_error_cm: 2.703854
+      median_radial_error_cm: 2.349029
+      p68_radial_error_cm: 3.114586
+      p95_radial_error_cm: 6.235043
+      sigma_x_cm: 2.257770
+      sigma_z_cm: 2.350191
+    projection_centroid:
+      mean_radial_error_cm: 10.130554
+      median_radial_error_cm: 9.173786
+      p68_radial_error_cm: 11.723719
+      p95_radial_error_cm: 21.468290
+      sigma_x_cm: 8.234710
+      sigma_z_cm: 8.332104
+  figures:
+    - analysis/sipm_reconstruction_session/stubs_alt_may8/figures/knn_centroid_comparison.png
+  notes: Alternating readout remains the main improvement. With stubs restored, performance is close to but slightly worse than the no-stubs alternating geometry.
+

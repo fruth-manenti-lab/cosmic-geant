@@ -1,0 +1,60 @@
+campaign_id: double_ended_quad_may10
+geometry_id: geom-stubs-double-ended
+geometry_file: geometry/final_stubs_double_ended_sipms.gdml
+date_generated: 2026-05-09_to_2026-05-10
+
+training:
+  raw_dir: new_build/25000_quad_training_scan_may9_sipm_all_sides
+  converted_dir: analysis/sipm_reconstruction_session/double_ended_quad_may10/training_scan_data_2500x10
+  macro: macros/muon_scan_positive_quadrant_2500x10_one_run.mac
+  position_file: macros/muon_scan_positive_quadrant_2500_positions.mac
+  positions: 2500
+  events_per_position: 10
+  total_events: 25000
+  region: positive quadrant, x and z from 0 to 50 cm
+
+test:
+  raw_dir: new_build/1000_quad_ranom_scan_may10_sipm_all_sides
+  converted_dir: analysis/sipm_reconstruction_session/double_ended_quad_may10/test_scan_data_1000
+  macro: macros/random_muon_scan_positive_quadrant_1000_one_run.mac
+  position_file: macros/random_muon_scan_positive_quadrant_1000_positions.mac
+  truth_csv: macros/random_muon_scan_positive_quadrant_1000_positions.csv
+  events: 1000
+  random_seed: 20260509
+  region: positive quadrant, x and z from 0 to 50 cm
+
+readout:
+  sipm_channels: 64
+  z_fiber_positive_z: sipm_100_to_sipm_115
+  z_fiber_negative_z: sipm_200_to_sipm_215
+  x_fiber_positive_x: sipm_300_to_sipm_315
+  x_fiber_negative_x: sipm_400_to_sipm_415
+
+analysis:
+  conda_env: unique-wls-sipm-counts
+  converter: analysis/sipm_reconstruction_session/scripts/prepare_add_scan_test_data.py
+  converter_preset: double-ended
+  knn_script: analysis/sipm_reconstruction_session/scripts/knn_quadrant_virtual_sweep.py
+  virtual_quadrants: true
+  reference: individual_training_events
+  best_dense_result:
+    training_positions: 2500
+    k: 16
+    metric: euclidean
+    normalization: l1
+    weighting: inverse
+    mean_radial_error_cm: 1.8899357496294686
+    median_radial_error_cm: 1.6204313637576888
+    p68_radial_error_cm: 2.211597170291912
+    p95_radial_error_cm: 4.4245639044323335
+  density_control_result:
+    training_positions: 256
+    effective_full_slab_positions_after_reflection: 1024
+    k: 16
+    metric: euclidean
+    normalization: l1
+    weighting: inverse
+    mean_radial_error_cm: 2.1428678547680464
+    median_radial_error_cm: 1.8311632553560666
+    p68_radial_error_cm: 2.4365702433203924
+    p95_radial_error_cm: 4.8502786520505685

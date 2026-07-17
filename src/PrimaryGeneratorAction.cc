@@ -18,6 +18,148 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 }
 
 
+#elif defined(ADD_SCAN)
+
+#include "PrimaryGeneratorAction.hh"
+#include "ScanEventInfo.hh"
+#include "ScanMessenger.hh"
+
+#include "G4Exception.hh"
+#include "G4SystemOfUnits.hh"
+
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+#include <vector>
+
+PrimaryGeneratorAction::PrimaryGeneratorAction(const char* filename)
+{
+	particleGun = new G4ParticleGun(1);
+	particleTable = G4ParticleTable::GetParticleTable();
+	particleGun->SetParticleDefinition(particleTable->FindParticle("mu-"));
+	particleGun->SetParticleEnergy(1000.0 * MeV);
+	particleGun->SetParticleMomentumDirection(G4ThreeVector(0.0, -1.0, 0.0));
+	particleGun->SetParticleTime(0.0);
+
+	scanPositionFile = ResolveScanPositionFile(filename);
+	scanMessenger = new ScanMessenger(this);
+}
+
+PrimaryGeneratorAction::~PrimaryGeneratorAction()
+{
+	delete particleGun;
+	delete scanMessenger;
+}
+
+G4String PrimaryGeneratorAction::ResolveScanPositionFile(const char* filename) const
+{
+	if (filename != nullptr && *filename != 0) {
+		return G4String(filename);
+	}
+
+	const char* envPath = std::getenv("MUON_SCAN_POSITION_FILE");
+	if (envPath != nullptr && *envPath != 0) {
+		return G4String(envPath);
+	}
+
+	const std::vector<G4String> candidates = {
+		"macros/muon_scan_10events.mac",
+		"../macros/muon_scan_10events.mac",
+		"../../macros/muon_scan_10events.mac"
+	};
+
+	for (const auto& candidate : candidates) {
+		std::ifstream probe(candidate);
+		if (probe.good()) {
+			return candidate;
+		}
+	}
+
+	return candidates.front();
+}
+
+void PrimaryGeneratorAction::SetScanPositionFile(const G4String& path)
+{
+	scanPositionFile = path;
+	scanPositionsLoaded = false;
+	scanPositions.clear();
+	G4cout << "PrimaryGeneratorAction: scan position file set to "
+	       << scanPositionFile << G4endl;
+}
+
+void PrimaryGeneratorAction::LoadScanPositions(const G4String& path)
+{
+	scanPositions.clear();
+
+	std::ifstream file(path);
+	if (!file.is_open()) {
+		G4String message = "Could not open scan position file: ";
+		message += path;
+		G4Exception("PrimaryGeneratorAction", "ScanPositionFileMissing", FatalException, message);
+	}
+
+	G4String line;
+	while (std::getline(file, line)) {
+		std::istringstream stream(line);
+		std::string command;
+		stream >> command;
+		if (command != "/gps/position") {
+			continue;
+		}
+
+		G4double x = 0.0;
+		G4double y = 0.0;
+		G4double z = 0.0;
+		std::string unit = "cm";
+		stream >> x >> y >> z >> unit;
+
+		G4double scale = cm;
+		if (unit == "mm") {
+			scale = mm;
+		} else if (unit == "m") {
+			scale = m;
+		} else if (unit != "cm") {
+			G4String message = "Unsupported scan position unit in ";
+			message += path;
+			message += ": ";
+			message += unit;
+			G4Exception("PrimaryGeneratorAction", "ScanPositionUnit", FatalException, message);
+		}
+
+		ScanPosition scanPosition;
+		scanPosition.index = static_cast<G4int>(scanPositions.size());
+		scanPosition.position = G4ThreeVector(x * scale, y * scale, z * scale);
+		scanPositions.push_back(scanPosition);
+	}
+
+	if (scanPositions.empty()) {
+		G4String message = "No /gps/position rows found in scan position file: ";
+		message += path;
+		G4Exception("PrimaryGeneratorAction", "ScanPositionFileEmpty", FatalException, message);
+	}
+
+	G4cout << "PrimaryGeneratorAction: loaded " << scanPositions.size()
+	       << " scan positions from " << path << G4endl;
+	scanPositionsLoaded = true;
+}
+
+void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
+{
+	if (!scanPositionsLoaded) {
+		LoadScanPositions(scanPositionFile);
+	}
+
+	const G4int eventId = anEvent->GetEventID();
+	const G4int sourceIndex = eventId % static_cast<G4int>(scanPositions.size());
+	const G4int sourceCycle = eventId / static_cast<G4int>(scanPositions.size());
+	const auto& source = scanPositions[sourceIndex];
+
+	particleGun->SetParticlePosition(source.position);
+	anEvent->SetUserInformation(new ScanEventInfo(source.index, sourceCycle, source.position));
+	particleGun->GeneratePrimaryVertex(anEvent);
+}
+
+
 #else
 
 #include "PrimaryGeneratorAction.hh"

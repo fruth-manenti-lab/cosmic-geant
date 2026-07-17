@@ -11,3 +11,25 @@ analysis/*.png
 hpc/start*
 *build*
 *vacuum*
+muon_data_analysis
+
+# Generated SiPM reconstruction data products kept outside git.
+analysis/sipm_reconstruction_session/training_scan_data_1024/
+analysis/sipm_reconstruction_session/test_scan_data_1000/
+analysis/sipm_reconstruction_session/results/*_predictions.csv
+analysis/sipm_reconstruction_session/results/knn_sipm_best_predictions_*.csv
+analysis/sipm_reconstruction_session/results/knn_sipm_sweep_*.csv
+analysis/sipm_reconstruction_session/notebooks/*_executed.ipynb
+analysis/sipm_reconstruction_session/*.pdf
+analysis/sipm_reconstruction_session/new_geometry_may7/training_scan_data_*/
+analysis/sipm_reconstruction_session/new_geometry_may7/test_scan_data_*/
+analysis/sipm_reconstruction_session/new_geometry_may7/results/*predictions*.csv
+analysis/sipm_reconstruction_session/nostubs_pos_may8/training_scan_data_*/
+analysis/sipm_reconstruction_session/nostubs_pos_may8/test_scan_data_*/
+analysis/sipm_reconstruction_session/nostubs_pos_may8/results/*predictions*.csv
+analysis/sipm_reconstruction_session/stubs_alt_may8/training_scan_data_*/
+analysis/sipm_reconstruction_session/stubs_alt_may8/test_scan_data_*/
+analysis/sipm_reconstruction_session/stubs_alt_may8/results/*predictions*.csv
+analysis/sipm_reconstruction_session/double_ended_quad_may10/training_scan_data_*/
+analysis/sipm_reconstruction_session/double_ended_quad_may10/test_scan_data_*/
+analysis/sipm_reconstruction_session/double_ended_quad_may10/results/*predictions*.csv

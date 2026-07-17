@@ -1,6 +1,6 @@
 #include  "ParticleMessenger.hh"
 
-#ifndef ADD_RADIOACTIVE
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_SCAN)
 
 #include "G4UIdirectory.hh"
 #include "G4UIcmdWithAString.hh"

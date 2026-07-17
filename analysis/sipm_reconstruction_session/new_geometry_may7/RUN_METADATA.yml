@@ -1,0 +1,76 @@
+campaign_id: 20260507_geom-nostubs-alt_reconstruction_v01
+description: New-geometry SiPM reconstruction check using no-stub alternating SiPM layout.
+
+geometry:
+  geometry_id: geom-nostubs-alt
+  geometry_file: geometry/final_no_stubs.gdml
+  geometry_registry: geometry/GEOMETRY_REGISTRY.md
+  git_commit: b88b1d570154a24d6481f6905f2f17f60682366d
+
+build:
+  build_dir: new_build
+  executable: new_build/sim
+  compile_options:
+    ADD_SCAN: true
+    ADD_RADIOACTIVE: false
+  geant4_version:
+
+source_samples:
+  fixed_scan_1024x10:
+    raw_output_path: build/1024_muon_scan_may7_2026
+    converted_output_path: analysis/sipm_reconstruction_session/new_geometry_may7/training_scan_data_1024
+    geometry_id: geom-nostubs-alt
+    macro: macros/muon_scan_10events.mac
+    source_position_file: macros/muon_scan_10events.mac
+    n_positions: 1024
+    events_per_position: 10
+    event_position_mapping: old multi-run scan; run_id maps to source position row.
+    large_files_saved_separately: true
+  random_scan_1000:
+    raw_output_path: new_build/1000_random_scan_may7
+    converted_output_path: analysis/sipm_reconstruction_session/new_geometry_may7/test_scan_data_1000
+    geometry_id: geom-nostubs-alt
+    macro: macros/random_muon_scan_one_run.mac
+    source_position_file: macros/random_muon_scan.mac
+    n_events: 1000
+    event_position_mapping: ADD_SCAN source truth; EventID maps to SourceIndex in MUON-run0_nt_source_t*.csv.
+    large_files_saved_separately: true
+  fixed_scan_10000x1:
+    raw_output_path: new_build/10000_training_scan_may7
+    converted_output_path: analysis/sipm_reconstruction_session/new_geometry_may7/training_scan_data_10000_1event
+    geometry_id: geom-nostubs-alt
+    macro: macros/muon_scan_one_run_10000_1event.mac
+    source_position_file: macros/muon_scan_10000_1event_positions.mac
+    n_positions: 10000
+    events_per_position: 1
+    event_position_mapping: ADD_SCAN source truth; EventID maps to SourceIndex in MUON-run0_nt_source_t*.csv.
+    large_files_saved_separately: true
+
+analysis:
+  scripts:
+    - analysis/sipm_reconstruction_session/scripts/prepare_add_scan_test_data.py
+    - analysis/sipm_reconstruction_session/scripts/knn_sipm_sweep.py
+    - analysis/sipm_reconstruction_session/scripts/centroid_sipm_baseline.py
+    - analysis/sipm_reconstruction_session/scripts/make_method_comparison_plot.py
+    - analysis/sipm_reconstruction_session/scripts/make_training_library_comparison_plot.py
+  results:
+    fixed_scan_1024x10_knn:
+      mean_radial_error_cm: 2.579741
+      median_radial_error_cm: 2.245941
+      p68_radial_error_cm: 2.989291
+      p95_radial_error_cm: 5.595155
+    fixed_scan_10000x1_knn:
+      mean_radial_error_cm: 2.541725
+      median_radial_error_cm: 2.257590
+      p68_radial_error_cm: 2.952028
+      p95_radial_error_cm: 5.500840
+    projection_centroid:
+      mean_radial_error_cm: 10.613940
+      median_radial_error_cm: 9.624156
+      p68_radial_error_cm: 12.657980
+      p95_radial_error_cm: 22.041365
+  figures:
+    - analysis/sipm_reconstruction_session/new_geometry_may7/figures/knn_centroid_comparison.png
+    - analysis/sipm_reconstruction_session/new_geometry_may7/figures/knn_training_library_comparison.png
+  notes: The dense 10000-position library only slightly improved kNN over the 1024-position repeated-event library.
+

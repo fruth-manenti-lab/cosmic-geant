@@ -1,0 +1,65 @@
+campaign_id: 20260508_geom-nostubs-pos_reconstruction_v01
+description: No-stub geometry check with original positive-side SiPM arrangement.
+
+geometry:
+  geometry_id: geom-nostubs-pos
+  geometry_file: geometry/final_no_stubs_pos_sipms.gdml
+  geometry_registry: geometry/GEOMETRY_REGISTRY.md
+  git_commit:
+
+build:
+  build_dir: new_build
+  executable: new_build/sim
+  compile_options:
+    ADD_SCAN: true
+    ADD_RADIOACTIVE: false
+  geant4_version:
+
+source_samples:
+  fixed_scan_1024x10:
+    raw_output_path: new_build/1000x10_training_scan_may8
+    converted_output_path: analysis/sipm_reconstruction_session/nostubs_pos_may8/training_scan_data_1024x10
+    geometry_id: geom-nostubs-pos
+    macro: macros/muon_scan_one_run_10events.mac
+    source_position_file: macros/muon_scan_10events.mac
+    n_positions: 1024
+    events_per_position: 10
+    n_events: 10240
+    event_position_mapping: ADD_SCAN source truth; EventID maps to SourceIndex in MUON-run0_nt_source_t*.csv.
+    large_files_saved_separately: true
+  random_scan_1000:
+    raw_output_path: new_build/1000_random_scan_may8
+    converted_output_path: analysis/sipm_reconstruction_session/nostubs_pos_may8/test_scan_data_1000
+    geometry_id: geom-nostubs-pos
+    macro: macros/random_muon_scan_one_run.mac
+    source_position_file: macros/random_muon_scan.mac
+    n_events: 1000
+    event_position_mapping: ADD_SCAN source truth; EventID maps to SourceIndex in MUON-run0_nt_source_t*.csv.
+    large_files_saved_separately: true
+
+analysis:
+  scripts:
+    - analysis/sipm_reconstruction_session/scripts/prepare_add_scan_test_data.py
+    - analysis/sipm_reconstruction_session/scripts/knn_sipm_sweep.py
+    - analysis/sipm_reconstruction_session/scripts/centroid_sipm_baseline.py
+    - analysis/sipm_reconstruction_session/scripts/make_method_comparison_plot.py
+  results:
+    kNN:
+      best_setting: k=12, euclidean, sqrt normalization, inverse-square weighting
+      mean_radial_error_cm: 4.641252
+      median_radial_error_cm: 3.221163
+      p68_radial_error_cm: 4.708842
+      p95_radial_error_cm: 14.124245
+      sigma_x_cm: 4.525516
+      sigma_z_cm: 4.455313
+    projection_centroid:
+      mean_radial_error_cm: 17.018305
+      median_radial_error_cm: 13.468987
+      p68_radial_error_cm: 20.450622
+      p95_radial_error_cm: 42.977020
+      sigma_x_cm: 14.981272
+      sigma_z_cm: 14.945529
+  figures:
+    - analysis/sipm_reconstruction_session/nostubs_pos_may8/figures/knn_centroid_comparison.png
+  notes: Removing stubs while keeping all SiPMs on the original positive readout sides does not reproduce the improvement seen with alternating SiPM sides.
+

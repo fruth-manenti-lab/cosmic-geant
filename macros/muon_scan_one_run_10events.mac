@@ -1,0 +1,19 @@
+# One-run 1024-position training scan for ADD_SCAN builds.
+#
+# Compile with:
+#   cmake -DADD_SCAN=ON ..
+#
+# PrimaryGeneratorAction reads the scan positions from the file below and assigns
+# event i to position i % number_of_positions. Therefore 10240 events gives
+# 10 muons per scan position while keeping the whole scan inside one Geant4 run.
+
+/run/initialize
+/tracking/verbose 0
+/scan/positionFile macros/muon_scan_10events.mac
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/run/printProgress 102
+/run/beamOn 10240
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

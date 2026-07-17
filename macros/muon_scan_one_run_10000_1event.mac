@@ -1,0 +1,18 @@
+# One-run 10000-position training scan for ADD_SCAN builds.
+#
+# Compile with:
+#   cmake -DADD_SCAN=ON ..
+#
+# PrimaryGeneratorAction reads positions from the file below and assigns
+# event i to position i % number_of_positions. Since this scan has 10000
+# positions and beamOn is 10000, each position receives exactly one muon.
+
+/run/initialize
+/tracking/verbose 0
+/scan/positionFile macros/muon_scan_10000_1event_positions.mac
+/vis/viewer/set/autoRefresh false
+/vis/scene/endOfEventAction accumulate -1
+/vis/scene/endOfRunAction accumulate
+/run/beamOn 10000
+/vis/viewer/set/autoRefresh true
+/vis/viewer/refresh

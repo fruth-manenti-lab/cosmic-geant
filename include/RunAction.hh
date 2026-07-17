@@ -4,6 +4,9 @@
 #include "G4UserRunAction.hh"
 #include "G4String.hh"
 #include "PrimaryGeneratorAction.hh"
+#include "globals.hh"
+
+#include <atomic>
 
 class RunAction : public G4UserRunAction
 {
@@ -14,12 +17,14 @@ class RunAction : public G4UserRunAction
         ~RunAction() override;
         PrimaryGeneratorAction * generator = nullptr;
         G4String baseFilename;
+        G4int activeRunId = -1;
         
 
         void BeginOfRunAction(const G4Run*) override;
         void   EndOfRunAction(const G4Run*) override;
     
     private:
+        static std::atomic<G4int> currentGlobalRunId;
         static void BookAnalysis(G4String filename = "TEST.csv", G4bool ntupleMerging = false);
         static G4String BuildRunFilename(const G4String& baseFilename, G4int runId);
         static G4String BuildRunTimeFilename(const G4String& baseFilename, G4int runId);

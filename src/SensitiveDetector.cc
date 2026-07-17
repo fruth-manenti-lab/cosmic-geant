@@ -43,6 +43,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
     hit->setTrackID(step->GetTrack()->GetTrackID());
     hit->setParticle(step->GetTrack()->GetParticleDefinition()->GetParticleName());
     hit->setEnergyDeposited(edep);
+    hit->setPosition(step->GetPostStepPoint()->GetPosition());
     hit->setTime(step->GetPostStepPoint()->GetLocalTime());
     hit->setVolume(step->GetPreStepPoint()->GetPhysicalVolume()->GetName());
     hit->setCopyNo(step->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber());
@@ -50,11 +51,12 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
     hit->setOrigin(parentVolume);
     hit->setParentID(step->GetTrack()->GetParentID());
     hit->setProcessName(processName);
+    hit->setStepID(step->GetTrack()->GetCurrentStepNumber());
 
     hitsCollection->insert(hit);
 
 
-    step->GetTrack()->SetTrackStatus(fStopAndKill);
+    // step->GetTrack()->SetTrackStatus(fStopAndKill);
 
 
     return true;
