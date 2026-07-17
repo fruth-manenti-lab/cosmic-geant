@@ -1,0 +1,25 @@
+# Direct dilution-detector optical boundary test:
+# one optical photon starts just inside the upper scintillator +z face
+# and travels straight through the 0.5 mm gap toward the upper SiPM.
+
+/run/initialize
+/tracking/verbose 2
+
+# Use General Particle Source.
+/gps/particle opticalphoton
+
+# 3 eV is within the optical property tables used by the scintillator,
+# vacuum, and SiPM material.
+/gps/ene/type Mono
+/gps/ene/mono 3.0 eV
+
+/gps/pos/type Point
+/gps/pos/centre 0 12.5 6.9 mm
+
+# Direction is +z, from scintillator toward the SiPM.
+/gps/direction 0 0 1
+/gps/polarization 0 1 0
+
+/gps/number 1
+
+/run/beamOn 1

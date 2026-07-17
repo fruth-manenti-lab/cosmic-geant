@@ -56,7 +56,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
     hitsCollection->insert(hit);
 
 
-    // step->GetTrack()->SetTrackStatus(fStopAndKill);
+    step->GetTrack()->SetTrackStatus(fStopAndKill);
 
 
     return true;
