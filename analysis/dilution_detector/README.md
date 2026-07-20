@@ -72,3 +72,27 @@ python3 analysis/dilution_detector/plot_double_coincidence_threshold_scan.py \
   --output-csv analysis/dilution_detector/results/cry_10M_double_coincidence_signal_threshold_scan_per_hour.csv \
   --output-plot analysis/dilution_detector/results/cry_10M_double_coincidence_signal_threshold_scan_per_hour.png
 ```
+
+Use the digitised wavelength-dependent PDE curve instead of a flat SiPM
+efficiency:
+
+```sh
+python3 analysis/dilution_detector/count_sipm_double_coincidences.py \
+  runs/cry_10M_live_20260717_152927 \
+  --pde-csv analysis/dilution_detector/pde_digitization/sipm_pde_digitized.csv \
+  --pde-column pde_5v_percent \
+  --output analysis/dilution_detector/results/cry_10M_sipm_counts_by_event_pde5v.csv
+```
+
+Then plot the frequency curve using 1.5 mV per PDE-weighted detected photon:
+
+```sh
+python3 analysis/dilution_detector/plot_double_coincidence_threshold_scan.py \
+  analysis/dilution_detector/results/cry_10M_sipm_counts_by_event_pde5v.csv \
+  --step 10 \
+  --duration-minutes 700 \
+  --x-efficiency 1.0 \
+  --mv-per-detected-photon 1.5 \
+  --output-csv analysis/dilution_detector/results/cry_10M_double_coincidence_pde5v_signal_threshold_scan_per_hour.csv \
+  --output-plot analysis/dilution_detector/results/cry_10M_double_coincidence_pde5v_signal_threshold_scan_per_hour.png
+```

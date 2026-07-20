@@ -76,25 +76,54 @@ def parse_args() -> argparse.Namespace:
         type=float,
         help="Signal size in mV per detected photon for x-axis conversion.",
     )
+    parser.add_argument(
+        "--count-columns",
+        help=(
+            "Comma-separated per-SiPM count columns. Default: auto-detect "
+            "sipm_copy_0/1 raw or PDE-weighted columns."
+        ),
+    )
     return parser.parse_args()
 
 
-def read_event_counts(path: Path) -> list[tuple[int, int]]:
+def auto_count_columns(fieldnames: list[str]) -> tuple[str, str]:
+    candidates = [
+        ("sipm_copy_0_photons", "sipm_copy_1_photons"),
+        ("sipm_copy_0_pde_weighted_detected_photons", "sipm_copy_1_pde_weighted_detected_photons"),
+    ]
+    for first, second in candidates:
+        if first in fieldnames and second in fieldnames:
+            return first, second
+    raise ValueError(
+        "Could not auto-detect SiPM count columns. Use --count-columns col0,col1."
+    )
+
+
+def parse_count_columns(value: str | None, fieldnames: list[str]) -> tuple[str, str]:
+    if value is None:
+        return auto_count_columns(fieldnames)
+    columns = [column.strip() for column in value.split(",") if column.strip()]
+    if len(columns) != 2:
+        raise ValueError("--count-columns must provide exactly two comma-separated columns")
+    missing = set(columns).difference(fieldnames)
+    if missing:
+        raise ValueError(f"Input CSV is missing count columns: {', '.join(sorted(missing))}")
+    return columns[0], columns[1]
+
+
+def read_event_counts(path: Path, count_columns: str | None) -> list[tuple[float, float]]:
     counts = []
     with path.open(newline="") as handle:
         reader = csv.DictReader(handle)
-        required = {"sipm_copy_0_photons", "sipm_copy_1_photons"}
-        missing = required.difference(reader.fieldnames or [])
-        if missing:
-            raise ValueError(f"{path} is missing required columns: {', '.join(sorted(missing))}")
+        first_column, second_column = parse_count_columns(count_columns, reader.fieldnames or [])
         for row in reader:
-            counts.append((int(row["sipm_copy_0_photons"]), int(row["sipm_copy_1_photons"])))
+            counts.append((float(row[first_column]), float(row[second_column])))
     if not counts:
         raise ValueError(f"No event counts found in {path}")
     return counts
 
 
-def build_thresholds(counts: list[tuple[int, int]], start: int, step: int, max_threshold: int | None) -> list[int]:
+def build_thresholds(counts: list[tuple[float, float]], start: int, step: int, max_threshold: int | None) -> list[int]:
     if step <= 0:
         raise ValueError("--step must be greater than zero")
     if start < 1:
@@ -102,12 +131,13 @@ def build_thresholds(counts: list[tuple[int, int]], start: int, step: int, max_t
     if max_threshold is None:
         max_seen = max(min(lower, upper) for lower, upper in counts)
         max_threshold = (max_seen // step) * step
+    max_threshold = int(max_threshold)
     if max_threshold < start:
         return [start]
     return list(range(start, max_threshold + 1, step))
 
 
-def scan_thresholds(counts: list[tuple[int, int]], thresholds: list[int]) -> list[tuple[int, int]]:
+def scan_thresholds(counts: list[tuple[float, float]], thresholds: list[int]) -> list[tuple[int, int]]:
     return [
         (threshold, sum(1 for lower, upper in counts if lower >= threshold and upper >= threshold))
         for threshold in thresholds
@@ -233,7 +263,7 @@ def plot_scan(
 
 def main() -> int:
     args = parse_args()
-    counts = read_event_counts(args.counts_csv)
+    counts = read_event_counts(args.counts_csv, args.count_columns)
     thresholds = build_thresholds(counts, args.start, args.step, args.max_threshold)
     scan = scan_thresholds(counts, thresholds)
     scale, x_label, converted_x_column = x_axis_scale(args)

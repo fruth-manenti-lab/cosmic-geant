@@ -2,7 +2,8 @@
 """Count SiPM double coincidences from Geant4 hit ntuple CSV files.
 
 A double coincidence is an event where both requested SiPM copy numbers record
-at least the requested number of optical photon hits.
+at least the requested number of optical photon hits or PDE-weighted detected
+photoelectrons.
 """
 
 from __future__ import annotations
@@ -98,6 +99,27 @@ def parse_args() -> argparse.Namespace:
         help="Optional JSON summary output.",
     )
     parser.add_argument(
+        "--pde-csv",
+        type=Path,
+        help=(
+            "Optional digitised SiPM PDE CSV. If supplied, each optical photon "
+            "is weighted by interpolated PDE(wavelength) / 100 using InitialEnergy."
+        ),
+    )
+    parser.add_argument(
+        "--pde-column",
+        default="pde_5v_percent",
+        help="PDE percentage column to use from --pde-csv. Default: pde_5v_percent.",
+    )
+    parser.add_argument(
+        "--weighted-column-suffix",
+        default="pde_weighted_detected_photons",
+        help=(
+            "Column suffix for per-SiPM output when --pde-csv is used. "
+            "Default: pde_weighted_detected_photons."
+        ),
+    )
+    parser.add_argument(
         "--unique-tracks",
         action="store_true",
         help=(
@@ -141,6 +163,45 @@ def effective_photon_threshold(args: argparse.Namespace) -> tuple[int, dict[str,
         "min_detected_photons_per_sipm": args.min_detected_photons_per_sipm,
         "effective_min_recorded_photons_per_sipm": effective_threshold,
     }
+
+
+class PdeCurve:
+    def __init__(self, points: list[tuple[float, float]], source: Path, column: str):
+        if len(points) < 2:
+            raise ValueError(f"At least two PDE points are required in {source}")
+        self.points = sorted(points)
+        self.source = source
+        self.column = column
+
+    def interpolate_percent(self, wavelength_nm: float) -> float:
+        if wavelength_nm <= self.points[0][0]:
+            return self.points[0][1]
+        if wavelength_nm >= self.points[-1][0]:
+            return self.points[-1][1]
+
+        for (x0, y0), (x1, y1) in zip(self.points, self.points[1:]):
+            if x0 <= wavelength_nm <= x1:
+                if x1 == x0:
+                    return y0
+                fraction = (wavelength_nm - x0) / (x1 - x0)
+                return y0 + fraction * (y1 - y0)
+        return self.points[-1][1]
+
+
+def load_pde_curve(path: Path | None, column: str) -> PdeCurve | None:
+    if path is None:
+        return None
+
+    points = []
+    with path.open(newline="") as handle:
+        reader = csv.DictReader(handle)
+        required = {"wavelength_nm", column}
+        missing = required.difference(reader.fieldnames or [])
+        if missing:
+            raise ValueError(f"{path} is missing required columns: {', '.join(sorted(missing))}")
+        for row in reader:
+            points.append((float(row["wavelength_nm"]), float(row[column])))
+    return PdeCurve(points, path, column)
 
 
 def find_hit_files(inputs: list[str]) -> list[Path]:
@@ -206,17 +267,44 @@ def parse_int_field(row: dict[str, str], field: str) -> int:
     return int(float(row[field]))
 
 
+def optical_wavelength_nm_from_initial_energy(row: dict[str, str]) -> float:
+    initial_energy_keV = float(row["InitialEnergy"])
+    initial_energy_eV = initial_energy_keV * 1000.0
+    if initial_energy_eV <= 0:
+        raise ValueError(f"Optical photon has non-positive InitialEnergy: {initial_energy_keV} keV")
+    return 1239.841984 / initial_energy_eV
+
+
+def photon_weight(row: dict[str, str], pde_curve: PdeCurve | None) -> tuple[float, float | None, float | None]:
+    if pde_curve is None:
+        return 1.0, None, None
+
+    wavelength_nm = optical_wavelength_nm_from_initial_energy(row)
+    pde_percent = pde_curve.interpolate_percent(wavelength_nm)
+    return pde_percent / 100.0, wavelength_nm, pde_percent
+
+
 def count_double_coincidences(
-    files: list[Path], sipm_copies: list[int], unique_tracks: bool
-) -> tuple[dict[int, list[int]], dict[str, int]]:
+    files: list[Path],
+    sipm_copies: list[int],
+    unique_tracks: bool,
+    pde_curve: PdeCurve | None,
+) -> tuple[dict[int, list[float]], dict[str, float | int | str | None]]:
     copy_to_index = {copy_number: index for index, copy_number in enumerate(sipm_copies)}
-    event_counts: dict[int, list[int]] = defaultdict(lambda: [0] * len(sipm_copies))
+    event_counts: dict[int, list[float]] = defaultdict(lambda: [0.0] * len(sipm_copies))
     seen_tracks: set[tuple[int, int, int]] = set()
-    stats = {
+    stats: dict[str, float | int | str | None] = {
         "files": len(files),
         "rows_read": 0,
         "sipm_photon_rows": 0,
         "ignored_sipm_copies": 0,
+        "weighting_mode": "pde_weighted" if pde_curve is not None else "raw_photon_count",
+        "pde_source": str(pde_curve.source) if pde_curve is not None else None,
+        "pde_column": pde_curve.column if pde_curve is not None else None,
+        "wavelength_min_nm": None,
+        "wavelength_max_nm": None,
+        "pde_percent_min": None,
+        "pde_percent_max": None,
     }
 
     for path in files:
@@ -240,20 +328,43 @@ def count_double_coincidences(
                     continue
                 seen_tracks.add(track_key)
 
-            event_counts[event_id][copy_to_index[copy_number]] += 1
+            weight, wavelength_nm, pde_percent = photon_weight(row, pde_curve)
+            if wavelength_nm is not None and pde_percent is not None:
+                stats["wavelength_min_nm"] = (
+                    wavelength_nm
+                    if stats["wavelength_min_nm"] is None
+                    else min(float(stats["wavelength_min_nm"]), wavelength_nm)
+                )
+                stats["wavelength_max_nm"] = (
+                    wavelength_nm
+                    if stats["wavelength_max_nm"] is None
+                    else max(float(stats["wavelength_max_nm"]), wavelength_nm)
+                )
+                stats["pde_percent_min"] = (
+                    pde_percent
+                    if stats["pde_percent_min"] is None
+                    else min(float(stats["pde_percent_min"]), pde_percent)
+                )
+                stats["pde_percent_max"] = (
+                    pde_percent
+                    if stats["pde_percent_max"] is None
+                    else max(float(stats["pde_percent_max"]), pde_percent)
+                )
+
+            event_counts[event_id][copy_to_index[copy_number]] += weight
             stats["sipm_photon_rows"] += 1
 
     return event_counts, stats
 
 
-def passes_cut(counts: list[int], min_photons_per_sipm: int) -> bool:
+def passes_cut(counts: list[float], min_photons_per_sipm: float) -> bool:
     return all(count >= min_photons_per_sipm for count in counts)
 
 
 def summarize(
-    event_counts: dict[int, list[int]],
+    event_counts: dict[int, list[float]],
     sipm_copies: list[int],
-    stats: dict[str, int],
+    stats: dict[str, float | int | str | None],
     min_photons_per_sipm: int,
     threshold_details: dict[str, object],
 ) -> dict[str, object]:
@@ -288,12 +399,13 @@ def summarize(
 
 def write_counts(
     path: Path,
-    event_counts: dict[int, list[int]],
+    event_counts: dict[int, list[float]],
     sipm_copies: list[int],
     min_photons_per_sipm: int,
+    column_suffix: str,
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fieldnames = ["EventID", *[f"sipm_copy_{copy}_photons" for copy in sipm_copies], "double_coincidence"]
+    fieldnames = ["EventID", *[f"sipm_copy_{copy}_{column_suffix}" for copy in sipm_copies], "double_coincidence"]
     with path.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
@@ -304,18 +416,19 @@ def write_counts(
                 "double_coincidence": int(passes_cut(counts, min_photons_per_sipm)),
             }
             for index, copy_number in enumerate(sipm_copies):
-                row[f"sipm_copy_{copy_number}_photons"] = counts[index]
+                row[f"sipm_copy_{copy_number}_{column_suffix}"] = f"{counts[index]:.10g}"
             writer.writerow(row)
 
 
 def write_double_events(
     path: Path,
-    event_counts: dict[int, list[int]],
+    event_counts: dict[int, list[float]],
     sipm_copies: list[int],
     min_photons_per_sipm: int,
+    column_suffix: str,
 ) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fieldnames = ["EventID", *[f"sipm_copy_{copy}_photons" for copy in sipm_copies]]
+    fieldnames = ["EventID", *[f"sipm_copy_{copy}_{column_suffix}" for copy in sipm_copies]]
     with path.open("w", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
@@ -325,7 +438,7 @@ def write_double_events(
                 continue
             row = {"EventID": event_id}
             for index, copy_number in enumerate(sipm_copies):
-                row[f"sipm_copy_{copy_number}_photons"] = counts[index]
+                row[f"sipm_copy_{copy_number}_{column_suffix}"] = f"{counts[index]:.10g}"
             writer.writerow(row)
 
 
@@ -337,6 +450,12 @@ def print_summary(summary: dict[str, object], files: list[Path]) -> None:
         print(f"  last file:  {files[-1]}")
     print(f"  rows read: {summary['rows_read']}")
     print(f"  SiPM photon rows counted: {summary['sipm_photon_rows']}")
+    print(f"  weighting mode: {summary['weighting_mode']}")
+    if summary["pde_source"] is not None:
+        print(f"  PDE source: {summary['pde_source']}")
+        print(f"  PDE column: {summary['pde_column']}")
+        print(f"  wavelength range: {summary['wavelength_min_nm']:.3f} - {summary['wavelength_max_nm']:.3f} nm")
+        print(f"  interpolated PDE range: {summary['pde_percent_min']:.3f} - {summary['pde_percent_max']:.3f} %")
     print(f"  threshold mode: {summary['threshold_mode']}")
     if summary["sipm_efficiency"] is not None:
         print(f"  SiPM efficiency: {summary['sipm_efficiency']}")
@@ -361,17 +480,20 @@ def main() -> int:
         sipm_copies = parse_copy_numbers(args.sipm_copies)
         min_photons_per_sipm, threshold_details = effective_photon_threshold(args)
         files = find_hit_files(args.inputs)
-        event_counts, stats = count_double_coincidences(files, sipm_copies, args.unique_tracks)
+        pde_curve = load_pde_curve(args.pde_csv, args.pde_column)
+        column_suffix = args.weighted_column_suffix if pde_curve is not None else "photons"
+        event_counts, stats = count_double_coincidences(files, sipm_copies, args.unique_tracks, pde_curve)
         summary = summarize(event_counts, sipm_copies, stats, min_photons_per_sipm, threshold_details)
 
         if args.output:
-            write_counts(args.output, event_counts, sipm_copies, min_photons_per_sipm)
+            write_counts(args.output, event_counts, sipm_copies, min_photons_per_sipm, column_suffix)
         if args.double_events_output:
             write_double_events(
                 args.double_events_output,
                 event_counts,
                 sipm_copies,
                 min_photons_per_sipm,
+                column_suffix,
             )
         if args.summary_json:
             args.summary_json.parent.mkdir(parents=True, exist_ok=True)
