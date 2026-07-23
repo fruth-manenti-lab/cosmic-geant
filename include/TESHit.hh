@@ -34,6 +34,7 @@ public:
     void setMigrantID       (G4int migrantID)           {this->migrantID = migrantID; };
     void setParentID(G4int parentID)                    {this->parentID = parentID; };
     void setProcessName(G4String processName)           {this->processName = processName;}
+    void setSourceParticle(G4String sourceParticle)     {this->sourceParticle = sourceParticle;}
     void setStepID(G4int stepID)                         {this->stepID = stepID;}
 
 
@@ -49,6 +50,7 @@ public:
     G4int           getMigrantID()          {return migrantID;};
     G4int           getParentID()           {return parentID;};
     G4String        getProcessName()        {return processName;};
+    G4String        getSourceParticle()     {return sourceParticle;};
     G4int           getStepID()             {return stepID;};
 
 
@@ -66,6 +68,7 @@ private:
     G4int           migrantID           = -1;
     G4int           parentID            = -1;
     G4String        processName         = "";
+    G4String        sourceParticle      = "";
     G4int           stepID              = -1;
 };
 

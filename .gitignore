@@ -20,6 +20,7 @@ MUON-run*_nt_hits_t*.csv
 # Dilution detector generated analysis outputs. Keep only the final report plot.
 analysis/dilution_detector/.mplconfig/
 analysis/dilution_detector/pde_digitization/.mplconfig/
+david_lab_background/.mplconfig/
 analysis/dilution_detector/pde_digitization/sipm_pde_digitized_check.png
 analysis/dilution_detector/results/*
 !analysis/dilution_detector/results/cry_10M_double_coincidence_signal_threshold_scan_per_hour.png

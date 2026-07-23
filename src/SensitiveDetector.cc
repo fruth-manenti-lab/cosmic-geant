@@ -22,6 +22,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
 {
     G4double edep = step->GetTotalEnergyDeposit();
     G4String volume = step->GetPreStepPoint()->GetPhysicalVolume()->GetName();
+    G4String particleName = step->GetTrack()->GetParticleDefinition()->GetParticleName();
 
     // if TES B or E are hit record it
     if (volume.find("B") != G4String::npos or volume.find("E") != G4String::npos){eventAction->SetHitTES(true);}
@@ -38,10 +39,18 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
         processName = step->GetTrack()->GetCreatorProcess()->GetProcessName();
     }
 
+    G4String sourceParticle = "unknown";
+    if (auto* trackInfo = dynamic_cast<TrackInformation*>(step->GetTrack()->GetUserInformation()))
+    {
+        sourceParticle = trackInfo->GetSourceParticle();
+    }
+    if (sourceParticle.empty()) {
+        sourceParticle = step->GetTrack()->GetParticleDefinition()->GetParticleName();
+    }
 
     auto hit = new TESHit();
     hit->setTrackID(step->GetTrack()->GetTrackID());
-    hit->setParticle(step->GetTrack()->GetParticleDefinition()->GetParticleName());
+    hit->setParticle(particleName);
     hit->setEnergyDeposited(edep);
     hit->setPosition(step->GetPostStepPoint()->GetPosition());
     hit->setTime(step->GetPostStepPoint()->GetLocalTime());
@@ -51,12 +60,18 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
     hit->setOrigin(parentVolume);
     hit->setParentID(step->GetTrack()->GetParentID());
     hit->setProcessName(processName);
+    hit->setSourceParticle(sourceParticle);
     hit->setStepID(step->GetTrack()->GetCurrentStepNumber());
 
     hitsCollection->insert(hit);
 
 
-    step->GetTrack()->SetTrackStatus(fStopAndKill);
+    const G4bool isMuonClockMuon =
+        volume == "muon_clock_phys" && (particleName == "mu+" || particleName == "mu-");
+    if (!isMuonClockMuon)
+    {
+        step->GetTrack()->SetTrackStatus(fStopAndKill);
+    }
 
 
     return true;

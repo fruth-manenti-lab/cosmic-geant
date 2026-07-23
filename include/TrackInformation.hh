@@ -23,6 +23,7 @@ class TrackInformation : public G4VUserTrackInformation
     public:
         TrackInformation(G4int id = -1);        // Constructor
         TrackInformation(G4String processName = "");        // Constructor
+        TrackInformation(G4String processName, G4String sourceParticle);
         ~TrackInformation() override;           // Destructor
 
         // Mutators
@@ -32,9 +33,13 @@ class TrackInformation : public G4VUserTrackInformation
         void SetProcessName(G4String);
         const G4String GetProcessName();
 
+        void SetSourceParticle(G4String);
+        const G4String GetSourceParticle();
+
     private:
-        G4int migrantID;
+        G4int migrantID = -1;
         G4String processName; 
+        G4String sourceParticle = "";
 };
 
 #endif

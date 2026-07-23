@@ -96,3 +96,45 @@ python3 analysis/dilution_detector/plot_double_coincidence_threshold_scan.py \
   --output-csv analysis/dilution_detector/results/cry_10M_double_coincidence_pde5v_signal_threshold_scan_per_hour.csv \
   --output-plot analysis/dilution_detector/results/cry_10M_double_coincidence_pde5v_signal_threshold_scan_per_hour.png
 ```
+
+## CRY plus background source breakdown
+
+Build and run the combined CRY plus measured David-lab gamma background mode:
+
+```sh
+source /Users/matildalawton/geant4/geant4-install/bin/geant4.sh
+cmake -S . -B build_cry_background -DADD_CRY_BACKGROUND_GPS=ON
+cmake --build build_cry_background -j4
+cd build_cry_background
+./sim ../geometry/dilutiondetector.gdml ../macros/dilutiondetector_cry_background.mac
+```
+
+Analyze SiPM optical-photon events by source:
+
+```sh
+python3 analysis/dilution_detector/analyze_sipm_source_breakdown.py \
+  build_cry_background/output \
+  --output analysis/dilution_detector/results/cry_background_100k_source_breakdown.csv \
+  --summary-json analysis/dilution_detector/results/cry_background_100k_source_breakdown.json
+```
+
+The combined mode writes a `SourceParticle` column so scintillation photons can
+be attributed to a primary `mu-`, `mu+`, or `gamma`. The 100k smoke run gave:
+
+```text
+muon-caused SiPM events: 21
+muon-caused double coincidences: 7
+gamma-caused SiPM events: 1,153
+gamma-caused double coincidences: 11
+```
+
+Apply the digitised 5.0 V PDE curve to the source breakdown:
+
+```sh
+python3 analysis/dilution_detector/analyze_sipm_source_breakdown.py \
+  build_cry_background/output \
+  --pde-csv analysis/dilution_detector/pde_digitization/sipm_pde_digitized.csv \
+  --pde-column pde_5v_percent \
+  --output analysis/dilution_detector/results/cry_background_100k_source_breakdown_pde5v.csv \
+  --summary-json analysis/dilution_detector/results/cry_background_100k_source_breakdown_pde5v.json
+```

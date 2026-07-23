@@ -36,6 +36,13 @@ TrackingAction::~TrackingAction()
 // What to do before the track is generated
 void TrackingAction::PreUserTrackingAction(const G4Track* track)
 {
+#ifdef ADD_SOURCE_TAGGING
+    if (track->GetParentID() == 0 && track->GetUserInformation() == nullptr) {
+        G4Track* tr = (G4Track*) track;
+        tr->SetUserInformation(new TrackInformation("Primary", track->GetDefinition()->GetParticleName()));
+    }
+#endif
+
     // Get the particle this track is about
     G4ParticleDefinition* particle = track->GetDefinition();
 
@@ -61,7 +68,15 @@ void TrackingAction::PreUserTrackingAction(const G4Track* track)
 // What to do after the track is generated
 void TrackingAction::PostUserTrackingAction(const G4Track* track)
 {
-    // Set the track Information
+#ifdef ADD_SOURCE_TAGGING
+    G4String sourceParticle = "";
+    if (auto* parentInfo = dynamic_cast<TrackInformation*>(track->GetUserInformation())) {
+        sourceParticle = parentInfo->GetSourceParticle();
+    }
+    if (sourceParticle.empty()) {
+        sourceParticle = track->GetDefinition()->GetParticleName();
+    }
+#endif
 
     // Get the current track's volume
     G4String volume = "NA";
@@ -88,8 +103,15 @@ void TrackingAction::PostUserTrackingAction(const G4Track* track)
         // If the child does not have an origin volume skip
         if (!child->GetVolume()) continue;
     
-        // Holder for future potential uses
-        // child->SetUserInformation(new TrackInformation(processName));
+#ifdef ADD_SOURCE_TAGGING
+        if (child->GetUserInformation() == nullptr) {
+            G4String processName = "unknown";
+            if (child->GetCreatorProcess()) {
+                processName = child->GetCreatorProcess()->GetProcessName();
+            }
+            child->SetUserInformation(new TrackInformation(processName, sourceParticle));
+        }
+#endif
 
     }
 

@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./schema/gdml.xsd">
+    <define>
+        <matrix coldim="2" name="VACUUMRINDEX" values="1.5*eV 1.0 6.5*eV 1.0"/>
+        <matrix coldim="2" name="AIRRINDEX" values="1.5*eV 1.0003 6.5*eV 1.0003"/>
+        <matrix coldim="2" name="PSRINDEX" values="1.573*eV 1.58 2.034*eV 1.58 2.068*eV 1.58 2.103*eV 1.58 2.139*eV 1.58 2.177*eV 1.58 2.216*eV 1.58 2.256*eV 1.58 2.298*eV 1.58 2.341*eV 1.58 2.386*eV 1.58 2.433*eV 1.58 2.481*eV 1.58 2.487*eV 1.58 2.496*eV 1.58 2.506*eV 1.58 2.516*eV 1.58 2.524*eV 1.58 2.531*eV 1.58 2.539*eV 1.58 2.547*eV 1.58 2.554*eV 1.58 2.561*eV 1.58 2.569*eV 1.58 2.577*eV 1.58 2.586*eV 1.58 2.595*eV 1.58 2.605*eV 1.58 2.614*eV 1.58 2.622*eV 1.58 2.630*eV 1.58 2.638*eV 1.58 2.646*eV 1.58 2.653*eV 1.58 2.660*eV 1.58 2.669*eV 1.58 2.676*eV 1.58 2.681*eV 1.58 2.688*eV 1.58 2.693*eV 1.58 2.698*eV 1.58 2.703*eV 1.58 2.706*eV 1.58 2.711*eV 1.58 2.718*eV 1.58 2.723*eV 1.58 2.731*eV 1.58 2.742*eV 1.58 2.755*eV 1.58 2.768*eV 1.58 2.782*eV 1.58 2.793*eV 1.58 2.803*eV 1.58 2.811*eV 1.58 2.819*eV 1.58 2.829*eV 1.58 2.837*eV 1.58 2.845*eV 1.58 2.853*eV 1.58 2.860*eV 1.58 2.867*eV 1.58 2.875*eV 1.58 2.882*eV 1.58 2.888*eV 1.58 2.894*eV 1.58 2.900*eV 1.58 2.907*eV 1.58 2.913*eV 1.58 2.919*eV 1.58 2.924*eV 1.58 2.930*eV 1.58 2.937*eV 1.58 2.942*eV 1.58 2.948*eV 1.58 2.954*eV 1.58 2.960*eV 1.58 2.968*eV 1.58 2.976*eV 1.58 2.983*eV 1.58 2.991*eV 1.58 3.001*eV 1.58 3.008*eV 1.58 3.017*eV 1.58 3.028*eV 1.58 3.038*eV 1.58 3.048*eV 1.58 3.055*eV 1.58 3.070*eV 1.58 3.087*eV 1.58 3.103*eV 1.58 3.121*eV 1.58 3.138*eV 1.58 3.155*eV 1.58 3.173*eV 1.58 3.191*eV 1.58 3.220*eV 1.58 3.250*eV 1.58 3.281*eV 1.58 3.313*eV 1.58 3.344*eV 1.58 3.375*eV 1.58 3.403*eV 1.58 3.439*eV 1.58 3.479*eV 1.58 3.522*eV 1.58 3.566*eV 1.58 3.611*eV 1.58 3.644*eV 1.58 3.684*eV 1.58 3.731*eV 1.58 3.780*eV 1.58 3.831*eV 1.58 3.868*eV 1.58 3.892*eV 1.58 3.910*eV 1.58 3.921*eV 1.58 3.934*eV 1.58 3.946*eV 1.58 3.957*eV 1.58 3.970*eV 1.58 3.994*eV 1.58 4.044*eV 1.58 4.102*eV 1.58 4.160*eV 1.58 4.202*eV 1.58 4.236*eV 1.58 4.267*eV 1.58 4.298*eV 1.58 4.328*eV 1.58 4.357*eV 1.58 4.387*eV 1.58 4.422*eV 1.58 4.455*eV 1.58 4.494*eV 1.58 4.563*eV 1.58 4.607*eV 1.58 4.616*eV 1.58 4.624*eV 1.58 4.627*eV 1.58 4.628*eV 1.58 4.633*eV 1.58 4.640*eV 1.58 4.642*eV 1.58 4.649*eV 1.58 4.656*eV 1.58 4.661*eV 1.58 4.666*eV 1.58 4.678*eV 1.58 4.685*eV 1.58 4.692*eV 1.58 4.699*eV 1.58 4.706*eV 1.58 4.713*eV 1.58 4.720*eV 1.58 4.727*eV 1.58 4.740*eV 1.58 4.751*eV 1.58 4.763*eV 1.58 4.775*eV 1.58 4.788*eV 1.58 4.798*eV 1.58 4.813*eV 1.58 4.828*eV 1.58 4.840*eV 1.58 4.853*eV 1.58 4.869*eV 1.58 4.886*eV 1.58 4.905*eV 1.58 4.928*eV 1.58 4.953*eV 1.58 5.015*eV 1.58 5.099*eV 1.58 5.143*eV 1.58 5.174*eV 1.58 5.202*eV 1.58 5.235*eV 1.58 5.265*eV 1.58 5.294*eV 1.58 5.330*eV 1.58 5.413*eV 1.58 5.493*eV 1.58 5.556*eV 1.58 5.611*eV 1.58"/>
+        <matrix coldim="2" name="PSALEN" values="1.573*eV 380.*cm 2.034*eV 380.*cm 2.068*eV 380.*cm 2.103*eV 380.*cm 2.139*eV 380.*cm 2.177*eV 380.*cm 2.216*eV 380.*cm 2.256*eV 380.*cm 2.298*eV 380.*cm 2.341*eV 380.*cm 2.386*eV 380.*cm 2.433*eV 380.*cm 2.481*eV 380.*cm 2.487*eV 380.*cm 2.496*eV 380.*cm 2.506*eV 380.*cm 2.516*eV 380.*cm 2.524*eV 380.*cm 2.531*eV 380.*cm 2.539*eV 380.*cm 2.547*eV 380.*cm 2.554*eV 380.*cm 2.561*eV 380.*cm 2.569*eV 380.*cm 2.577*eV 380.*cm 2.586*eV 380.*cm 2.595*eV 380.*cm 2.605*eV 380.*cm 2.614*eV 380.*cm 2.622*eV 380.*cm 2.630*eV 380.*cm 2.638*eV 380.*cm 2.646*eV 380.*cm 2.653*eV 380.*cm 2.660*eV 380.*cm 2.669*eV 380.*cm 2.676*eV 380.*cm 2.681*eV 380.*cm 2.688*eV 380.*cm 2.693*eV 380.*cm 2.698*eV 380.*cm 2.703*eV 380.*cm 2.706*eV 380.*cm 2.711*eV 380.*cm 2.718*eV 380.*cm 2.723*eV 380.*cm 2.731*eV 380.*cm 2.742*eV 380.*cm 2.755*eV 380.*cm 2.768*eV 380.*cm 2.782*eV 380.*cm 2.793*eV 380.*cm 2.803*eV 380.*cm 2.811*eV 380.*cm 2.819*eV 380.*cm 2.829*eV 380.*cm 2.837*eV 380.*cm 2.845*eV 380.*cm 2.853*eV 380.*cm 2.860*eV 380.*cm 2.867*eV 380.*cm 2.875*eV 380.*cm 2.882*eV 380.*cm 2.888*eV 380.*cm 2.894*eV 380.*cm 2.900*eV 380.*cm 2.907*eV 380.*cm 2.913*eV 380.*cm 2.919*eV 380.*cm 2.924*eV 380.*cm 2.930*eV 380.*cm 2.937*eV 380.*cm 2.942*eV 380.*cm 2.948*eV 380.*cm 2.954*eV 380.*cm 2.960*eV 380.*cm 2.968*eV 380.*cm 2.976*eV 380.*cm 2.983*eV 380.*cm 2.991*eV 380.*cm 3.001*eV 380.*cm 3.008*eV 380.*cm 3.017*eV 380.*cm 3.028*eV 380.*cm 3.038*eV 380.*cm 3.048*eV 380.*cm 3.055*eV 380.*cm 3.070*eV 380.*cm 3.087*eV 380.*cm 3.103*eV 380.*cm 3.121*eV 380.*cm 3.138*eV 380.*cm 3.155*eV 380.*cm 3.173*eV 380.*cm 3.191*eV 380.*cm 3.220*eV 380.*cm 3.250*eV 380.*cm 3.281*eV 380.*cm 3.313*eV 380.*cm 3.344*eV 380.*cm 3.375*eV 380.*cm 3.403*eV 380.*cm 3.439*eV 380.*cm 3.479*eV 380.*cm 3.522*eV 380.*cm 3.566*eV 380.*cm 3.611*eV 380.*cm 3.644*eV 380.*cm 3.684*eV 380.*cm 3.731*eV 380.*cm 3.780*eV 380.*cm 3.831*eV 380.*cm 3.868*eV 380.*cm 3.892*eV 380.*cm 3.910*eV 380.*cm 3.921*eV 380.*cm 3.934*eV 380.*cm 3.946*eV 380.*cm 3.957*eV 380.*cm 3.970*eV 380.*cm 3.994*eV 380.*cm 4.044*eV 380.*cm 4.102*eV 380.*cm 4.160*eV 380.*cm 4.202*eV 380.*cm 4.236*eV 380.*cm 4.267*eV 380.*cm 4.298*eV 380.*cm 4.328*eV 380.*cm 4.357*eV 380.*cm 4.387*eV 380.*cm 4.422*eV 380.*cm 4.455*eV 380.*cm 4.494*eV 380.*cm 4.563*eV 380.*cm 4.607*eV 380.*cm 4.616*eV 380.*cm 4.624*eV 380.*cm 4.627*eV 380.*cm 4.628*eV 380.*cm 4.633*eV 380.*cm 4.640*eV 380.*cm 4.642*eV 380.*cm 4.649*eV 380.*cm 4.656*eV 380.*cm 4.661*eV 380.*cm 4.666*eV 380.*cm 4.678*eV 380.*cm 4.685*eV 380.*cm 4.692*eV 380.*cm 4.699*eV 380.*cm 4.706*eV 380.*cm 4.713*eV 380.*cm 4.720*eV 380.*cm 4.727*eV 380.*cm 4.740*eV 380.*cm 4.751*eV 380.*cm 4.763*eV 380.*cm 4.775*eV 380.*cm 4.788*eV 380.*cm 4.798*eV 380.*cm 4.813*eV 380.*cm 4.828*eV 380.*cm 4.840*eV 380.*cm 4.853*eV 380.*cm 4.869*eV 380.*cm 4.886*eV 380.*cm 4.905*eV 380.*cm 4.928*eV 380.*cm 4.953*eV 380.*cm 5.015*eV 380.*cm 5.099*eV 380.*cm 5.143*eV 380.*cm 5.174*eV 380.*cm 5.202*eV 380.*cm 5.235*eV 380.*cm 5.265*eV 380.*cm 5.294*eV 380.*cm 5.330*eV 380.*cm 5.413*eV 380.*cm 5.493*eV 380.*cm 5.556*eV 380.*cm 5.611*eV 380.*cm"/>
+        <matrix coldim="2" name="PSSC" values="2.034*eV 0.000 2.068*eV 0.000 2.103*eV 0.000 2.139*eV 0.000 2.177*eV 0.000 2.216*eV 0.010 2.256*eV 0.020 2.298*eV 0.035 2.341*eV 0.050 2.386*eV 0.060 2.433*eV 0.070 2.481*eV 0.085 2.487*eV 0.090 2.496*eV 0.095 2.506*eV 0.098 2.516*eV 0.100 2.524*eV 0.110 2.531*eV 0.120 2.539*eV 0.130 2.547*eV 0.140"/>
+        <matrix coldim="2" name="PSMIEHG" values="1.56962*eV 1.67024e+08 1.58974*eV 1.58727e+08 1.61039*eV 1.50742e+08 1.63157*eV 1.43062e+08 1.65333*eV 1.3568e+08 1.67567*eV 1.28587e+08 1.69863*eV 1.21776e+08 1.72222*eV 1.1524e+08 1.74647*eV 1.0897e+08 1.77142*eV 1.02959e+08 1.7971*eV 9.72004e+07 1.82352*eV 9.16869e+07 1.85074*eV 8.64113e+07 1.87878*eV 8.13668e+07 1.90769*eV 7.65464e+07 1.93749*eV 7.19435e+07 1.96825*eV 6.75513e+07 1.99999*eV 6.33634e+07 2.03278*eV 5.93732e+07 2.06666*eV 5.55746e+07 2.10169*eV 5.19612e+07 2.13793*eV 4.8527e+07 2.17543*eV 4.52659e+07 2.21428*eV 4.21719e+07 2.25454*eV 3.92394e+07 2.29629*eV 3.64625e+07 2.33962*eV 3.38357e+07 2.38461*eV 3.13534e+07 2.43137*eV 2.90103e+07 2.47999*eV 2.6801e+07 2.53061*eV 2.47204e+07 2.58333*eV 2.27634e+07 2.63829*eV 2.09249e+07 2.69565*eV 1.92001e+07 2.75555*eV 1.75842e+07 2.81817*eV 1.60724e+07 2.88371*eV 1.46604e+07 2.95237*eV 1.33435e+07 3.02438*eV 1.21173e+07 3.09999*eV 1.09777e+07 3.17948*eV 9.92042e+06 3.26315*eV 8.94141e+06 3.35134*eV 8.03671e+06 3.44444*eV 7.20247e+06 3.54285*eV 6.43493e+06 3.64705*eV 5.73043e+06 3.75757*eV 5.08542e+06 3.87499*eV 4.49647e+06 3.99999*eV 3.96021e+06 4.13332*eV 3.47341e+06 4.27585*eV 3.03294e+06 4.42856*eV 2.63575e+06 4.59258*eV 2.27891e+06 4.76922*eV 1.95959e+06 4.95999*eV 1.67506e+06 5.16665*eV 1.42271e+06 5.39129*eV 1.2e+06 5.63635*eV 1.00453e+06 5.90475*eV 833967 6.19998*eV 686106"/>
+        <matrix coldim="1" name="PSSCINTILLATIONYIELD" values="10000"/>
+        <matrix coldim="1" name="PSMIEHG_FORWARD" values="0.99"/>
+        <matrix coldim="1" name="PSMIEHG_BACKWARD" values="0.99"/>
+        <matrix coldim="1" name="PSMIEHG_FORWARD_RATIO" values="0.8"/>
+        <matrix coldim="1" name="PSRESOLUTIONSCALE" values="1"/>
+        <matrix coldim="1" name="PSSCINTILLATIONTIMECONSTANT1" values="1"/>
+        <matrix coldim="1" name="PSSCINTILLATIONTIMECONSTANT2" values="10"/>
+        <matrix coldim="1" name="PSSCINTILLATIONYIELD1" values="0.8"/>
+        <matrix coldim="1" name="PSSCINTILLATIONYIELD2" values="0.2"/>
+        <matrix coldim="2" name="SIRINDEX" values="1.5*eV 4.3 6.5*eV 4.3"/>
+        <matrix coldim="2" name="SIPM_EFFICIENCY" values="1.5*eV 1.0 6.5*eV 1.0"/>
+        <matrix coldim="2" name="SIPM_REFLECTIVITY" values="1.5*eV 0.0 6.5*eV 0.0"/>
+        <matrix coldim="2" name="ESR_REFLECTIVITY" values="1.5*eV 0.98 6.5*eV 0.98"/>
+        <matrix coldim="2" name="ESR_EFFICIENCY" values="1.5*eV 0.0 6.5*eV 0.0"/>
+        <matrix coldim="2" name="ESR_SPECULAR_SPIKE" values="1.5*eV 1.0 6.5*eV 1.0"/>
+        <matrix coldim="2" name="ESR_SPECULAR_LOBE" values="1.5*eV 0.0 6.5*eV 0.0"/>
+        <matrix coldim="2" name="ESR_BACKSCATTER" values="1.5*eV 0.0 6.5*eV 0.0"/>
+        <rotation name="rot_fridge_to_world" x="-90" y="0" z="0" unit="deg"/>
+        <rotation name="rot_detector_to_fridge" x="90" y="0" z="0" unit="deg"/>
+    </define>
+
+    <materials>
+        <element Z="1" name="H" formula="H">
+            <atom unit="g/mole" value="1.00794"/>
+        </element>
+        <element Z="6" name="C" formula="C">
+            <atom unit="g/mole" value="12.0107"/>
+        </element>
+        <element Z="8" name="O" formula="O">
+            <atom unit="g/mole" value="15.9994"/>
+        </element>
+        <element Z="7" name="N" formula="N">
+            <atom unit="g/mole" value="14.0067"/>
+        </element>
+        <element Z="13" name="Al" formula="Al">
+            <atom unit="g/mole" value="26.9815385"/>
+        </element>
+        <element Z="14" name="Si" formula="Si">
+            <atom unit="g/mole" value="28.085"/>
+        </element>
+
+        <material name="Vacuum" state="gas">
+            <property name="RINDEX" ref="VACUUMRINDEX"/>
+            <D value="1e-25" unit="g/cm3"/>
+            <fraction n="1.0" ref="H"/>
+        </material>
+
+        <material name="Air" state="gas">
+            <property name="RINDEX" ref="AIRRINDEX"/>
+            <D value="0.00120479" unit="g/cm3"/>
+            <fraction n="0.755" ref="N"/>
+            <fraction n="0.245" ref="O"/>
+        </material>
+
+        <material name="Aluminum" state="solid">
+            <D value="2.70" unit="g/cm3"/>
+            <fraction n="1.0" ref="Al"/>
+        </material>
+
+        <material name="G4_POLYSTYRENE" state="solid">
+            <property name="ABSLENGTH" ref="PSALEN"/>
+            <property name="RINDEX" ref="PSRINDEX"/>
+            <property name="SCINTILLATIONCOMPONENT1" ref="PSSC"/>
+            <property name="SCINTILLATIONCOMPONENT2" ref="PSSC"/>
+            <property name="RESOLUTIONSCALE" ref="PSRESOLUTIONSCALE"/>
+            <property name="SCINTILLATIONYIELD" ref="PSSCINTILLATIONYIELD"/>
+            <property name="MIEHG" ref="PSMIEHG"/>
+            <property name="MIEHG_FORWARD" ref="PSMIEHG_FORWARD"/>
+            <property name="MIEHG_BACKWARD" ref="PSMIEHG_BACKWARD"/>
+            <property name="MIEHG_FORWARD_RATIO" ref="PSMIEHG_FORWARD_RATIO"/>
+            <property name="SCINTILLATIONTIMECONSTANT1" ref="PSSCINTILLATIONTIMECONSTANT1"/>
+            <property name="SCINTILLATIONTIMECONSTANT2" ref="PSSCINTILLATIONTIMECONSTANT2"/>
+            <property name="SCINTILLATIONYIELD1" ref="PSSCINTILLATIONYIELD1"/>
+            <property name="SCINTILLATIONYIELD2" ref="PSSCINTILLATIONYIELD2"/>
+            <D value="1.06" unit="g/cm3"/>
+            <composite n="8" ref="C"/>
+            <composite n="8" ref="H"/>
+        </material>
+
+        <material name="SiMat" state="solid">
+            <property name="RINDEX" ref="SIRINDEX"/>
+            <D value="2.33" unit="g/cm3"/>
+            <composite n="1" ref="Si"/>
+        </material>
+
+        <material name="ESRFilm" state="solid">
+            <D value="1.39" unit="g/cm3"/>
+            <composite n="10" ref="C"/>
+            <composite n="8" ref="H"/>
+            <composite n="4" ref="O"/>
+        </material>
+    </materials>
+
+    <solids>
+        <box name="world_solid" x="4000" y="4000" z="4000" lunit="mm"/>
+        <box name="detector_envelope_solid" x="20" y="33.2" z="18" lunit="mm"/>
+        <box name="scintillator_solid" x="8" y="8" z="14" lunit="mm"/>
+        <box name="sipm_solid" x="6" y="6" z="1" lunit="mm"/>
+        <box name="muon_clock_solid" x="100" y="10" z="100" lunit="mm"/>
+        <box name="esr_z_solid" x="8.2" y="8.2" z="0.1" lunit="mm"/>
+        <box name="esr_x_solid" x="0.1" y="8.0" z="14" lunit="mm"/>
+        <box name="esr_y_solid" x="8.0" y="0.1" z="14" lunit="mm"/>
+        <tube name="vc_vacuum_solid" rmin="0" rmax="250" z="1641" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="vc_shell_solid" rmin="247" rmax="250" z="1631" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="vc_cap_solid" rmin="0" rmax="250" z="5" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="shield50_vacuum_solid" rmin="0" rmax="202" z="1390" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="shield50_shell_solid" rmin="200" rmax="202" z="1382" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="shield50_cap_solid" rmin="0" rmax="202" z="4" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="shield4k_vacuum_solid" rmin="0" rmax="166" z="785" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="shield4k_shell_solid" rmin="164" rmax="166" z="777" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="shield4k_cap_solid" rmin="0" rmax="166" z="4" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="still_vacuum_solid" rmin="0" rmax="152" z="515" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="still_shell_solid" rmin="150" rmax="152" z="507" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="still_cap_solid" rmin="0" rmax="152" z="4" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+        <tube name="mxc_plate_solid" rmin="0" rmax="147" z="6" aunit="deg" lunit="mm" startphi="0" deltaphi="360"/>
+
+        <opticalsurface name="esr_specular_surface" model="unified" finish="polishedfrontpainted" type="dielectric_dielectric" value="1.0">
+            <property name="REFLECTIVITY" ref="ESR_REFLECTIVITY"/>
+            <property name="EFFICIENCY" ref="ESR_EFFICIENCY"/>
+            <property name="SPECULARSPIKECONSTANT" ref="ESR_SPECULAR_SPIKE"/>
+            <property name="SPECULARLOBECONSTANT" ref="ESR_SPECULAR_LOBE"/>
+            <property name="BACKSCATTERCONSTANT" ref="ESR_BACKSCATTER"/>
+        </opticalsurface>
+    </solids>
+
+    <structure>
+        <volume name="scintillator">
+            <materialref ref="G4_POLYSTYRENE"/>
+            <solidref ref="scintillator_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.95 0.65 0.08"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.35"/>
+        </volume>
+
+        <volume name="sipm">
+            <materialref ref="SiMat"/>
+            <solidref ref="sipm_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.0 0.25 0.9"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.15"/>
+            <auxiliary auxtype="SensDet" auxvalue="SiPM"/>
+        </volume>
+
+        <volume name="muon_clock">
+            <materialref ref="Vacuum"/>
+            <solidref ref="muon_clock_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.05 0.9 0.85"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.75"/>
+            <auxiliary auxtype="SensDet" auxvalue="MuonClock"/>
+        </volume>
+
+        <volume name="esr_z_wrap">
+            <materialref ref="ESRFilm"/>
+            <solidref ref="esr_z_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.9 0.95 1.0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.65"/>
+        </volume>
+
+        <volume name="esr_x_wrap">
+            <materialref ref="ESRFilm"/>
+            <solidref ref="esr_x_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.9 0.95 1.0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.65"/>
+        </volume>
+
+        <volume name="esr_y_wrap">
+            <materialref ref="ESRFilm"/>
+            <solidref ref="esr_y_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.9 0.95 1.0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.65"/>
+        </volume>
+
+        <volume name="detector_envelope">
+            <materialref ref="Vacuum"/>
+            <solidref ref="detector_envelope_solid"/>
+
+            <physvol name="scintillator_lower_phys" copynumber="0">
+                <volumeref ref="scintillator"/>
+                <position name="scintillator_lower_pos" x="0" y="-12.5" z="0" unit="mm"/>
+            </physvol>
+            <physvol name="scintillator_upper_phys" copynumber="1">
+                <volumeref ref="scintillator"/>
+                <position name="scintillator_upper_pos" x="0" y="12.5" z="0" unit="mm"/>
+            </physvol>
+
+            <physvol name="sipm_lower_phys" copynumber="0">
+                <volumeref ref="sipm"/>
+                <position name="sipm_lower_pos" x="0" y="-12.5" z="8.0" unit="mm"/>
+            </physvol>
+            <physvol name="sipm_upper_phys" copynumber="1">
+                <volumeref ref="sipm"/>
+                <position name="sipm_upper_pos" x="0" y="12.5" z="8.0" unit="mm"/>
+            </physvol>
+
+            <physvol name="esr_lower_negz_phys"><volumeref ref="esr_z_wrap"/><position name="esr_lower_negz_pos" x="0" y="-12.5" z="-7.05" unit="mm"/></physvol>
+            <physvol name="esr_lower_posx_phys"><volumeref ref="esr_x_wrap"/><position name="esr_lower_posx_pos" x="4.05" y="-12.5" z="0" unit="mm"/></physvol>
+            <physvol name="esr_lower_negx_phys"><volumeref ref="esr_x_wrap"/><position name="esr_lower_negx_pos" x="-4.05" y="-12.5" z="0" unit="mm"/></physvol>
+            <physvol name="esr_lower_posy_phys"><volumeref ref="esr_y_wrap"/><position name="esr_lower_posy_pos" x="0" y="-8.45" z="0" unit="mm"/></physvol>
+            <physvol name="esr_lower_negy_phys"><volumeref ref="esr_y_wrap"/><position name="esr_lower_negy_pos" x="0" y="-16.55" z="0" unit="mm"/></physvol>
+
+            <physvol name="esr_upper_negz_phys"><volumeref ref="esr_z_wrap"/><position name="esr_upper_negz_pos" x="0" y="12.5" z="-7.05" unit="mm"/></physvol>
+            <physvol name="esr_upper_posx_phys"><volumeref ref="esr_x_wrap"/><position name="esr_upper_posx_pos" x="4.05" y="12.5" z="0" unit="mm"/></physvol>
+            <physvol name="esr_upper_negx_phys"><volumeref ref="esr_x_wrap"/><position name="esr_upper_negx_pos" x="-4.05" y="12.5" z="0" unit="mm"/></physvol>
+            <physvol name="esr_upper_posy_phys"><volumeref ref="esr_y_wrap"/><position name="esr_upper_posy_pos" x="0" y="16.55" z="0" unit="mm"/></physvol>
+            <physvol name="esr_upper_negy_phys"><volumeref ref="esr_y_wrap"/><position name="esr_upper_negy_pos" x="0" y="8.45" z="0" unit="mm"/></physvol>
+
+            <auxiliary auxtype="Color" auxvalue="0.05 0.05 0.05"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.98"/>
+        </volume>
+
+        <volume name="M00346-FLA-LD-MXC-AU_ASM">
+            <materialref ref="Aluminum"/>
+            <solidref ref="mxc_plate_solid"/>
+            <auxiliary auxtype="Color" auxvalue="1.0 0.82 0.18"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="still_shell">
+            <materialref ref="Aluminum"/>
+            <solidref ref="still_shell_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.92 0.45 0.90"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="still_cap">
+            <materialref ref="Aluminum"/>
+            <solidref ref="still_cap_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.92 0.45 0.90"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="still_vacuum">
+            <materialref ref="Vacuum"/>
+            <solidref ref="still_vacuum_solid"/>
+
+            <physvol name="still_shell_phys">
+                <volumeref ref="still_shell"/>
+                <position name="still_shell_pos" x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+            <physvol name="still_top_cap_phys">
+                <volumeref ref="still_cap"/>
+                <position name="still_top_cap_pos" x="0" y="0" z="255.5" unit="mm"/>
+            </physvol>
+            <physvol name="still_bottom_cap_phys">
+                <volumeref ref="still_cap"/>
+                <position name="still_bottom_cap_pos" x="0" y="0" z="-255.5" unit="mm"/>
+            </physvol>
+            <physvol name="mxc_plate_phys">
+                <volumeref ref="M00346-FLA-LD-MXC-AU_ASM"/>
+                <position name="mxc_plate_pos" x="0" y="0" z="-100" unit="mm"/>
+            </physvol>
+            <physvol name="detector_envelope_phys">
+                <volumeref ref="detector_envelope"/>
+                <position name="detector_envelope_pos" x="103" y="0" z="-80.4" unit="mm"/>
+                <rotationref ref="rot_detector_to_fridge"/>
+            </physvol>
+
+            <auxiliary auxtype="Color" auxvalue="0.05 0.9 0.9"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.96"/>
+        </volume>
+
+        <volume name="shield4k_shell">
+            <materialref ref="Aluminum"/>
+            <solidref ref="shield4k_shell_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.95 0.62 0.18"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="shield4k_cap">
+            <materialref ref="Aluminum"/>
+            <solidref ref="shield4k_cap_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.95 0.62 0.18"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="shield4k_vacuum">
+            <materialref ref="Vacuum"/>
+            <solidref ref="shield4k_vacuum_solid"/>
+
+            <physvol name="shield4k_shell_phys">
+                <volumeref ref="shield4k_shell"/>
+                <position name="shield4k_shell_pos" x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+            <physvol name="shield4k_top_cap_phys">
+                <volumeref ref="shield4k_cap"/>
+                <position name="shield4k_top_cap_pos" x="0" y="0" z="390.5" unit="mm"/>
+            </physvol>
+            <physvol name="shield4k_bottom_cap_phys">
+                <volumeref ref="shield4k_cap"/>
+                <position name="shield4k_bottom_cap_pos" x="0" y="0" z="-390.5" unit="mm"/>
+            </physvol>
+            <physvol name="still_vacuum_phys">
+                <volumeref ref="still_vacuum"/>
+                <position name="still_vacuum_pos" x="0" y="0" z="-130" unit="mm"/>
+            </physvol>
+
+            <auxiliary auxtype="Color" auxvalue="0.05 0.9 0.9"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.96"/>
+        </volume>
+
+        <volume name="shield50_shell">
+            <materialref ref="Aluminum"/>
+            <solidref ref="shield50_shell_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.15 0.85 0.72"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="shield50_cap">
+            <materialref ref="Aluminum"/>
+            <solidref ref="shield50_cap_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.15 0.85 0.72"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="shield50_vacuum">
+            <materialref ref="Vacuum"/>
+            <solidref ref="shield50_vacuum_solid"/>
+
+            <physvol name="shield50_shell_phys">
+                <volumeref ref="shield50_shell"/>
+                <position name="shield50_shell_pos" x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+            <physvol name="shield50_top_cap_phys">
+                <volumeref ref="shield50_cap"/>
+                <position name="shield50_top_cap_pos" x="0" y="0" z="693" unit="mm"/>
+            </physvol>
+            <physvol name="shield50_bottom_cap_phys">
+                <volumeref ref="shield50_cap"/>
+                <position name="shield50_bottom_cap_pos" x="0" y="0" z="-693" unit="mm"/>
+            </physvol>
+            <physvol name="shield4k_vacuum_phys">
+                <volumeref ref="shield4k_vacuum"/>
+                <position name="shield4k_vacuum_pos" x="0" y="0" z="-250" unit="mm"/>
+            </physvol>
+
+            <auxiliary auxtype="Color" auxvalue="0.05 0.9 0.9"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.96"/>
+        </volume>
+
+        <volume name="vc_shell">
+            <materialref ref="Aluminum"/>
+            <solidref ref="vc_shell_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.62 0.78 1.0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="vc_cap">
+            <materialref ref="Aluminum"/>
+            <solidref ref="vc_cap_solid"/>
+            <auxiliary auxtype="Color" auxvalue="0.62 0.78 1.0"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.80"/>
+        </volume>
+
+        <volume name="vc_vacuum">
+            <materialref ref="Vacuum"/>
+            <solidref ref="vc_vacuum_solid"/>
+
+            <physvol name="vc_shell_phys">
+                <volumeref ref="vc_shell"/>
+                <position name="vc_shell_pos" x="0" y="0" z="0" unit="mm"/>
+            </physvol>
+            <physvol name="vc_top_cap_phys">
+                <volumeref ref="vc_cap"/>
+                <position name="vc_top_cap_pos" x="0" y="0" z="818" unit="mm"/>
+            </physvol>
+            <physvol name="vc_bottom_cap_phys">
+                <volumeref ref="vc_cap"/>
+                <position name="vc_bottom_cap_pos" x="0" y="0" z="-818" unit="mm"/>
+            </physvol>
+            <physvol name="shield50_vacuum_phys">
+                <volumeref ref="shield50_vacuum"/>
+                <position name="shield50_vacuum_pos" x="0" y="0" z="-120" unit="mm"/>
+            </physvol>
+
+            <auxiliary auxtype="Color" auxvalue="0.05 0.9 0.9"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.97"/>
+        </volume>
+
+        <volume name="world_volume">
+            <materialref ref="Air"/>
+            <solidref ref="world_solid"/>
+
+            <physvol name="vc_vacuum_phys">
+                <volumeref ref="vc_vacuum"/>
+                <position name="vc_vacuum_pos" x="0" y="0" z="0" unit="mm"/>
+                <rotationref ref="rot_fridge_to_world"/>
+            </physvol>
+            <physvol name="muon_clock_phys" copynumber="100">
+                <volumeref ref="muon_clock"/>
+                <position name="muon_clock_pos" x="0" y="900" z="0" unit="mm"/>
+            </physvol>
+
+            <auxiliary auxtype="Color" auxvalue="0.02 0.03 0.05"/>
+            <auxiliary auxtype="Transparency" auxvalue="0.98"/>
+        </volume>
+
+        <bordersurface name="lower_negz_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_lower_phys"/><physvolref ref="esr_lower_negz_phys"/></bordersurface>
+        <bordersurface name="lower_posx_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_lower_phys"/><physvolref ref="esr_lower_posx_phys"/></bordersurface>
+        <bordersurface name="lower_negx_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_lower_phys"/><physvolref ref="esr_lower_negx_phys"/></bordersurface>
+        <bordersurface name="lower_posy_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_lower_phys"/><physvolref ref="esr_lower_posy_phys"/></bordersurface>
+        <bordersurface name="lower_negy_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_lower_phys"/><physvolref ref="esr_lower_negy_phys"/></bordersurface>
+        <bordersurface name="upper_negz_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_upper_phys"/><physvolref ref="esr_upper_negz_phys"/></bordersurface>
+        <bordersurface name="upper_posx_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_upper_phys"/><physvolref ref="esr_upper_posx_phys"/></bordersurface>
+        <bordersurface name="upper_negx_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_upper_phys"/><physvolref ref="esr_upper_negx_phys"/></bordersurface>
+        <bordersurface name="upper_posy_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_upper_phys"/><physvolref ref="esr_upper_posy_phys"/></bordersurface>
+        <bordersurface name="upper_negy_to_esr" surfaceproperty="esr_specular_surface"><physvolref ref="scintillator_upper_phys"/><physvolref ref="esr_upper_negy_phys"/></bordersurface>
+
+    </structure>
+
+    <setup name="Default" version="1.0">
+        <world ref="world_volume"/>
+    </setup>
+</gdml>

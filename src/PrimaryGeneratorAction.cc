@@ -1,4 +1,4 @@
-#ifdef ADD_RADIOACTIVE
+#if defined(ADD_RADIOACTIVE) || defined(ADD_BACKGROUND_GPS)
 
 #include "PrimaryGeneratorAction.hh"
 
@@ -171,6 +171,9 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(const char* filename)
 {
 	// Define the particle gun
 	particleGun = new G4ParticleGun();
+#ifdef ADD_CRY_BACKGROUND_GPS
+	backgroundGun = new G4GeneralParticleSource();
+#endif
 
 	// Start CRYing
 	std::ifstream file;
@@ -210,6 +213,9 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(const char* filename)
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
 	delete particleGun;
+#ifdef ADD_CRY_BACKGROUND_GPS
+	delete backgroundGun;
+#endif
 	delete particleMessenger;
 }
 
@@ -305,7 +311,7 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event *anEvent)
     particleGun->SetParticleDefinition(particleDefinition);
     particleGun->SetParticleEnergy((*vect)[j]->ke()*MeV);
     particleGun->SetParticlePosition(G4ThreeVector((*vect)[j]->x()*m,
-                                                   (*vect)[j]->z()*m + 60.0*cm,
+                                                   (*vect)[j]->z()*m + 95.0*cm,
                                                    -(*vect)[j]->y()*m));
     particleGun->SetParticleMomentumDirection(G4ThreeVector((*vect)[j]->u(),
                                                             (*vect)[j]->w(),
@@ -314,6 +320,9 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event *anEvent)
     particleGun->GeneratePrimaryVertex(anEvent);
     delete (*vect)[j];
   }
+#ifdef ADD_CRY_BACKGROUND_GPS
+    backgroundGun->GeneratePrimaryVertex(anEvent);
+#endif
 }
 
 #endif

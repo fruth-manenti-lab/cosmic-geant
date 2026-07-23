@@ -1,4 +1,4 @@
-#ifndef ADD_RADIOACTIVE
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_BACKGROUND_GPS)
 
 #ifndef ParticleMessenger_HH
 #define ParticleMessenger_HH

@@ -1,0 +1,5 @@
+/run/initialize
+/geometry/test/verbosity true
+/geometry/test/resolution 1000
+/geometry/test/tolerance 0.001 mm
+/geometry/test/run
