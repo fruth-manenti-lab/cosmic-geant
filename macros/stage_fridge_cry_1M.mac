@@ -1,0 +1,6 @@
+/CRY/file ../setup.file
+/run/initialize
+
+/tracking/verbose 0
+/run/printProgress 100000
+/run/beamOn 1000000

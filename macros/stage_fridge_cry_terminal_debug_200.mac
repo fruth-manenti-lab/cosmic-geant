@@ -1,0 +1,15 @@
+# Terminal/log CRY debug run for compact detector-stage fridge.
+# This is the batch-safe companion to stage_fridge_cry_visual_debug_200.mac.
+
+/CRY/file ../setup.file
+/run/initialize
+
+# Focus the log on muon transport through the fridge by suppressing optical production.
+/tracking/storeTrajectory 1
+/tracking/verbose 1
+/event/verbose 1
+/process/inactivate Scintillation
+/process/inactivate Cerenkov
+
+/run/printProgress 10
+/run/beamOn 100

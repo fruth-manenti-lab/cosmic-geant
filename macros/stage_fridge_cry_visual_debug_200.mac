@@ -1,0 +1,39 @@
+# Visual/debug CRY run for compact detector-stage fridge.
+# This macro is for inspecting muon transport, not optical-photon yield.
+# Run this from an already-open interactive visual inspector:
+#   /control/execute ../macros/stage_fridge_cry_visual_debug_200.mac
+
+/CRY/file ../setup.file
+/run/initialize
+
+# Keep the trajectory display readable by focusing on muons.
+/run/verbose 0
+/event/verbose 0
+/tracking/storeTrajectory 1
+/tracking/verbose 0
+/process/inactivate Scintillation
+/process/inactivate Cerenkov
+
+/vis/viewer/set/autoRefresh false
+/vis/verbose warnings
+/vis/drawVolume
+/vis/viewer/set/style surface
+/vis/viewer/zoom 1.25
+
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsSize 3
+/vis/modeling/trajectories/drawByParticleID-0/set mu- blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ red
+/vis/modeling/trajectories/drawByParticleID-0/setDefault grey
+/vis/filtering/trajectories/create/particleFilter
+/vis/filtering/trajectories/particleFilter-0/add mu-
+/vis/filtering/trajectories/particleFilter-0/add mu+
+
+/vis/scene/endOfEventAction accumulate 10
+/vis/viewer/set/autoRefresh true
+
+/run/printProgress 1
+/run/beamOn 10
+/vis/viewer/flush
