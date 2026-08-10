@@ -1,0 +1,30 @@
+/control/verbose 0
+/run/verbose 0
+/tracking/verbose 0
+/hits/verbose 0
+
+# Source-only Co-60 test for ADD_RADIOACTIVE builds.
+# No CRY commands are used in this macro.
+
+# Co-60 half-life is longer than the default radioactive-decay threshold.
+/process/had/rdm/thresholdForVeryLongDecayTime 10e+20 year
+
+/gps/particle ion
+/gps/ion 27 60 0
+/gps/energy 0.0 keV
+
+# Match the visual Co-60 source cylinder in dilutiondetector_stage_fridge.gdml.
+# Centre: x=88.93 mm, y=307.85 mm, z=244.32 mm.
+# Radius: 7 mm. Full thickness: 3 mm.
+/gps/pos/type Volume
+/gps/pos/shape Cylinder
+/gps/pos/centre 88.93 307.85 244.32 mm
+/gps/pos/radius 7 mm
+/gps/pos/halfz 1.5 mm
+/gps/pos/rot1 0.9396926 0 -0.3420201
+/gps/pos/rot2 0 1 0
+
+/gps/ang/type iso
+
+/run/printProgress 1000
+/run/beamOn 10000

@@ -1,0 +1,27 @@
+# Combined CRY muons plus David lab measured gamma background.
+# Build with:
+#   cmake -S . -B build_cry_background -DADD_CRY_BACKGROUND_GPS=ON
+# Run from the build directory so ../setup.file and ../david_lab_background resolve.
+
+/control/verbose 0
+/tracking/verbose 0
+/run/printProgress 1000000
+
+/CRY/file ../setup.file
+
+/gps/particle gamma
+/gps/number 1
+/gps/position 0 0 0 cm
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/radius 50 cm
+/gps/ang/type focused
+/gps/ang/focuspoint 0 0 0 cm
+/gps/ene/type Arb
+/gps/ene/diffspec true
+/gps/hist/type arb
+/gps/hist/file ../david_lab_background/gps_background_arb_spectrum.dat
+/gps/hist/inter Lin
+
+/run/initialize
+/run/beamOn 50000000
