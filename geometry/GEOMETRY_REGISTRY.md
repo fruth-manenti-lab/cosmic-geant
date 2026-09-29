@@ -2,6 +2,16 @@
 
 This file tracks the detector geometry variants used for SiPM reconstruction studies. Use the `geometry_id` values in run metadata files so analysis folders can be traced back to the exact detector layout.
 
+## `geom-dilutiondetector`
+
+- File: `geometry/dilutiondetector.gdml`
+- Layout: two `8 mm x 8 mm x 14 mm` polystyrene scintillators stacked along `y`, centers 25 mm apart.
+- Readout: one SiPM centered on each `+z` square face with a 0.5 mm vacuum gap.
+- Muon clock: centered `100 mm x 10 mm x 100 mm` vacuum sensitive detector below the stack.
+- World: `2 m x 2 m x 2 m` vacuum cube, large enough to contain the CRY `subboxLength 1` footprint above the detector.
+- Wrapper: ESR film on all scintillator faces except the SiPM-facing `+z` faces.
+- Purpose: muon-clock-based rate normalization for the dilution detector study.
+
 ## `geom-final-stubs-pos`
 
 - File: `geometry/final.gdml`

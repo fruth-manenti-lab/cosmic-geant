@@ -1,30 +1,23 @@
-# Simple test: single optical photon aimed down the first south-edge fiber toward its SiPM
+# Deterministic dilution-detector test:
+# one 1 GeV mu- fired straight down through both plastic scintillators
+# and then the centred muon clock below the detector.
 
 /run/initialize
 /tracking/verbose 0
 
 # Use General Particle Source
-#/gps/particle opticalphoton
-#/gps/particle gamma
 /gps/particle mu-
 
-# Monochromatic 3 eV (~413 nm)
 /gps/ene/type Mono
-#/gps/ene/mono 3.0 eV
 /gps/ene/mono 1000 MeV
 
-# Point-like source at the same position
+# Start above the detector at the geometry centre.
 /gps/pos/type Point
-#/gps/pos/centre -468.75 -5 -505 mm
-#/gps/pos/centre 31.25 -5.0 -0.5 mm
-#/gps/polarization 1 0 0
-/gps/position 10 35 10
+/gps/pos/centre 0 40 0 mm
 
-
-# Fixed direction along +z into the slab/fiber
+# Straight down in the dilution detector's vertical y axis.
 /gps/direction 0 -1 0
 
-# (Optional) One photon per event – default is 1
-#/gps/number 1
+/gps/number 1
 
 /run/beamOn 1

@@ -1,0 +1,45 @@
+# Visual setup for inspecting CRY muon and electron transport in the compact stage fridge.
+# Run from an already-open interactive visual inspector:
+#   /control/execute ../macros/stage_fridge_cry_visual_mu_e_setup.mac
+# Then step through individual CRY events with:
+#   /run/beamOn 1
+
+/CRY/file ../setup.file
+/run/initialize
+
+# Keep the UI stable: one event at a time, no optical-photon shower display.
+/run/verbose 0
+/event/verbose 0
+/tracking/storeTrajectory 1
+/tracking/verbose 0
+/process/inactivate Scintillation
+/process/inactivate Cerenkov
+
+/vis/viewer/set/autoRefresh false
+/vis/verbose warnings
+/vis/drawVolume
+/vis/viewer/set/style surface
+/vis/viewer/zoom 1.25
+
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsSize 3
+
+# Charge-sign colors:
+#   mu- blue, mu+ red, e- green, e+ magenta.
+/vis/modeling/trajectories/drawByParticleID-0/set mu- blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ red
+/vis/modeling/trajectories/drawByParticleID-0/set e- green
+/vis/modeling/trajectories/drawByParticleID-0/set e+ magenta
+/vis/modeling/trajectories/drawByParticleID-0/setDefault grey
+
+/vis/filtering/trajectories/create/particleFilter
+/vis/filtering/trajectories/particleFilter-0/add mu-
+/vis/filtering/trajectories/particleFilter-0/add mu+
+/vis/filtering/trajectories/particleFilter-0/add e-
+/vis/filtering/trajectories/particleFilter-0/add e+
+
+/vis/scene/endOfEventAction accumulate 1
+/vis/viewer/set/autoRefresh true
+/vis/viewer/flush

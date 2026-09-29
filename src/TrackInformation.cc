@@ -14,8 +14,15 @@ analysis we can group events by migrant id and add the energy deposited by daugh
 // The relevant headerfile
 #include "TrackInformation.hh"
 
-// Constructor
+// Constructors
+TrackInformation::TrackInformation(G4int id) : migrantID(id)
+{}
+
 TrackInformation::TrackInformation(G4String aProcessName) : processName(aProcessName)
+{}
+
+TrackInformation::TrackInformation(G4String aProcessName, G4String aSourceParticle)
+    : processName(aProcessName), sourceParticle(aSourceParticle)
 {}
 
 //----------------------- 8< -------------[ cut here ]------------------------
@@ -27,5 +34,9 @@ TrackInformation::~TrackInformation()
 //----------------------- 8< -------------[ cut here ]------------------------
 
 // Mutators
-// void            TrackInformation::SetProcessName(G4String processName)  { this->processName = processName;}
-// const G4String  TrackInformation::GetProcessName()                      { return processName;}
+void            TrackInformation::SetMigrantID(G4int id)                  { this->migrantID = id;}
+const G4int     TrackInformation::GetMigrantID()                          { return migrantID;}
+void            TrackInformation::SetProcessName(G4String aProcessName)   { this->processName = aProcessName;}
+const G4String  TrackInformation::GetProcessName()                        { return processName;}
+void            TrackInformation::SetSourceParticle(G4String particle)    { this->sourceParticle = particle;}
+const G4String  TrackInformation::GetSourceParticle()                     { return sourceParticle;}

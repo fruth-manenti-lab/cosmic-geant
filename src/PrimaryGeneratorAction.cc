@@ -1,4 +1,4 @@
-#ifdef ADD_RADIOACTIVE
+#if defined(ADD_RADIOACTIVE) || defined(ADD_BACKGROUND_GPS)
 
 #include "PrimaryGeneratorAction.hh"
 
@@ -171,6 +171,9 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(const char* filename)
 {
 	// Define the particle gun
 	particleGun = new G4ParticleGun();
+#ifdef ADD_CRY_BACKGROUND_GPS
+	backgroundGun = new G4GeneralParticleSource();
+#endif
 
 	// Start CRYing
 	std::ifstream file;
@@ -210,6 +213,9 @@ PrimaryGeneratorAction::PrimaryGeneratorAction(const char* filename)
 PrimaryGeneratorAction::~PrimaryGeneratorAction()
 {
 	delete particleGun;
+#ifdef ADD_CRY_BACKGROUND_GPS
+	delete backgroundGun;
+#endif
 	delete particleMessenger;
 }
 
@@ -292,17 +298,31 @@ void PrimaryGeneratorAction::GeneratePrimaries(G4Event *anEvent)
     //      << G4ThreeVector((*vect)[j]->u(), (*vect)[j]->v(), (*vect)[j]->w())
     //      << " " << G4endl;
 
-    // particleGun->SetParticleDefinition(particleTable->FindParticle((*vect)[j]->PDGid()));
-    // particleGun->SetParticleEnergy((*vect)[j]->ke()*MeV);
-    // particleGun->SetParticleEnergy(4.*GeV);
-    // particleGun->SetParticlePosition(G4ThreeVector((*vect)[j]->x()*m, (*vect)[j]->z()*m + 60.0*cm, -(*vect)[j]->y()*m));
-	// particleGun->SetParticlePosition(G4ThreeVector(0.*m, 10. *cm, -10. *cm));
-    // particleGun->SetParticleMomentumDirection(G4ThreeVector((*vect)[j]->u(), (*vect)[j]->w(), -(*vect)[j]->v()));
-    // particleGun->SetParticleMomentumDirection(G4ThreeVector(0, -1, 0));
+    auto particleDefinition = particleTable->FindParticle((*vect)[j]->PDGid());
+    if (particleDefinition == nullptr) {
+        G4ExceptionDescription description;
+        description << "CRY produced unknown PDG id " << (*vect)[j]->PDGid();
+        G4Exception("PrimaryGeneratorAction", "UnknownCRYParticle",
+                    JustWarning, description);
+        delete (*vect)[j];
+        continue;
+    }
+
+    particleGun->SetParticleDefinition(particleDefinition);
+    particleGun->SetParticleEnergy((*vect)[j]->ke()*MeV);
+    particleGun->SetParticlePosition(G4ThreeVector((*vect)[j]->x()*m,
+                                                   (*vect)[j]->z()*m + 95.0*cm,
+                                                   -(*vect)[j]->y()*m));
+    particleGun->SetParticleMomentumDirection(G4ThreeVector((*vect)[j]->u(),
+                                                            (*vect)[j]->w(),
+                                                            -(*vect)[j]->v()));
     particleGun->SetParticleTime((*vect)[j]->t());
     particleGun->GeneratePrimaryVertex(anEvent);
     delete (*vect)[j];
   }
+#ifdef ADD_CRY_BACKGROUND_GPS
+    backgroundGun->GeneratePrimaryVertex(anEvent);
+#endif
 }
 
 #endif

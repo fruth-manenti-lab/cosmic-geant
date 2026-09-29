@@ -1,0 +1,28 @@
+# Background-only David lab gamma spectrum test for ADD_BACKGROUND_GPS builds.
+# Run from the build directory so ../david_lab_background resolves correctly:
+#   ./sim ../geometry/dilutiondetector.gdml ../macros/dilutiondetector_background_gps.mac
+
+/control/verbose 0
+/tracking/verbose 0
+/run/printProgress 1000
+
+/gps/particle gamma
+/gps/number 1
+
+# First-pass efficient response test: emit measured-spectrum gammas from a
+# sphere around the dilution detector and point them toward the detector centre.
+# This is not yet an absolute lab/fridge activity model.
+/gps/position 0 0 0 cm
+/gps/pos/type Surface
+/gps/pos/shape Sphere
+/gps/pos/radius 50 cm
+/gps/ang/type focused
+/gps/ang/focuspoint 0 0 0 cm
+
+/gps/ene/type Arb
+/gps/ene/diffspec true
+/gps/hist/type arb
+/gps/hist/file ../david_lab_background/gps_background_arb_spectrum.dat
+/gps/hist/inter Lin
+
+/run/beamOn 10000

@@ -3,7 +3,7 @@
 
 #include "G4VUserPrimaryGeneratorAction.hh"
 
-#ifdef ADD_RADIOACTIVE
+#if defined(ADD_RADIOACTIVE) || defined(ADD_BACKGROUND_GPS)
 
 #include "G4GeneralParticleSource.hh"
 #include "G4IonTable.hh"
@@ -18,6 +18,9 @@
 #else
 
 #include "ParticleMessenger.hh"
+#ifdef ADD_CRY_BACKGROUND_GPS
+#include "G4GeneralParticleSource.hh"
+#endif
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
 
@@ -35,7 +38,7 @@
 // Get instances of some of the useful G4 predefined classes
 class G4ParticleGun;                                            // Get it? Because it shoots the particle XDDDDD
 class G4Event;                                                  // The event is a collection of shots
-#ifndef ADD_RADIOACTIVE
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_BACKGROUND_GPS)
 class G4ParticleDefinition;                                     // Store parameters of a particle
 class ParticleMessenger;                                        // Class that handles user input
 #endif 
@@ -54,7 +57,7 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 #ifdef ADD_SCAN
 		void SetScanPositionFile(const G4String& path);
 #endif
-#if !defined(ADD_RADIOACTIVE) && !defined(ADD_SCAN)
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_BACKGROUND_GPS) && !defined(ADD_SCAN)
 		void InputCRY();
 		void UpdateCRY(std::string* input);
 		void CRYFromFile(G4String newFilename);
@@ -62,7 +65,7 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 #endif
 	private:
 
-#ifdef ADD_RADIOACTIVE
+#if defined(ADD_RADIOACTIVE) || defined(ADD_BACKGROUND_GPS)
 		G4GeneralParticleSource* particleGun;
 #elif defined(ADD_SCAN)
 		struct ScanPosition {
@@ -81,6 +84,9 @@ class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
 		G4String ResolveScanPositionFile(const char* filename) const;
 #else
 		G4ParticleGun* particleGun;
+#ifdef ADD_CRY_BACKGROUND_GPS
+		G4GeneralParticleSource* backgroundGun;
+#endif
 		std::vector<CRYParticle*> *vect;
 		G4ParticleTable* particleTable;
 		G4int inputState;

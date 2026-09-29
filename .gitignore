@@ -13,6 +13,20 @@ hpc/start*
 *vacuum*
 muon_data_analysis
 
+# Local Geant4/CRY run products.
+runs/
+MUON-run*_nt_hits_t*.csv
+
+# Dilution detector generated analysis outputs. Keep only the final report plot.
+analysis/dilution_detector/.mplconfig/
+analysis/dilution_detector/pde_digitization/.mplconfig/
+david_lab_background/.mplconfig/
+analysis/dilution_detector/pde_digitization/sipm_pde_digitized_check.png
+analysis/dilution_detector/results/*
+!analysis/dilution_detector/results/cry_10M_double_coincidence_signal_threshold_scan_per_hour.png
+!analysis/dilution_detector/results/cry_10M_double_coincidence_pde5v_signal_threshold_scan_per_hour.png
+!analysis/dilution_detector/results/cry_10M_wavelength_spectrum_with_pde.png
+
 # Generated SiPM reconstruction data products kept outside git.
 analysis/sipm_reconstruction_session/training_scan_data_1024/
 analysis/sipm_reconstruction_session/test_scan_data_1000/

@@ -41,7 +41,7 @@ void RunAction::EndOfRunAction(const G4Run* run)
     auto analysisManager = G4AnalysisManager::Instance();
     analysisManager->Write();
     analysisManager->CloseFile();
-#if !defined(ADD_RADIOACTIVE) && !defined(ADD_SCAN)
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_BACKGROUND_GPS) && !defined(ADD_SCAN)
     if (!isMaster && generator != nullptr && generator->generator != nullptr) {
         G4double line = generator->generator->timeSimulated();
         std::ofstream outfile(BuildRunTimeFilename(baseFilename, activeRunId));
@@ -95,6 +95,9 @@ void RunAction::BookAnalysis(G4String filename, G4bool ntupleMerging){
     analysisManager->CreateNtupleIColumn("ParentID");
     analysisManager->CreateNtupleSColumn("ProcessName");
     analysisManager->CreateNtupleDColumn("StepID");
+#ifdef ADD_SOURCE_TAGGING
+    analysisManager->CreateNtupleSColumn("SourceParticle");
+#endif
 #ifdef ADD_SCAN
     analysisManager->CreateNtupleIColumn("SourceIndex");
     analysisManager->CreateNtupleIColumn("SourceCycle");

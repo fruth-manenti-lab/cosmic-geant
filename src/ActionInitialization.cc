@@ -4,7 +4,7 @@
 #include "DetectorConstruction.hh"
 
 
-#ifdef ADD_RADIOACTIVE
+#if defined(ADD_RADIOACTIVE) || defined(ADD_SOURCE_TAGGING)
 #include "TrackingAction.hh"
 #endif
 
@@ -43,8 +43,7 @@ void MyActionInitialization::Build() const
 	fDetector->passEventAction(eventAction);
 	SetUserAction(eventAction);
 	SetUserAction(generator);
-	#ifdef ADD_RADIOACTIVE
+	#if defined(ADD_RADIOACTIVE) || defined(ADD_SOURCE_TAGGING)
 	SetUserAction(new TrackingAction);
 	#endif
 }
-

@@ -1,0 +1,38 @@
+# Visual setup for inspecting compact stage-fridge CRY muons one event at a time.
+# Run this from an already-open interactive visual inspector:
+#   /control/execute ../macros/stage_fridge_cry_visual_setup.mac
+# Then run individual events with:
+#   /run/beamOn 1
+
+/CRY/file ../setup.file
+/run/initialize
+
+/run/verbose 0
+/event/verbose 0
+/tracking/storeTrajectory 1
+/tracking/verbose 0
+
+# Suppress optical production so the viewer focuses on muon transport.
+/process/inactivate Scintillation
+/process/inactivate Cerenkov
+
+/vis/viewer/set/autoRefresh false
+/vis/verbose warnings
+/vis/drawVolume
+/vis/viewer/set/style surface
+/vis/viewer/zoom 1.25
+
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsSize 3
+/vis/modeling/trajectories/drawByParticleID-0/set mu- blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ red
+/vis/modeling/trajectories/drawByParticleID-0/setDefault grey
+/vis/filtering/trajectories/create/particleFilter
+/vis/filtering/trajectories/particleFilter-0/add mu-
+/vis/filtering/trajectories/particleFilter-0/add mu+
+
+/vis/scene/endOfEventAction accumulate 1
+/vis/viewer/set/autoRefresh true
+/vis/viewer/flush

@@ -69,6 +69,9 @@ void EventAction::EndOfEventAction(const G4Event* event)
                 analysisManager->FillNtupleDColumn(0, 19, sourcePosition.z() / cm);
             }
 #endif
+#ifdef ADD_SOURCE_TAGGING
+            analysisManager->FillNtupleSColumn(0, 15, hit->getSourceParticle());
+#endif
             analysisManager->AddNtupleRow(0);
         }
     }

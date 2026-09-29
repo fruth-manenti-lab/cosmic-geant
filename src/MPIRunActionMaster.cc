@@ -70,7 +70,7 @@ void RunActionMaster::EndOfRunAction(const G4Run* run)
         analysisManager->CloseFile();
     }
 
-#ifndef ADD_RADIOACTIVE 
+#if !defined(ADD_RADIOACTIVE) && !defined(ADD_BACKGROUND_GPS)
     // keep the simulated time given by cry package
     G4double line = generator->generator->timeSimulated();
     
