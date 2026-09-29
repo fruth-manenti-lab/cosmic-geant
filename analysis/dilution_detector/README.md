@@ -1,5 +1,22 @@
 # Dilution Detector SiPM Coincidence Analysis
 
+For a visual explanation, read [the illustrated PDF](muon_rate_visual_guide.pdf)
+([LaTeX source](muon_rate_visual_guide.tex)). It covers the full block geometry,
+corner-clipping tracks, angular integrals, the conditional signal cut, and
+Matilda's empirical environmental scaling. Rebuild from this directory with
+`tectonic muon_rate_visual_guide.tex`.
+
+Open [the numerical-integration notebook](geometric_muon_rate.ipynb) for rendered
+equations, executable integrals for all geometric rates, a direct 3D ray-path
+integration, and the signal-threshold curve. Results and the plot are saved in
+the notebook; run all cells to recalculate with different inputs.
+
+For the straight-line geometric muon rate, see
+[the integration derivation and reference results](geometric_muon_rate.md).
+Run `python3 analysis/dilution_detector/geometric_muon_rate.py` from the repository
+root; `--flux` sets the horizontal flux in muons/cm²/min and `--exponent` sets
+the normal-area angular intensity exponent (default: cos² theta).
+
 This workflow counts double coincidences in the two dilution-detector SiPMs.
 
 A human-readable development report for the current 10M-run plots is available
